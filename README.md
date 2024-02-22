@@ -1,2 +1,1 @@
-# noticias-da-covilha-arquivo-web
- Notícias da Covilhã @ Arquivo Web
+# Notícias da Covilhã @ Arquivo Web
