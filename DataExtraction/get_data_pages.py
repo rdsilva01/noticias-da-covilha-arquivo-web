@@ -11,8 +11,6 @@ def clean_string(input_string):
 
     return cleaned_string
 
-
-
 def get_news_data(url, headers):
   page = requests.get(url, headers=headers)
   soup = BeautifulSoup(page.text, 'html.parser')
@@ -31,6 +29,8 @@ def get_news_data(url, headers):
 
           full_paragraphs = [] # storing in a array of strings for better storage in json (and later use)
           full_tags = [] # same thing as the paragraphs
+          full_extras_text = [] # the extra news on the bottom of the page
+          full_extras_links = [] # the extra news links on the bottom of the page
           # span_regions = unique_news_div.find(id="mtexto")
           span_regions = unique_news_div.find_all('span')
 
@@ -44,14 +44,9 @@ def get_news_data(url, headers):
               if(len(span_regions) > 3):
                 tags = span_regions[3] # tags
                 full_tags.append(tags.text)
+            
 
-
-
-          # print("paragraph: ", full_paragraphs) # the full paragraph text
-          # print("author: ", author) # the author
-          # print("tags: ", full_tags) # the full tags array
-
-          return [full_paragraphs, author, full_tags]
+          return [full_paragraphs, author, full_tags, full_extras_text, full_extras_links]
 
           # unique_news_div.find_all('span').find(class_='georgia')
 
@@ -69,11 +64,27 @@ def get_news_page(url, headers, news_div_id):
   page = requests.get(url, headers=headers)
   soup = BeautifulSoup(page.text, 'html.parser')
 
+  full_extras_text = []
+  full_extras_links = []
+
   main_div = soup.find(id=news_div_id)  # ARG 1
 
   total_news = 0
 
   if main_div:
+      h2_regions = main_div.find_all('h2')
+      # print(h2_regions)
+      for extra in h2_regions:
+        extra_link = extra.find('a')
+        # print(extra_link)
+        if extra_link:
+          extra_link_href = extra_link.get('href')
+          # print(extra_link_href)
+          extra_text = extra_link.text
+
+          full_extras_text.append(extra_text)
+          full_extras_links.append(extra_link_href)
+
       nested_divs = main_div.find_all('div')
 
       for nested_div in nested_divs:
@@ -86,6 +97,8 @@ def get_news_page(url, headers, news_div_id):
           img_src = ""
           href = ""
           tags = []
+          extra_text = []
+          # extra_links = []
 
           div_elements = nested_div.find_all('div')
 
@@ -127,6 +140,7 @@ def get_news_page(url, headers, news_div_id):
                   author_tmp = news_list[1]
                   tags_tmp = news_list[2]
 
+
                   author = clean_string(author_tmp)
 
                   # cleaning
@@ -139,6 +153,10 @@ def get_news_page(url, headers, news_div_id):
                     if clean_tag != 'Tags:':
                       tags.append(clean_tag)
 
+                  for extra_text_s in full_extras_text:
+                    clean_text = clean_string(extra_text_s)
+                    extra_text.append(clean_text)
+
 
                   news_dict = {
                     "region": region,
@@ -149,7 +167,9 @@ def get_news_page(url, headers, news_div_id):
                     "text_snippet": text_snippet,
                     "img_src": img_src,
                     "href": href,
-                    "tags": tags
+                    "tags": tags,
+                    "extra_text":  extra_text,
+                    "extra_links": full_extras_links
                   }
 
                   total_news += 1
@@ -213,5 +233,5 @@ url = "https://noticiasdacovilha.pt/"
 
 
 # 2011
-pastURLs = dataExtraction.getPastURLs(year=2011, newspaper_url=url, startMonth="01", endMonth="01")
+pastURLs = dataExtraction.getPastURLs(year=2011, newspaper_url=url, startMonth="01", endMonth="12")
 get_x_month_news_data(pastURLs, "2011", headers, True)
