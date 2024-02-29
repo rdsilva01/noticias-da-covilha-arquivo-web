@@ -88,16 +88,19 @@ headers = {
 
 url = "https://noticiasdacovilha.pt/"
 
-# 2009
-# pastURLs = dataExtraction.getPastURLs(year=2009, newspaper_url=url, startMonth="01", endMonth="12" )
-# get_x_month_news_data(pastURLs, "2009", headers, True)
+2009
+pastURLs = dataExtraction.getPastURLs(year=2009, newspaper_url=url, startMonth="01", endMonth="12" )
+get_news_url_year(pastURLs, "2009", headers, True)
 
 
-# 2010
-# pastURLs = dataExtraction.getPastURLs(year=2010, newspaper_url=url, startMonth="01", endMonth="12")
-# get_x_month_news_data(pastURLs, "2010", headers, True)
+2010
+pastURLs = dataExtraction.getPastURLs(year=2010, newspaper_url=url, startMonth="01", endMonth="12")
+get_news_url_year(pastURLs, "2010", headers, True)
 
+2011
+pastURLs = dataExtraction.getPastURLs(year=2011, newspaper_url=url, startMonth="01", endMonth="12")
+get_news_url_year(pastURLs, "2011", headers, True)
 
-# 2011
-pastURLs = dataExtraction.getPastURLs(year=2012, newspaper_url=url, startMonth="01", endMonth="12")
-get_news_url_year(pastURLs, "2012", headers, True)
+# 2012
+# pastURLs = dataExtraction.getPastURLs(year=2012, newspaper_url=url, startMonth="01", endMonth="12")
+# get_news_url_year(pastURLs, "2012", headers, True)

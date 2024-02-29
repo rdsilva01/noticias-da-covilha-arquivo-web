@@ -14,6 +14,11 @@ def remove_duplicates(input_file, output_file):
         json.dump(unique_urls_json, f, indent=4)
 
 if __name__ == '__main__':
-    input_file = '../DataExtraction/data/data_2012/urls_2012.json'
-    output_file = '../DataExtraction/data/data_2012/validated_urls_2012.json'
-    remove_duplicates(input_file, output_file)
+    
+    min = 2009
+    max = 2010
+    
+    for i in range(min,max+1):
+        input_file = '../DataExtraction/data/data_{}/urls_{}.json'.format(i,i)
+        output_file = '../DataExtraction/data/data_{}/validated_urls_{}.json'.format(i,i)
+        remove_duplicates(input_file, output_file)
