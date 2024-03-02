@@ -76,31 +76,30 @@ def get_news_url_year(pastURLs, year, headers, debug):
 
 
 
+def get_news_url_dataset(url, s_year, e_year, debug=False):
+  # debugging
+  # pastURLs = dataExtraction.getPastURLs(year='2012', newspaper_url='https://noticiasdacovilha.pt/', startMonth='01', endMonth='01')
+  # print(len(pastURLs))
 
-# debugging
-# pastURLs = dataExtraction.getPastURLs(year='2012', newspaper_url='https://noticiasdacovilha.pt/', startMonth='01', endMonth='01')
-# print(len(pastURLs))
+  # user agent string
+  headers = {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
+  }
 
-# user agent string
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
-}
+  for i in range(s_year, e_year+1, 1):
+    pastURLs = dataExtraction.getPastURLs(year=i, newspaper_url=url, startMonth="01", endMonth="12" )
+    get_news_url_year(pastURLs, "{}".format(i), headers, debug=debug)
 
-url = "https://noticiasdacovilha.pt/"
+'''
+  # 2010
+  pastURLs = dataExtraction.getPastURLs(year=2010, newspaper_url=url, startMonth="01", endMonth="12")
+  get_news_url_year(pastURLs, "2010", headers, True)
 
-2009
-pastURLs = dataExtraction.getPastURLs(year=2009, newspaper_url=url, startMonth="01", endMonth="12" )
-get_news_url_year(pastURLs, "2009", headers, True)
+  # 2011
+  pastURLs = dataExtraction.getPastURLs(year=2011, newspaper_url=url, startMonth="01", endMonth="12")
+  get_news_url_year(pastURLs, "2011", headers, True)
 
-
-2010
-pastURLs = dataExtraction.getPastURLs(year=2010, newspaper_url=url, startMonth="01", endMonth="12")
-get_news_url_year(pastURLs, "2010", headers, True)
-
-2011
-pastURLs = dataExtraction.getPastURLs(year=2011, newspaper_url=url, startMonth="01", endMonth="12")
-get_news_url_year(pastURLs, "2011", headers, True)
-
-# 2012
-# pastURLs = dataExtraction.getPastURLs(year=2012, newspaper_url=url, startMonth="01", endMonth="12")
-# get_news_url_year(pastURLs, "2012", headers, True)
+  # 2012
+  # pastURLs = dataExtraction.getPastURLs(year=2012, newspaper_url=url, startMonth="01", endMonth="12")
+  # get_news_url_year(pastURLs, "2012", headers, True)
+'''

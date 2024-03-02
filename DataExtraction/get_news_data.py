@@ -24,16 +24,17 @@ def clean_string(input_string):
 
     return cleaned_string
 
-def get_news_data(url, headers):
+def get_news_data_func(url, headers):
         page = requests.get(url, headers=headers)
         soup = BeautifulSoup(page.text, 'html.parser')
 
         title = ""
         date = ""
-        image = ""
+        image_url = ""
         image_desc = ""
         author = ""
-        full_paragraphs = [] # storing in a array of strings for better storage in json (and later use)
+        paragraph = ""
+        # full_paragraphs = [] # storing in a array of strings for better storage in json (and later use)
         full_tags = [] # same thing as the paragraphs
         text_snippet = ""
         category = ""
@@ -69,8 +70,8 @@ def get_news_data(url, headers):
 
                     image_tmp = div_regions[1].find('img') # image
                     if image_tmp:
-                        image = image_tmp.get('src')
-                        image_desc_tmp = image[::-1] # to get the file name, so we can link the image to some entity/person
+                        image_url = image_tmp.get('src')
+                        image_desc_tmp = image_url[::-1] # to get the file name, so we can link the image to some entity/person
                         for image_desc_c in image_desc_tmp:
                             if image_desc_c == "/":
                                 image_desc = image_desc[::-1]
@@ -84,24 +85,53 @@ def get_news_data(url, headers):
                     date = span_regions[0].text # date
 
                     span_mtexto = unique_news_div.find('span', id='mtexto')
-                    clean_span_mtexto = clean(span_mtexto.text, fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
+                    clean_span_mtexto = clean(span_mtexto.text, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
                     span_text_list = span_mtexto.get_text(separator='\n').splitlines()
                     span_text_list = [text for text in span_text_list if text.strip()]
 
                     paragraphs = span_text_list
+                    paragraph = clean_span_mtexto
+                    
+                    author_tmp = span_regions[2].text # author
+                    author = clean(author_tmp, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
+
+                    tags = span_regions[3] # tags
+                    full_tags.append(tags.text)
+
                     
                     # entities scrapping using spaCy
-                    model = 'pt_core_news_sm'
+                    model = 'pt_core_news_lg' # lg over sm, to get accuracy over efficieny
 
                     nlp = spacy.load(model, disable=['tagger', 'parser'])
-                    doc = nlp(clean_span_mtexto)
-
-                    data = []
-
-                    for ent in doc.ents:
-                        # data.append({'token': ent.text, 'start': ent.start_char, 'end': ent.end_char, 'label': ent.label_})
-                        data.append({'token': ent.text, 'label': ent.label_})
+                    # data = []
+                    data_PER = []
+                    data_ORG = []
+                    data_LOC = []
+                    data_MISC = []
                     
+                    for i in range(0,3):
+                        if i == 0:
+                            doc = nlp(paragraph)
+                        elif i == 1:
+                            doc = nlp(author)
+                        elif i == 2:
+                            doc = nlp(tags.text)
+                        
+                        for ent in doc.ents:
+                            if ent.label_ == "PER":
+                                if ent.text not in [item['token'] for item in data_PER]:
+                                    data_PER.append({'token': ent.text})
+                            elif ent.label_ == "ORG":
+                                if ent.text not in [item['token'] for item in data_ORG]:
+                                    data_ORG.append({'token': ent.text})
+                            elif ent.label_ == "LOC":
+                                if ent.text not in [item['token'] for item in data_LOC]:
+                                    data_LOC.append({'token': ent.text})
+                            elif ent.label_ == "MISC":
+                                if ent.text not in [item['token'] for item in data_MISC]:
+                                    data_MISC.append({'token': ent.text})
+
+                            
                     #df = pd.DataFrame(data)
                     # print(df)
                     
@@ -121,34 +151,30 @@ def get_news_data(url, headers):
                         # print(kw[0])
                         keywords.append(kw[0])
                     
-                    for i, paragraph in enumerate(paragraphs):
-                        if i != 0:
-                            clean_paragraph = clean(paragraph, fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
-                            full_paragraphs.append(clean_paragraph)
-                        else:
-                            text_snippet = paragraph
-
-
-                    author_tmp = span_regions[2].text # author
-                    author = clean(author_tmp, fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
-
-                    tags = span_regions[3] # tags
-                    full_tags.append(tags.text)
+                    for i, paragraph_tmp in enumerate(paragraphs):
+                        if i == 0:
+                            text_snippet_tmp = paragraph_tmp
+                            text_snippet = clean(text_snippet_tmp, to_ascii=False,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False) # text_snippet cleaned!
+                            # clean_paragraph = clean(paragraph, fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
+                            # full_paragraphs.append(clean_paragraph)                           
 
                     news_dict = {
                             "url": url,
                             "title": title,
                             "date": date,
-                            "image": image,
+                            "image_url": image_url,
                             "image_desc": image_desc,
-                            "full_paragraphs": full_paragraphs,
+                            "paragraph": paragraph,
                             "author": author,
-                            "full_tags": full_tags,
+                            "tags": full_tags,
                             "text_snippet": text_snippet,
                             "category": category,
                             "sub_category": sub_category,
                             "keywords": keywords,
-                            "spaCy_entities": data
+                            "spacy_entities_per": data_PER,
+                            "spacy_entites_org": data_ORG,
+                            "spacy_entities_loc": data_LOC,
+                            "spacy_entities_misc": data_MISC
                     }
                     return news_dict
 
@@ -160,9 +186,7 @@ def get_news_data(url, headers):
             print("news content not found.")
             return []
         
-def save_to_file(folder_path_arg, file_name_arg, json_file_path, debug=False, demo=False):
-    start_time = time.time()
-    
+def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=False, demo=False):
     json_file = json_file_path
     urls = read_urls_from_json(json_file)
     
@@ -174,7 +198,7 @@ def save_to_file(folder_path_arg, file_name_arg, json_file_path, debug=False, de
         for i, url in enumerate(urls):
             if i < N+1:
                 urls_list.append(url)
-                news_demo = get_news_data(url, headers)
+                news_demo = get_news_data_func(url, headers)
                 # print(news_demo)
                 full_news_list.append(news_demo)
                 if debug:
@@ -190,7 +214,7 @@ def save_to_file(folder_path_arg, file_name_arg, json_file_path, debug=False, de
         
         # sorted_news_list = sorted(full_news_list, key=lambda x: x['date'])
         
-        file_path = os.path.join(folder_path, "demo_{}".format(file_name_arg))
+        file_path = os.path.join(folder_path, "{}".format(file_name_arg))
         with open(file_path, "w") as file:
             json.dump(full_news_list, file, indent=4, ensure_ascii=False)
         
@@ -198,7 +222,7 @@ def save_to_file(folder_path_arg, file_name_arg, json_file_path, debug=False, de
     else:
         for i, url in enumerate(urls):
             urls_list.append(url)
-            news_demo = get_news_data(url, headers)
+            news_demo = get_news_data_func(url, headers)
             # print(news_demo)
             full_news_list.append(news_demo)
             if debug:
@@ -220,19 +244,37 @@ def save_to_file(folder_path_arg, file_name_arg, json_file_path, debug=False, de
             json.dump(full_news_list, file, indent=4, ensure_ascii=False)
         # print(news_demo)
     
-    if debug:
-        end_time = time.time()
-        execution_time = end_time - start_time 
-        print(f"Execution time: {execution_time:.2f} seconds")
-    
     return("DONE\n")
 
-if __name__ == '__main__':
-    start_time = time.time()
+def get_news_data(s_year, N, debug=True, demo=False):
      
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
+    # if I use min and max it does not work (?)
+    
+    if demo:
+        print("DEMO")
+        for i in range(s_year, s_year+N, 1):
+            start_time = time.time()
+            folder_path = "./data/data_{}".format(i)
+            json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
+            file_name = "demo_{}.json".format(i)
+            save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, headers=headers, json_file_path=json_file, debug=debug, demo=True)
+            end_time = time.time()
+            execution_time = end_time - start_time 
+            print(f"Execution time: {execution_time/60:.2f} minutes")
+    else:
+        for i in range(s_year, s_year+N, 1):
+            start_time = time.time()
+            folder_path = "./data/data_{}".format(i)
+            json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
+            file_name = "{}.json".format(i)
+            save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, headers=headers, json_file_path=json_file, debug=debug)
+            end_time = time.time()
+            execution_time = end_time - start_time 
+            print(f"Execution time: {execution_time/60:.2f} minutes")
+      
     
     # 2009
     # folder_path = "./data/data_2009"
@@ -241,10 +283,10 @@ if __name__ == '__main__':
     # save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=True)
     
     # 2010
-    folder_path = "./data/data_2010"
-    json_file =  './data/data_2010/validated_urls_2010.json'
-    file_name = "2010.json"
-    save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=True)
+    # folder_path = "./data/data_2010"
+    # json_file =  './data/data_2010/validated_urls_2010.json'
+    # file_name = "2010.json"
+    # save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=True)
     
     # 2011
     # folder_path = "./data/data_2011"
