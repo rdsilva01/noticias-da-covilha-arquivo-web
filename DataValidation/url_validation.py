@@ -1,14 +1,29 @@
 import json
+import os
+import urllib3
 
 def remove_duplicates(input_file, output_file):
     with open(input_file, 'r') as f:
         data = json.load(f)
 
     unique_urls = set()
+    nid_list = []
+
     for urls_list in data:
         for url in urls_list:
+            nid = ""
             if "get.adobe.com/flashplayer/" not in url:
-                unique_urls.add(url)
+                temp_full_url_reversed = url[::-1] 
+                for temp_full_url_reversed_char in temp_full_url_reversed:
+                    if temp_full_url_reversed_char == "=":
+                        break
+                    else:
+                        nid += temp_full_url_reversed_char
+                        
+                nid = nid[::-1]
+                if nid not in nid_list:
+                    nid_list.append(nid)
+                    unique_urls.add(url)
 
     unique_urls_json = {'urls': list(unique_urls)}
 

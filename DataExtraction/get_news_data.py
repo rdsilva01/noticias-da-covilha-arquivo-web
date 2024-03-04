@@ -1,3 +1,4 @@
+from datetime import datetime
 import time
 import requests
 from bs4 import BeautifulSoup
@@ -35,12 +36,11 @@ def get_news_data_func(url, headers):
         author = ""
         paragraph = ""
         # full_paragraphs = [] # storing in a array of strings for better storage in json (and later use)
-        full_tags = [] # same thing as the paragraphs
         text_snippet = ""
         category = ""
         sub_category = ""
+        news_front_page_image_url = ""
         
-
         path_div = soup.find(id='div_caminho') # div that contains the path info
 
         if path_div:
@@ -52,11 +52,17 @@ def get_news_data_func(url, headers):
             path_a = nested_path_div.find('a')
             path_sub_category = path_a.find('b').text
             sub_category = path_sub_category
-            # print(path_sub_category)
+            # print(path_sub_category)   
 
         news_div = soup.find(id='div_conteudo') # div that contains the (1) news info
 
         if news_div:
+                news_front_page_div = news_div.find(id='div_conteudo_140px')
+                if news_front_page_div:
+                    news_front_page_capaedicao = news_front_page_div.find(id='bloco_capaedicao')
+                    news_front_page_image = news_front_page_capaedicao.find('img')
+                    news_front_page_image_url = news_front_page_image.get('src') # front page image url
+                
                 content_div = news_div.find(id='div_conteudo_left')
                 nested_div = content_div.find(id="tbl_print")
 
@@ -81,7 +87,6 @@ def get_news_data_func(url, headers):
                             else:
                                 image_desc += image_desc_c
                             
-                                
                     date = span_regions[0].text # date
 
                     span_mtexto = unique_news_div.find('span', id='mtexto')
@@ -94,28 +99,23 @@ def get_news_data_func(url, headers):
                     
                     author_tmp = span_regions[2].text # author
                     author = clean(author_tmp, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
-
-                    tags = span_regions[3] # tags
-                    full_tags.append(tags.text)
-
                     
                     # entities scrapping using spaCy
                     model = 'pt_core_news_lg' # lg over sm, to get accuracy over efficieny
 
                     nlp = spacy.load(model, disable=['tagger', 'parser'])
-                    # data = []
+                    
+                    # spaCy entities
                     data_PER = []
                     data_ORG = []
                     data_LOC = []
                     data_MISC = []
                     
-                    for i in range(0,3):
+                    for i in range(0,2):
                         if i == 0:
                             doc = nlp(paragraph)
                         elif i == 1:
                             doc = nlp(author)
-                        elif i == 2:
-                            doc = nlp(tags.text)
                         
                         for ent in doc.ents:
                             if ent.label_ == "PER":
@@ -130,10 +130,6 @@ def get_news_data_func(url, headers):
                             elif ent.label_ == "MISC":
                                 if ent.text not in [item['token'] for item in data_MISC]:
                                     data_MISC.append({'token': ent.text})
-
-                            
-                    #df = pd.DataFrame(data)
-                    # print(df)
                     
                     # keywords extracting using YAKE
                     language = "pt"
@@ -160,13 +156,13 @@ def get_news_data_func(url, headers):
 
                     news_dict = {
                             "url": url,
+                            "news_front_page_image_url": news_front_page_image_url,
                             "title": title,
                             "date": date,
                             "image_url": image_url,
                             "image_desc": image_desc,
                             "paragraph": paragraph,
                             "author": author,
-                            "tags": full_tags,
                             "text_snippet": text_snippet,
                             "category": category,
                             "sub_category": sub_category,
@@ -212,7 +208,7 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         
-        # sorted_news_list = sorted(full_news_list, key=lambda x: x['date'])
+        # full_news_list = sorted(full_news_list, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'))
         
         file_path = os.path.join(folder_path, "{}".format(file_name_arg))
         with open(file_path, "w") as file:
@@ -237,7 +233,7 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         
-        # sorted_news_list = sorted(full_news_list, key=lambda x: x['date'])
+        # full_news_list = sorted(full_news_list, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'))
         
         file_path = os.path.join(folder_path, file_name_arg)
         with open(file_path, "w") as file:
@@ -246,16 +242,15 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
     
     return("DONE\n")
 
-def get_news_data(s_year, N, debug=True, demo=False):
+def get_news_data(s_year, e_year, debug=True, demo=False):
      
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
-    # if I use min and max it does not work (?)
     
     if demo:
         print("DEMO")
-        for i in range(s_year, s_year+N, 1):
+        for i in range(s_year, e_year+1, 1):
             start_time = time.time()
             folder_path = "./data/data_{}".format(i)
             json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
@@ -265,7 +260,7 @@ def get_news_data(s_year, N, debug=True, demo=False):
             execution_time = end_time - start_time 
             print(f"Execution time: {execution_time/60:.2f} minutes")
     else:
-        for i in range(s_year, s_year+N, 1):
+        for i in range(s_year, e_year+1, 1):
             start_time = time.time()
             folder_path = "./data/data_{}".format(i)
             json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
