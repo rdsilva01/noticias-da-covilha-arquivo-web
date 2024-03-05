@@ -11,11 +11,11 @@ from DataValidation import url_validation
 # URL EXTRACTION
 def url_extraction_fun():
     start_time = time.time()
-    get_news_url_dataset.get_news_url_dataset(s_year=2019, e_year=2019, url="https://noticiasdacovilha.pt/" ,debug=True)
+    get_news_url_dataset.get_news_url_dataset(s_year=2009, e_year=2019, url="https://noticiasdacovilha.pt/" ,debug=True)
     end_time = time.time()
     execution_time = end_time - start_time 
     print(f"URL Extraction execution time: {execution_time/60:.2f} minutes")
-
+ 
 # URL VALIDATION
 def url_validation_fun():
     start_time = time.time()

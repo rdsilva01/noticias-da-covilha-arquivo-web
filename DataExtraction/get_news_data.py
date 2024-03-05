@@ -34,12 +34,10 @@ def get_news_data_func(url, headers):
         image_url = ""
         image_desc = ""
         author = ""
-        paragraph = ""
-        # full_paragraphs = [] # storing in a array of strings for better storage in json (and later use)
+        content = ""
         text_snippet = ""
         category = ""
         sub_category = ""
-        news_front_page_image_url = ""
         
         path_div = soup.find(id='div_caminho') # div that contains the path info
 
@@ -48,21 +46,13 @@ def get_news_data_func(url, headers):
             path_span = nested_path_div.find('span')
             path_category = path_span.find('b').text
             category = path_category
-            # print(path_category)
             path_a = nested_path_div.find('a')
             path_sub_category = path_a.find('b').text
             sub_category = path_sub_category
-            # print(path_sub_category)   
 
         news_div = soup.find(id='div_conteudo') # div that contains the (1) news info
 
         if news_div:
-                news_front_page_div = news_div.find(id='div_conteudo_140px')
-                if news_front_page_div:
-                    news_front_page_capaedicao = news_front_page_div.find(id='bloco_capaedicao')
-                    news_front_page_image = news_front_page_capaedicao.find('img')
-                    news_front_page_image_url = news_front_page_image.get('src') # front page image url
-                
                 content_div = news_div.find(id='div_conteudo_left')
                 nested_div = content_div.find(id="tbl_print")
 
@@ -94,8 +84,8 @@ def get_news_data_func(url, headers):
                     span_text_list = span_mtexto.get_text(separator='\n').splitlines()
                     span_text_list = [text for text in span_text_list if text.strip()]
 
-                    paragraphs = span_text_list
-                    paragraph = clean_span_mtexto
+                    contents = span_text_list
+                    content = clean_span_mtexto
                     
                     author_tmp = span_regions[2].text # author
                     author = clean(author_tmp, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
@@ -109,13 +99,14 @@ def get_news_data_func(url, headers):
                     data_PER = []
                     data_ORG = []
                     data_LOC = []
-                    data_MISC = []
                     
-                    for i in range(0,2):
+                    for i in range(0,3):
                         if i == 0:
-                            doc = nlp(paragraph)
+                            doc = nlp(content)
                         elif i == 1:
                             doc = nlp(author)
+                        elif i == 2:
+                            doc = nlp(title)
                         
                         for ent in doc.ents:
                             if ent.label_ == "PER":
@@ -127,41 +118,33 @@ def get_news_data_func(url, headers):
                             elif ent.label_ == "LOC":
                                 if ent.text not in [item['token'] for item in data_LOC]:
                                     data_LOC.append({'token': ent.text})
-                            elif ent.label_ == "MISC":
-                                if ent.text not in [item['token'] for item in data_MISC]:
-                                    data_MISC.append({'token': ent.text})
                     
-                    # keywords extracting using YAKE
+                    
                     language = "pt"
-                    # max_ngram_size = 3, when in use add this as argument -> n=max_ngram_size
-                    # deduplication_thresold = 0.9, arg: dedupLim=deduplication_thresold
-                    # deduplication_algo = 'seqm', arg: dedupFunc=deduplication_algo
                     windowSize = 1
                     numOfKeywords = 10
                     keywords = []
                                         
-                    custom_kw_extractor = yake.KeywordExtractor(lan=language, windowsSize=windowSize, top=numOfKeywords, features=None)  
-                    keywords_tmp = custom_kw_extractor.extract_keywords(span_mtexto.text)
+                    custom_kw_extractor = yake.KeywordExtractor(lan=language, windowsSize=windowSize, top=numOfKeywords, features=None)
+                    content_plus_title = title
+                    content_plus_title += " {}".format(span_mtexto.text)
+                    keywords_tmp = custom_kw_extractor.extract_keywords(content_plus_title)
                     
                     for kw in keywords_tmp:
-                        # print(kw[0])
                         keywords.append(kw[0])
                     
-                    for i, paragraph_tmp in enumerate(paragraphs):
+                    for i, content_tmp in enumerate(contents):
                         if i == 0:
-                            text_snippet_tmp = paragraph_tmp
-                            text_snippet = clean(text_snippet_tmp, to_ascii=False,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False) # text_snippet cleaned!
-                            # clean_paragraph = clean(paragraph, fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
-                            # full_paragraphs.append(clean_paragraph)                           
+                            text_snippet_tmp = content_tmp
+                            text_snippet = clean(text_snippet_tmp, to_ascii=False,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False) # text_snippet cleaned!                      
 
                     news_dict = {
                             "url": url,
-                            "news_front_page_image_url": news_front_page_image_url,
                             "title": title,
                             "date": date,
                             "image_url": image_url,
                             "image_desc": image_desc,
-                            "paragraph": paragraph,
+                            "content": content,
                             "author": author,
                             "text_snippet": text_snippet,
                             "category": category,
@@ -170,7 +153,6 @@ def get_news_data_func(url, headers):
                             "spacy_entities_per": data_PER,
                             "spacy_entites_org": data_ORG,
                             "spacy_entities_loc": data_LOC,
-                            "spacy_entities_misc": data_MISC
                     }
                     return news_dict
 
@@ -208,8 +190,6 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         
-        # full_news_list = sorted(full_news_list, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'))
-        
         file_path = os.path.join(folder_path, "{}".format(file_name_arg))
         with open(file_path, "w") as file:
             json.dump(full_news_list, file, indent=4, ensure_ascii=False)
@@ -233,8 +213,7 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         
-        # full_news_list = sorted(full_news_list, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%d'))
-        
+
         file_path = os.path.join(folder_path, file_name_arg)
         with open(file_path, "w") as file:
             json.dump(full_news_list, file, indent=4, ensure_ascii=False)
@@ -269,28 +248,3 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
             end_time = time.time()
             execution_time = end_time - start_time 
             print(f"Execution time: {execution_time/60:.2f} minutes")
-      
-    
-    # 2009
-    # folder_path = "./data/data_2009"
-    # json_file =  './data/data_2009/validated_urls_2009.json'
-    # file_name = "2009.json"
-    # save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=True)
-    
-    # 2010
-    # folder_path = "./data/data_2010"
-    # json_file =  './data/data_2010/validated_urls_2010.json'
-    # file_name = "2010.json"
-    # save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=True)
-    
-    # 2011
-    # folder_path = "./data/data_2011"
-    # json_file =  './data/data_2011/validated_urls_2011.json'
-    # file_name = "2011.json"
-    # save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file)
-    
-    # 2012
-    
-    # 2013
-    
-    # 2014
