@@ -51,7 +51,6 @@ def menu():
     numbers = [int(num) for num in numbers_list]
     return numbers
 
-
 def main():
     options = menu()
     if not options:
@@ -69,6 +68,5 @@ def main():
             else:
                 print(f"INVALID OPTION: {option}")
 
-    
 if __name__ == "__main__":
     main()
