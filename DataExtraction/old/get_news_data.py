@@ -25,8 +25,8 @@ def clean_string(input_string):
 
     return cleaned_string
 
-def get_news_data_func(url, headers):
-        page = requests.get(url, headers=headers)
+def get_news_data_func(url):
+        page = requests.get(url)
         soup = BeautifulSoup(page.text, 'html.parser')
 
         title = ""
@@ -164,7 +164,7 @@ def get_news_data_func(url, headers):
             print("news content not found.")
             return []
         
-def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=False, demo=False):
+def save_to_file(folder_path_arg, file_name_arg, json_file_path, debug=False, demo=False):
     json_file = json_file_path
     urls = read_urls_from_json(json_file)
     
@@ -176,7 +176,7 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
         for i, url in enumerate(urls):
             if i < N+1:
                 urls_list.append(url)
-                news_demo = get_news_data_func(url, headers)
+                news_demo = get_news_data_func(url)
                 # print(news_demo)
                 full_news_list.append(news_demo)
                 if debug:
@@ -198,7 +198,7 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
     else:
         for i, url in enumerate(urls):
             urls_list.append(url)
-            news_demo = get_news_data_func(url, headers)
+            news_demo = get_news_data_func(url)
             # print(news_demo)
             full_news_list.append(news_demo)
             if debug:
@@ -207,13 +207,11 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
                     if i == len(urls) - 1:
                         print(f"\r100.00%", end='')
             
-        
         folder_path = folder_path_arg
 
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         
-
         file_path = os.path.join(folder_path, file_name_arg)
         with open(file_path, "w") as file:
             json.dump(full_news_list, file, indent=4, ensure_ascii=False)
@@ -222,10 +220,6 @@ def save_to_file(folder_path_arg, file_name_arg, headers, json_file_path, debug=
     return("DONE\n")
 
 def get_news_data(s_year, e_year, debug=True, demo=False):
-     
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
     
     if demo:
         print("DEMO")
@@ -234,7 +228,7 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
             folder_path = "./data/data_{}".format(i)
             json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
             file_name = "demo_{}.json".format(i)
-            save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, headers=headers, json_file_path=json_file, debug=debug, demo=True)
+            save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=debug, demo=True)
             end_time = time.time()
             execution_time = end_time - start_time 
             print(f"Execution time: {execution_time/60:.2f} minutes")
@@ -244,7 +238,7 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
             folder_path = "./data/data_{}".format(i)
             json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
             file_name = "{}.json".format(i)
-            save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, headers=headers, json_file_path=json_file, debug=debug)
+            save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=debug)
             end_time = time.time()
             execution_time = end_time - start_time 
             print(f"Execution time: {execution_time/60:.2f} minutes")

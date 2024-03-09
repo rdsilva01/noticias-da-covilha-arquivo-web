@@ -1,3 +1,4 @@
+import time
 import requests
 from bs4 import BeautifulSoup
 from publicnewsarchive import dataExtraction
@@ -63,43 +64,51 @@ def get_news_url_year(pastURLs, year, headers, debug):
         page = get_news_urls(pastURL, headers, "div_conteudo_left")
         if page != []:
           full_news_url_year.append(page)
-          if debug:
-              if i != 0 and i % 1 == 0:
-                  print(f"\r{100 * i / len(pastURLs):.2f}%", end='')
-                  if i == len(pastURLs) - 1:
-                      print(f"\r100.00%", end='')
+          if i != 0 and i % 1 == 0:
+            print(f"\r{100 * i / len(pastURLs):.2f}%", end='')
+            if i == len(pastURLs) - 1:
+              print(f"\r100.00%", end='')
 
   file_path = os.path.join(folder_path, "urls_{}.json".format(year))
   with open(file_path, "w") as file:
     json.dump(full_news_url_year, file, indent=4, ensure_ascii=False)
 
 
-
-
 def get_news_url_dataset(url, s_year, e_year, debug=False):
-  # debugging
-  # pastURLs = dataExtraction.getPastURLs(year='2012', newspaper_url='https://noticiasdacovilha.pt/', startMonth='01', endMonth='01')
-  # print(len(pastURLs))
 
   # user agent string
   headers = {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
   }
+  
+  list_of_d = []
 
   for i in range(s_year, e_year+1, 1):
+    print("\nYEAR {}".format(i))
+    
     pastURLs = dataExtraction.getPastURLs(year=i, newspaper_url=url, startMonth="01", endMonth="12" )
+   
+    start_time = time.time()
     get_news_url_year(pastURLs, "{}".format(i), headers, debug=debug)
+    end_time = time.time()
+    execution_time = end_time - start_time
+    execution_time = round(execution_time, 2)
+    
+    d =  {
+      "year": i,
+      "news_url_time": execution_time
+    }
+    
+    list_of_d.append(d)
+    
+  folder_name = "stats_{}".format(i)
+  folder_path = "./stats/{}".format(folder_name) 
 
-'''
-  # 2010
-  pastURLs = dataExtraction.getPastURLs(year=2010, newspaper_url=url, startMonth="01", endMonth="12")
-  get_news_url_year(pastURLs, "2010", headers, True)
-
-  # 2011
-  pastURLs = dataExtraction.getPastURLs(year=2011, newspaper_url=url, startMonth="01", endMonth="12")
-  get_news_url_year(pastURLs, "2011", headers, True)
-
-  # 2012
-  # pastURLs = dataExtraction.getPastURLs(year=2012, newspaper_url=url, startMonth="01", endMonth="12")
-  # get_news_url_year(pastURLs, "2012", headers, True)
-'''
+  if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
+      
+  file_path = os.path.join(folder_path, "stats_news_urls_{}.json".format(i))
+  with open(file_path, "w") as file:
+    json.dump(list_of_d, file, indent=4, ensure_ascii=False)
+    
+  return list_of_d

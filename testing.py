@@ -8,7 +8,7 @@ from DataExtraction import NewsPageURLs
 from DataExtraction import FrontPageURLs
 from DataExtraction import FrontPageData
 
-# from DataStatistics import DataStatisticsSave
+from DataStatistics import GetDataStatistics
 
 from DataValidation import NewsPageURLsValidation
 from DataValidation import NewsPageDataValidation
@@ -54,7 +54,7 @@ def url_validation_fun(s_year=2009, e_year=2012):
     print_pretty_dict(news_url_validation_dict) 
 
 # DATA EXTRACTION
-def main_data_extraction_fun(header, s_year=2009, e_year=2012):
+def main_data_extraction_fun(header, s_year=2009, e_year=2012): # main data, the front page image
     front_page_data_dict = FrontPageData.get_main_page_dataset(s_year=s_year, e_year=e_year, header=header)
     save_to_file(front_page_data_dict)
     print_pretty_dict(front_page_data_dict)
@@ -65,58 +65,50 @@ def data_extraction_fun(s_year=2009, e_year=2019):
     print_pretty_dict(news_data_dict)
 
 # DATA VALIDATION
-def data_validation_fun():
-    news_url_validation_dict = NewsPageDataValidation.data_validation(s_year=2009, e_year=2012, debug=True)
+def data_validation_fun(s_year=2009, e_year=2019):
+    news_url_validation_dict = NewsPageDataValidation.data_validation(s_year=s_year, e_year=e_year, debug=True)
     save_to_file(news_url_validation_dict)
     print_pretty_dict(news_url_validation_dict)
-    
+
+# DATA STATISTICS    
 def show_statistics_fun(stats_dict):
     print_pretty_dict(stats_dict)
 
+def data_statistics_fun(s_year, e_year):
+    full_stats = {}
+    for i in range(s_year, e_year+1):
+        spacy_stats = GetDataStatistics.get_data_spacy_statistics(year=i)
+        content_stats = GetDataStatistics.get_content_statistics(year=i)
+        if i not in full_stats:
+            full_stats[i] = {}
+        full_stats[i].update(spacy_stats[i])
+        full_stats[i].update(content_stats[i])
+        
+    folder_name = "data_all_years"
+    folder_path = "./data/{}".format(folder_name)
 
-def menu():
-    print("MENU")
-    print("1 - MAIN URL EXTRACTION")
-    print("2 - MAIN DATA EXTRACTION")
-    print("3 - NEWS URL EXTRACTION")
-    print("4 - NEWS URL VALIDATION")
-    print("5 - DATA EXTRACTION")
-    print("6 - DATA VALIDATION")
-    print("7 - SHOW STATISTICS")
-    numbers_input = input("Choose the numbers that match the functions (separated by spaces) RECOMMENDED FOLLOWING THE NUMBER ORDER: ")
-    numbers_list = numbers_input.split()
-    numbers = [int(num) for num in numbers_list]
-    return numbers
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
+    file_path = os.path.join(folder_path, "statistics.json")
+    with open(file_path, "w") as file:
+        json.dump(full_stats, file, indent=4, ensure_ascii=False)
+        
+    return full_stats
+
 
 def main(url, header):
-    while True:
-        options = menu()
-        if not options:
-            print("NO OPTIONS CHOSEN")
-            continue 
-        else:
-            for option in options:
-                if option == 0:
-                    print("EXITING")
-                    return 
-                elif option == 1:
-                    main_url_extraction_fun(url=url, s_year=2009, e_year=2011)
-                elif option == 2:
-                    main_data_extraction_fun(header=header, s_year=2009, e_year=2011)
-                elif option == 3:
-                    news_url_extraction_fun(s_year=2009, e_year=2011)
-                elif option == 4:
-                    url_validation_fun(s_year=2009, e_year=2011)
-                elif option == 5:
-                    data_extraction_fun()
-                elif option == 6:
-                    print()
-                    # data_validation_fun()
-                elif option == 7:
-                    show_statistics_fun(stats_dict=stats_dict)
-                else:
-                    print(f"INVALID OPTION: {option}")
-                # input("PRESS ENTER TO CONTINUE")
+
+    #main_url_extraction_fun(url=url, s_year=2009, e_year=2011)
+    main_data_extraction_fun(header=header, s_year=2009, e_year=2015)
+    #news_url_extraction_fun(s_year=2019, e_year=2019)
+    #url_validation_fun(s_year=2009, e_year=2019)
+    #data_extraction_fun(s_year=2019, e_year=2019)
+    #data_validation_fun()
+
+    statistics = data_statistics_fun(2009, 2019)
+    print(json.dumps(statistics, indent=4, ensure_ascii=False))
+    
                     
 if __name__ == "__main__":
     url = "https://noticiasdacovilha.pt/"
@@ -124,3 +116,5 @@ if __name__ == "__main__":
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
     }
     main(url, header=headers)
+    
+    

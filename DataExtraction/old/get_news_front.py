@@ -1,6 +1,12 @@
+import json
+
+
 def get_news_front(json_file, headers):
     
-    url_list = read_urls_from_json(json_file=json_file)
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+
+    url_list = data['urls']
     
     for url in url_list:
         page = requests.get(url, headers=headers)
