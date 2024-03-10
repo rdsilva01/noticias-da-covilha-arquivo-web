@@ -1,18 +1,18 @@
 import json
 import os
+import re
 import time
 from bs4 import BeautifulSoup
 import requests
 
 
 def get_news_front(json_file, headers, year, debug=True):
-    
+    print(f'\n{year}')
     with open(json_file, 'r') as f:
         data = json.load(f)
 
-    url_list = data["{}".format(year)]
-    main_page_dataset_year = {}
-    main_url_list = []
+    url_list = data[str(year)]
+    main_url_dict = {}  # Use a dictionary to store unique URLs with their corresponding content
     
     for i, url in enumerate(url_list):
         page = requests.get(url, headers=headers)
@@ -20,21 +20,34 @@ def get_news_front(json_file, headers, year, debug=True):
         
         bloco_capaedicao = soup.find(id='bloco_capaedicao') 
         
+        
         if bloco_capaedicao:
-                image = bloco_capaedicao.find('img')
-                if image:
-                        image_url = image.get('src')
-                        if image_url not in main_url_list:
-                            main_url_list.append(image_url)
-                else:
-                        print("not found")
+            image = bloco_capaedicao.find('img')
+            if image:
+                image_url = image.get('src')
+                if image_url not in main_url_dict.values():
+                    image_url_reversed = image_url[::-1]
+                    content = ""
+                    for j, image_url_reversed_tmp in enumerate(image_url_reversed):
+                        if image_url_reversed_tmp == "/":
+                            break
+                        else:
+                            content += image_url_reversed_tmp
+                    content = content[::-1]
+                    match = re.search(r'\d{4}', content)
+                    if match:
+                        four_digits = match.group()
+                        # print(four_digits)
+                        main_url_dict[four_digits] = image_url
+
+            else:
+                print("not found")
+        
         if debug:
-                if i != 0 and i % 1 == 0:
-                    print(f"\r{100 * i / len(url_list):.2f}%", end='')       
-                    if i == len(url_list) - 1:
-                        print(f"\r100.00%", end='')
-                            
-    return main_url_list
+            print(f"\rProgress: {100 * (i + 1) / len(url_list):.2f}%", end='')
+    
+    main_url_dict = dict(sorted(main_url_dict.items()))
+    return main_url_dict
     
 def get_main_page_dataset(s_year, e_year, header, debug=True):
     execution_time_dict = {}
@@ -63,7 +76,7 @@ def get_main_page_dataset(s_year, e_year, header, debug=True):
         if debug:
             end_time = time.time()
             execution_time = end_time - start_time 
-            execution_time_dict_tmp ={
+            execution_time_dict_tmp = {
                                     i: {
                                         "front_page_data_extraction_time": round(execution_time,2)
                                         }

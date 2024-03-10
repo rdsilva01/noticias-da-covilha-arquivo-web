@@ -7,6 +7,7 @@ from DataExtraction import NewsPageData
 from DataExtraction import NewsPageURLs
 from DataExtraction import FrontPageURLs
 from DataExtraction import FrontPageData
+from DataExtraction import FrontPageImageData
 
 from DataStatistics import GetDataStatistics
 
@@ -57,7 +58,12 @@ def url_validation_fun(s_year=2009, e_year=2012):
 def main_data_extraction_fun(header, s_year=2009, e_year=2012): # main data, the front page image
     front_page_data_dict = FrontPageData.get_main_page_dataset(s_year=s_year, e_year=e_year, header=header)
     save_to_file(front_page_data_dict)
-    print_pretty_dict(front_page_data_dict)
+    #print_pretty_dict(front_page_data_dict)
+
+def main_image_data_extraction_fun(s_year=2009, e_year=2010):
+    front_page_image_data_dict = FrontPageImageData.get_front_page_image_data(s_year=s_year, e_year=e_year)
+    save_to_file(front_page_image_data_dict)
+    print_pretty_dict(front_page_image_data_dict)
 
 def data_extraction_fun(s_year=2009, e_year=2019):
     news_data_dict = NewsPageData.get_news_data(s_year=s_year, e_year=e_year, debug=True, demo=False)
@@ -99,12 +105,14 @@ def data_statistics_fun(s_year, e_year):
 
 def main(url, header):
 
-    #main_url_extraction_fun(url=url, s_year=2009, e_year=2011)
-    main_data_extraction_fun(header=header, s_year=2009, e_year=2015)
-    #news_url_extraction_fun(s_year=2019, e_year=2019)
-    #url_validation_fun(s_year=2009, e_year=2019)
-    #data_extraction_fun(s_year=2019, e_year=2019)
-    #data_validation_fun()
+    # main_url_extraction_fun(url=url, s_year=2009, e_year=2011)
+    # main_data_extraction_fun(header=header, s_year=2009, e_year=2019)
+    # main_image_data_extraction_fun(s_year=2009, e_year=2019) # FRONT PAGE IMAGE + DATE
+    # news_url_extraction_fun(s_year=2019, e_year=2019)
+    # url_validation_fun(s_year=2009, e_year=2019)
+    # data_extraction_fun(s_year=2019, e_year=2019)
+    # data_validation_fun()
+    data_statistics_fun
 
     statistics = data_statistics_fun(2009, 2019)
     print(json.dumps(statistics, indent=4, ensure_ascii=False))
