@@ -105,17 +105,17 @@ def data_statistics_fun(s_year, e_year):
 
 def main(url, header):
 
-    # main_url_extraction_fun(url=url, s_year=2009, e_year=2011)
-    # main_data_extraction_fun(header=header, s_year=2009, e_year=2019)
-    # main_image_data_extraction_fun(s_year=2009, e_year=2019) # FRONT PAGE IMAGE + DATE
-    # news_url_extraction_fun(s_year=2019, e_year=2019)
-    # url_validation_fun(s_year=2009, e_year=2019)
-    # data_extraction_fun(s_year=2019, e_year=2019)
-    # data_validation_fun()
-    data_statistics_fun
+    #main_url_extraction_fun(url=url, s_year=2019, e_year=2019) # past URLs extraction
+    #main_data_extraction_fun(header=header, s_year=2019, e_year=2019) # main data extraciton, front page image urls
+    #main_image_data_extraction_fun(s_year=2019, e_year=2019) # front page image data, the dates
+    #news_url_extraction_fun(s_year=2019, e_year=2019) # news urls extraction
+    #url_validation_fun(s_year=2019, e_year=2019) # news urls validation (remove duplicates)
+    #data_extraction_fun(s_year=2019, e_year=2019) # data from the news urls
+    data_validation_fun() # validation of the data (remove duplicates)
+    # data_statistics_fun()
 
-    statistics = data_statistics_fun(2009, 2019)
-    print(json.dumps(statistics, indent=4, ensure_ascii=False))
+    # statistics = data_statistics_fun(2009, 2019)
+    # print(json.dumps(statistics, indent=4, ensure_ascii=False))
     
                     
 if __name__ == "__main__":

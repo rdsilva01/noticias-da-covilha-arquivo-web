@@ -2,20 +2,20 @@ import os
 import json
 import time
 
-def sort_data(input_file, output_file):
+def sort_data(input_file, output_file, year):
     with open(input_file, 'r') as f:
         data = json.load(f)
 
     sorted_articles = []
 
-    for article in data:
+    for i, article in enumerate(data):
         if "date" in article:
+            # Add 'id' as an attribute to the article dictionary
+            article_id = f"{year}-{i}"
+            article["id"] = article_id
             sorted_articles.append(article)
 
-    sorted_articles.sort(key=lambda x: x.get("date"))
-
-    # for i, article in enumerate(sorted_articles):
-    #     print("{} - {}".format(i, article["date"]))
+    sorted_articles.sort(key=lambda x: x.get("date"))  # Sort by date
 
     with open(output_file, "w") as outfile:
         json.dump(sorted_articles, outfile, indent=4, ensure_ascii=False)
@@ -30,7 +30,7 @@ def data_validation(s_year, e_year, debug):
         input_file = f'./data/data_{year}/{year}.json'
         output_file = f'./data/data_{year}/validated_{year}.json'
         if os.path.exists(input_file):
-            len_of_news = sort_data(input_file, output_file)
+            len_of_news = sort_data(input_file, output_file, year)
         else:
             print(f"Input file not found for year {year}")
         if debug:

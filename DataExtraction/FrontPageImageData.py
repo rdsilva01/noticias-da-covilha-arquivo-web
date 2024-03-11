@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import cv2
 
+# in use
 def get_front_page_image_data_year_algorithm(year, json_file, first_date=None, debug=True):
     print(f'\n{year}')
 
@@ -35,7 +36,7 @@ def get_front_page_image_data_year_algorithm(year, json_file, first_date=None, d
             url_number = int(key)
             if previous_key is not None:
                 delta_days = url_number - int(previous_key)
-                current_date += timedelta(days=delta_days*7) # each number of the front page means a week, so from 1001 to 1002, each unity is 7 days!  
+                current_date += timedelta(days=delta_days*7) # each number of the front page means a week, so from 1001 to 1002, the +1 is 7 days!  
 
             # Format date
             formatted_date = current_date.strftime("%Y-%m-%d")
@@ -48,7 +49,7 @@ def get_front_page_image_data_year_algorithm(year, json_file, first_date=None, d
 
     return front_page_dict
 
-
+# deprecated
 def get_front_page_image_data_year_ocr(year, json_file, debug=True):
     print(f'\n{year}')
     month_mapping = {

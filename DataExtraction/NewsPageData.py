@@ -144,10 +144,20 @@ def get_news_data_func(url):
                                 text_snippet = clean(text_snippet_tmp, to_ascii=False, fix_unicode=True, no_line_breaks=True, lang="pt", lower=False) # text_snippet cleaned!                      
 
                     else:
-                        print("news content not found.")
+                        print(f' ! news content not found at {url}')
                         return []
         else:
-            path_div = soup.find('div', class_="main col-md-8") # div that contains the path info
+            # general div
+            path_div = soup.find('div', class_="rubik-page-content-wrapper clearfix")
+            #feature_div = soup.find('div', class_="bk-feature-image-fw-wrap")
+            
+            #if feature_div:
+                #path_div = soup.find('div', class_="single-page s-template-7 s-template-9 s-template-13 s-template-14")
+            #else:
+                #path_div = soup.find('div', class_="main col-md-8") # div that contains the path info
+                #if not path_div:
+                #    path_div = soup.find('div', class_="single-page s-template-8 s-template-10 s-template-12")
+                
             # from APRIL 2019 until the rest        
             if path_div:
                 header = path_div.find("div", class_="s-post-header")
@@ -180,7 +190,11 @@ def get_news_data_func(url):
                     formated_date = date.strftime("%Y-%m-%d")
                     date = formated_date
 
-                    image_div = path_div.find("div", id="bk-normal-feat")
+                    #if feature_div:
+                    #    image_div = feature_div
+                    #else:
+                    #    image_div = path_div.find("div", id="bk-normal-feat")
+                    image_div = path_div.find('div', class_='s-feat-img')
                     if image_div:
                         image = image_div.find("img")
                         if image:
@@ -194,6 +208,8 @@ def get_news_data_func(url):
                                     break
                                 else:
                                     image_desc += image_desc_c
+                    else:
+                        print(f' ! image not found at url: {url}')
                         
                     content = path_div.find("div", class_="article-content clearfix").text
                     first_sentence = content.split('.')[0]
@@ -226,7 +242,7 @@ def get_news_data_func(url):
                         
                 
             else:
-                print(" news content not found.")
+                print(f' ! news content not found at {url}')
                 return []
         
         news_dict = {
@@ -301,3 +317,6 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
             execution_time_dict.update(execution_time_dict_tmp)
     
     return execution_time_dict
+# dict = get_news_data_func("https://arquivo.pt/noFrame/replay/20190705171733/https://www.noticiasdacovilha.pt/amendoal-motiva-investimento-de-50-milhoes-no-fundao-e-idanha/")
+# dict = get_news_data_func("https://arquivo.pt/noFrame/replay/20190825171204/https://www.noticiasdacovilha.pt/manteigas-requalifica-pavilhao/")
+# print(json.dumps(dict, indent=4, ensure_ascii=False))
