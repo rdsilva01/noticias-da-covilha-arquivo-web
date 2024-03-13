@@ -1,38 +1,55 @@
 {% extends "base.html" %}
 
-{% block title %}News Per Year{% endblock %}
+{% block title %}Notícias de {{year}}{% endblock %}
 
-{% block content %}
-    <div class="text-align-start ms-3 mt-2">
-        <h6>Fundado em 1913</h6>
+{% block content %} 
+<div>
+    <div class="bg-dark row">
+        <div class="container text-center">
+            <hr class="custom-margin-transparent-sm">
+            <h4 class="text-light font-oswald fw-light text-uppercase">Há <span class="bg-danger">{{current_date.year - year}}</span> anos atrás era</h4>
+            <h1 class="text-light display-1 text-decoration-underline">{{ year }}</h1>
+            <h2 class="text-light font-oswald fw-light text-uppercase mt-4">&rightarrow;482 notícias</h2>
+            <h4 class="text-light font-oswald fw-light text-uppercase">201 pessoas</h4>
+            <h4 class="text-light font-oswald fw-light text-uppercase">96 entidades</h4>
+            <h4 class="text-light font-oswald fw-light text-uppercase">32 localidades</h4>
+            <hr class="custom-margin-transparent-sm">
+        </div>
     </div>
-    <h1 class="text-align-start ms-3 fw-bold display-2 mb-0"><span class="text-danger">N</span>otícias da <span class="text-danger">C</span>ovilhã</h1>
-    <h4 class="ms-3 text-uppercase"> &rightarrow;Arquivo Web</h4>
+    
+    <hr class="custom-margin-transparent-sm">
     <div class="row">
-        <div class="col">
         {% for item in news %}
-        <div class="card mx-5 my-5 border ">
-            <div class="col">
-                <img src="{{ item.image_url }}" alt="" class="rounded img-fluid" style="max-width: 400px;">
-         
-                <h2 class="text-uppercase fw-bold">{{ item.title }}</h2>
-                <p><strong>Autor:</strong> {{ item.author }}</p>
-                <p><strong>Categoria:</strong> {{ item.category }}</p>
-                <p><strong>Data:</strong> {{ item.date }}</p>
-                <p><strong>Snippet:</strong> {{ item.text_snippet }}</p>
-                <a href="{{ url_for('news_item', article_id=item.id, year=request.args.get('year')) }}" class="btn btn-primary">Read More</a>
-
+        <div class="col-md-6 col-sm-12 px-5 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center mb-2">
+                        <img src="{{ item.image_url }}" alt="" class="rounded-1 year-article-image">
+                    </div>
+                    <div class="col d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="text-uppercase fw-bold">{{ item.title }}</h3>
+                            <p class="">por <span class="fw-bold">{% if item.author == "" %} NC {% endif %} {% if item.author != "" %} {{ item.author }} {% endif %} </span></p>
+                            <p>
+                                {% if (item.title|length + item.author|length) > 60 %}
+                                    {{ item.content[:30] }}...
+                                {% else %}
+                                    {{ item.content[:90] }}...
+                                {% endif %}
+                            </p>
+                            
+                        </div>
+                        <a href="{{ url_for('news_item', article_id=item.id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-dark font-oswald text-uppercase mt-auto mb-2 text-end">Mais Detalhes</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>        
         {% endfor %}
-        </div>
-        <div class="col my-5">
-            JORNAL
-        </div>
     </div>
-    <div class="justify-content-center d-flex">
+    <div class="justify-content-center d-flex mt-5">
         {{ pagination.links }}
     </div>
+</div>
 
     <script src="{{ url_for('static', filename='index.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

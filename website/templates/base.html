@@ -25,7 +25,7 @@
         <div class="col-md-6">
             <div class="row">
                 <h1 class="text-start fw-bold display-3 mb-0 text-uppercase ms-2"><span class="text-danger fw-bold display-1">N</span>otícias da <span class="text-danger fw-bold display-1">C</span>ovilhã</h1>
-                <h6 class="ms-2">O <span class="text-decoration-underline underline-offset-2">Arquivo Web</span> do semanário mais antigo do Distrito de Castelo Branco</h6>
+                <h6 class="ms-2 fw-thin">O <span class="text-decoration-underline underline-offset-2">Arquivo Web</span> do semanário mais antigo do Distrito de Castelo Branco</h6>
            </div>
         </div>
         <div class="col-md-6 mt-2 text-end">
@@ -36,6 +36,87 @@
         </div>
         
     </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container ms-0">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('seccoes', this)">SECÇÕES</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('local', this)">LOCAL</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('canais', this)">CANAIS</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('opiniao', this)">OPINIÃO</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('editorial', this)">EDITORIAL</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#">MAIS POPULARES</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#">MULTIMEDIA</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('anos', this)">ANOS</button>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-uppercase fw-bold" href="#">?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>      
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" id="secondaryNavMain" style="display: none;">
+            <div class="container">
+                <ul class="navbar-nav me-auto" id="secondaryNav">
+                    <li class="nav-item secondary-nav-item" id="seccoesItem">
+                        <a class="nav-link d-inline" href="#">CENTRAIS</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">ACTUALIDADE</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">DESPORTO</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">RELIGIÃO</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">CULTURA</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">ASSOCIATIVISMO</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">ECONOMIA</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">AGENDA</a>
+                    </li>
+                    
+                    <li class="nav-item secondary-nav-item" id="localItem">
+                        <a class="nav-link d-inline" href="#">Link 1</a>
+                      
+                        <a class="nav-link d-inline" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item secondary-nav-item" id="canaisItem">
+                        <a class="nav-link d-inline" href="#">Link 1</a>
+                        <a class="nav-link d-inline" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item secondary-nav-item" id="anosItem">
+                        {% for year in range(2019, 2008, -1) %}
+                            <a class="nav-link d-inline" href="{{ url_for('news_per_year', year=year) }}">{{ year }}</a>
+                            <span class="vertical-line">|</span>
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
     {% block content %}{% endblock %}
     <div class="bg-dark">
        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 mt-5 pt-4 border-top text-white">

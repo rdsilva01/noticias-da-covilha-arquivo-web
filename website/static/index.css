@@ -217,3 +217,26 @@ h1,h2,h3,h4,h5,h6, .nav-link{
   .hidden {
     display: none !important;
 }
+
+.year-article-image {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+
+/*PAGINATION*/
+    /* Custom pagination styles */
+    .pagination > .page-item > .page-link {
+        color: #2f2f2f; /* Change the color to your desired color */
+    }
+
+    .pagination > .page-item.active > .page-link {
+        background-color: #2c2c2c; /* Change the background color of the active page */
+        border-color: #2c2c2c; /* Change the border color of the active page */
+        color: white;
+    }
+
+    .pagination > .page-item.disabled > .page-link {
+        color: #6c757d; /* Change the color of disabled pagination links */
+    }

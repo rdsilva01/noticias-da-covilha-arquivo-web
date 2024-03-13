@@ -95,12 +95,14 @@ def news_item(article_id):
     
 @app.route('/news/year=<int:year>')
 def news_per_year(year):
+    current_date = datetime.today()
+    
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
     news, total = paginacao(page, per_page, year)
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap5')
-    return render_template('news_per_year.html', news=news, pagination=pagination, year=year)
+    return render_template('news_per_year.html', news=news, pagination=pagination, year=year, current_date=current_date)
 
 
 def calculate_years_ago(date_str):
