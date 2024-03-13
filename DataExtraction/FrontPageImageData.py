@@ -21,7 +21,7 @@ def get_front_page_image_data_year_algorithm(year, json_file, first_date=None, d
     urls = data[str(year)]
     front_page_dict = {}
 
-    # Set the first date manually or using the provided argument
+    # set the date manually or with an argument
     if first_date is not None:
         current_date = datetime.strptime(first_date, "%Y-%m-%d")
     else:
@@ -38,7 +38,6 @@ def get_front_page_image_data_year_algorithm(year, json_file, first_date=None, d
                 delta_days = url_number - int(previous_key)
                 current_date += timedelta(days=delta_days*7) # each number of the front page means a week, so from 1001 to 1002, the +1 is 7 days!  
 
-            # Format date
             formatted_date = current_date.strftime("%Y-%m-%d")
             front_page_dict[formatted_date] = url
 
@@ -99,11 +98,8 @@ def get_front_page_image_data_year_ocr(year, json_file, debug=True):
             # reconvertendo o retorno do threshold em um objeto do tipo PIL.Image
             binimagem = Image.fromarray(thresh) 
 
-            # chamada ao tesseract OCR por meio de seu wrapper
             text = pytesseract.image_to_string(binimagem)
-
-            # text = pytesseract.image_to_string(img)  # OCR
-
+            
             date_pattern = r'(\d{1,2}) DE ([A-Z]+) DE (\d{4})'
             matches = re.findall(date_pattern, text)  # to get the date only
             
@@ -135,7 +131,7 @@ def get_front_page_image_data_year_ocr(year, json_file, debug=True):
     ordered_dict = dict(sorted(front_page_dict.items()))
     return ordered_dict
     
-def get_front_page_image_data(s_year, e_year, debug=True, ocr=False):
+def get_front_page_image_data(s_year, e_year, debug=True, ocr=True):
     execution_time_dict = {}
     main_page_dataset = {}
     
@@ -173,3 +169,61 @@ def get_front_page_image_data(s_year, e_year, debug=True, ocr=False):
             execution_time_dict.update(execution_time_dict_tmp)
     
     return execution_time_dict
+
+def get_front_page_data_manual(year):
+    folder_name = "data_{}/capa_{}".format(year, year)
+    folder_path = "../data/{}".format(folder_name)
+
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
+    file_path = os.path.join(folder_path, "capa_{}.json".format(year))
+    data_dict = {}
+
+    # Check if the file already exists
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
+            data_dict = json.load(file)
+
+    num_capas = int(input("NÚMERO DE CAPAS: "))
+    
+    for _ in range(num_capas):
+        date_input = input("DATA (YYYY-MM-DD): ")
+        url_input = input("URL: ")
+        num_attributes = int(input("NÚMERO DE NOTÍCAS: "))
+        num_pubs = int(input("NÚMERO DE PUBLICIDADES: "))
+        
+        # Create a dictionary for the current date
+        date_dict = {
+            "url": url_input,
+            "attributes": [],
+            "pubs": []
+        }
+        
+        # Input news (attributes)
+        attribute_list = []
+        for _ in range(num_attributes):
+            attribute = input("NOTÍCIA {}: ".format(_ + 1))
+            attribute_list.append(attribute)
+        date_dict["attributes"] = attribute_list
+
+        # Input advertisements (publicities) with empty image file names
+        pubs_list = []
+        for _ in range(num_pubs):
+            pub = input("PUBLICIDADE {}: ".format(_ + 1))
+            pubs_list.append({"ad_name": pub, "image_file": ""}) 
+        date_dict["pubs"] = pubs_list
+
+        # Add the date_dict to data_dict
+        data_dict[date_input] = date_dict
+
+        # Save the updated data to the file
+        with open(file_path, "w") as file:
+            json.dump(data_dict, file, indent=4, ensure_ascii=False)
+        
+# Example usage:
+get_front_page_data_manual(2011)
+
+
+
+

@@ -1,0 +1,360 @@
+
+{% extends "base.html" %}
+
+{% block title %}Arquivo Web @ Notícias da Covilhã{% endblock %}
+
+{% block content %}
+    <div class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container ms-0">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('seccoes', this)">SECÇÕES</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('local', this)">LOCAL</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('canais', this)">CANAIS</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('opiniao', this)">OPINIÃO</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('editorial', this)">EDITORIAL</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#">MAIS POPULARES</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#">MULTIMEDIA</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" href="#" onclick="toggleSecondaryNav('anos', this)">ANOS</button>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-uppercase fw-bold" href="#">?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>      
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" id="secondaryNavMain" style="display: none;">
+            <div class="container">
+                <ul class="navbar-nav me-auto" id="secondaryNav">
+                    <li class="nav-item secondary-nav-item" id="seccoesItem">
+                        <a class="nav-link d-inline" href="#">CENTRAIS</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">ACTUALIDADE</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">DESPORTO</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">RELIGIÃO</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">CULTURA</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">ASSOCIATIVISMO</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">ECONOMIA</a>
+                        <span class="vertical-line">|</span>
+                        <a class="nav-link d-inline" href="#">AGENDA</a>
+                    </li>
+                    
+                    <li class="nav-item secondary-nav-item" id="localItem">
+                        <a class="nav-link d-inline" href="#">Link 1</a>
+                      
+                        <a class="nav-link d-inline" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item secondary-nav-item" id="canaisItem">
+                        <a class="nav-link d-inline" href="#">Link 1</a>
+                        <a class="nav-link d-inline" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item secondary-nav-item" id="anosItem">
+                        {% for year in range(2019, 2008, -1) %}
+                            <a class="nav-link d-inline" href="{{ url_for('news_per_year', year=year) }}">{{ year }}</a>
+                            <span class="vertical-line">|</span>
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--<div class="container mt-4">
+            <div class="row">
+                {% for date, data in news_front_page.items() %}
+                <div class="col-md-3">
+                    <h2>{{ date }}</h2>
+                    {% if 'url' in data %}
+                        <div class="front-page-image">
+                            <img src="{{ data.url }}" alt="Image" class="img-fluid mb-2">
+                        </div>
+                    {% endif %}
+           
+                </div>
+                {% endfor %}
+            </div>
+        </div>-->
+        
+    
+        <div class="bg-dark">
+            <div class="row d-flex justify-content-center">
+                <hr class="custom-margin-transparent-b-lg">
+                <h1 class="text-center text-uppercase fw-bold display-4 text-light"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-clock-history mb-2" viewBox="0 0 16 16">
+                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
+                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
+                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
+                </svg>&nbsp;Pela Curiosidade!</h1>
+                <h5 class="text-uppercase text-center fw-normal text-light opacity-75">Quer pesquisar mais artigos do Notícias da Covilhã? </h5>
+                <form class="d-flex h-5 px-4 col-12 col-md-6 mt-4" role="search">
+                    <input class="form-control rounded rounded-1 border border-black me-1" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput">
+                    <button class="btn btn-outline-success rounded-1 px-5" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="text-center font-montserrat">
+                    <button type="button" class="btn btn-link mt-3 px-3 text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase fw-bold" id="showFiltersBtn" onclick="toggleFilters()">Opções Avançadas</button>
+                </div>
+            </div>
+            
+            <div class="container justify-content-center filters-container mt-4" style="display: none;">
+                <div class="row text-light ">
+                    <div class="col">
+                        <p class="font-montserrat fw-bold text-uppercase">Procurar por</p>
+                        <div class="form-check mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="checkbox-wrapper-23 me-2">
+                                    <input type="checkbox" id="category1" form="searchForm">
+                                    <label for="category1" style="--size: 25px">
+                                        <svg viewBox="0,0,50,50">
+                                            <path d="M5 20 L 20 35 L 45 5"></path>
+                                        </svg>
+                                    </label>
+                                </div>
+                                <p class="m-0">Texto</p>
+                            </div>
+                        </div>
+                        <div class="form-check mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="checkbox-wrapper-23 me-2">
+                                    <input type="checkbox" id="category2" form="searchForm">
+                                    <label for="category2" style="--size: 25px">
+                                        <svg viewBox="0,0,50,50">
+                                            <path d="M5 20 L 20 35 L 45 5"></path>
+                                        </svg>
+                                    </label>
+                                </div>
+                                <p class="m-0">Autor</p>
+                            </div>
+                        </div>
+                        <div class="form-check mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="checkbox-wrapper-23 me-2">
+                                    <input type="checkbox" id="category3" form="searchForm">
+                                    <label for="category3" style="--size: 25px">
+                                        <svg viewBox="0,0,50,50">
+                                            <path d="M5 20 L 20 35 L 45 5"></path>
+                                        </svg>
+                                    </label>
+                                </div>
+                                <p class="m-0">Palavras-Chave</p>
+                            </div>
+                        </div>
+                        <!-- Add more checkboxes for categories -->
+                    </div>
+                    <div class="col">
+                        <div class="form-check form-check-inline mb-2">
+                            <input class="form-check-input" type="checkbox" id="location1" value="location1" form="searchForm">
+                            <label class="form-check-label" for="location1">Location 1</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-2">
+                            <input class="form-check-input" type="checkbox" id="location2" value="location2" form="searchForm">
+                            <label class="form-check-label" for="location2">Location 2</label>
+                        </div>
+                        <!-- Add more checkboxes for locations -->
+                    </div>
+                </div>
+            </div>
+            
+            
+            <hr class="custom-margin-transparent-t-huge">
+        </div>
+
+        <!-- SEMANÁRIO -->
+        <hr class="custom-margin-transparent-b-sm">
+        <div class="container">
+            <h1 class="text-start font-montserrat fw-light text-uppercase display-4 mb-3">Semanário</h1>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="row ">
+                        {% for i in range(num_articles) %}
+                            <div class="col-lg-4 {% if loop.index <= 3 %}col-12{% endif %} container article-middle mb-2 pt-1 {% if i >= 3 %}d-none{% endif %}">
+                                {% if i != 0 %}
+                                    <div class="text-center">
+                                        <img src="{{ news[i].image_url }}" class="semanario-article-image" alt="...">  
+                                    </div>
+                                
+                                    <h4 class="text-uppercase font-oswald fw-light text-start mt-1">
+                                        <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">{{ news[i].title }}</a>
+                                    </h4>
+                                    <span class="font-montserrat bg-secondary text-light"> &nbsp;{{news[i].date}}&nbsp;</span>
+                                    <p class="text-start font-montserrat fw-light">
+                                        {{ news[i].content[:180] }}{% if news[i].content|length > 180 %}...{% endif %}
+                                    </p>
+                                    {% if news[i].content|length > 180 %}
+                                    <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-dark font-oswald">MAIS DETALHES</a>
+                                    {% endif %}
+                                {% endif %}
+                                {% if i == 0 %}
+                                {% set first_date, first_data = news_front_page | dictsort | first %}
+                                <h3 class="text-uppercase bg-dark text-light font-oswald">&nbsp;Há <span class="bg-danger">{{ first_date | years_ago }}</span>  anos atrás...</h3>
+                                {% if 'url' in first_data %}
+                                    <div class="front-page-image">
+                                        <img src="{{ first_data.url }}" alt="Image" class="img-fluid">
+                                    </div>
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="container h-100 d-flex align-items-center justify-content-center">
+                        <p class="font-oswald text-center border bg-dark"><button id="verMaisBtn" class="p-3 fs-3 text-uppercase btn btn-link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">Ver Mais</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN NEWS -->
+        <hr class="custom-margin-transparent" id="mainNews">
+        <div class="bg-dark">
+            <hr class="custom-margin-transparent-b">
+            <div class="container text-light">
+                <h1 class="text-start font-montserrat fw-semibold text-uppercase display-4 mb-3">
+                    {{news[1].category}}{% if news[1].subcategory == "" %}o{%endif%} {% if news[1].subcategory != "" %} - {{news[1].subcategory}} {% endif %}
+                </h1>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="main-article mb-2 pt-1">
+                            <!-- Large image -->
+                            <img src="{{ news[1].image_url }}" class="img-fluid w-100 rounded" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="container text-start">
+                            <!-- Text content -->
+                            <span class="font-montserrat bg-light text-dark fs-5">&nbsp;{{news[1].date}}&nbsp;</span>
+                            <h1 class="lh-base text-uppercase font-oswald fw-light mt-1">
+                                <a href="{{ url_for('news_item', article_id=news[1].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">{{ news[1].title }}</a>
+                            </h1>
+                            <p class="font-montserrat fw-light fs-5" id="newsContent">{{ news[1].content[:500] }}{% if news[1].content|length > 500 %}...{% endif %} </p>
+                            {% if news[1].content|length > 500 %}
+                            <div class="text-end font-oswald text-uppercase fs-4">
+                                <p>&rightarrow; <a href="{{ url_for('news_item', article_id=news[1].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Continuar a leitura</a></p>
+                            </div>
+                            {% endif %} 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="custom-margin-transparent">
+        </div>
+
+        <hr class="custom-margin-transparent">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner border border-1 border-dark">
+                                {% for i in range(num_articles) %}
+                                <div class="carousel-item {% if i == 0 %}active{% endif %}">
+                                    <img src="{{ news[i].image_url }}" class="img-fluid" alt="...">
+                                    <div class="carousel-caption pt-3 pb-0">
+                                        <h3 class="text-uppercase fw-bold">{{ news[i].title }}</h3>
+                                        <div class="row">
+                                            <div class="col">
+                                                <h4 class="text-uppercase fw-semibold m-0 mb-2 text-start ms-4">{{ news[i].date }}</h4>
+                                            </div>
+                                            <div class="col">
+                                                <p class="fw-thin text-uppercase font-oswald text-end me-4">
+                                                    <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Mais Detalhes</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <h2 class="text-uppercase fw-bold text-center"> O Hoje de Antigamente</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {% set first_date, first_data = news_front_page | dictsort | first %}
+                    <h2 class="text-uppercase bg-secondary text-light">&nbsp;Há {{ first_date | years_ago }}  anos atrás...</h2>
+                    {% if 'url' in first_data %}
+                        <div class="front-page-image">
+                            <img src="{{ first_data.url }}" alt="Image" class="img-fluid">
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-3">
+                    {% for i in range(num_articles) %}
+                        <div class="container article-far-right mb-2 pt-1 border {% if i >= 5 %}d-none{% endif %}">
+                            <h4 class="text-uppercase fw-bold">{{ news[i].title }}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="text-uppercase fw-semibold">{{ news[i].date }}</h5>
+                                </div>
+                                <div class="col">
+                                    <p class="fw-thin text-uppercase font-oswald text-end me-4">
+                                        <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark">Mais Detalhes</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <p class="font-oswald text-center border bg-dark"><button id="verMaisBtn" class="fs-3 text-uppercase btn btn-link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">Ver Mais</button></p>
+                </div>                
+            </div>
+        </div>
+        
+        <hr class="custom-margin">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="col-md-3">
+                    <h1 class="text-uppercase text-center fw-bold">OPINIÃO</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='index.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% endblock %}
+

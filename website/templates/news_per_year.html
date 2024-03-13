@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}News Per Year{% endblock %}
+
+{% block content %}
+    <div class="text-align-start ms-3 mt-2">
+        <h6>Fundado em 1913</h6>
+    </div>
+    <h1 class="text-align-start ms-3 fw-bold display-2 mb-0"><span class="text-danger">N</span>otícias da <span class="text-danger">C</span>ovilhã</h1>
+    <h4 class="ms-3 text-uppercase"> &rightarrow;Arquivo Web</h4>
+    <div class="row">
+        <div class="col">
+        {% for item in news %}
+        <div class="card mx-5 my-5 border ">
+            <div class="col">
+                <img src="{{ item.image_url }}" alt="" class="rounded img-fluid" style="max-width: 400px;">
+         
+                <h2 class="text-uppercase fw-bold">{{ item.title }}</h2>
+                <p><strong>Autor:</strong> {{ item.author }}</p>
+                <p><strong>Categoria:</strong> {{ item.category }}</p>
+                <p><strong>Data:</strong> {{ item.date }}</p>
+                <p><strong>Snippet:</strong> {{ item.text_snippet }}</p>
+                <a href="{{ url_for('news_item', article_id=item.id, year=request.args.get('year')) }}" class="btn btn-primary">Read More</a>
+
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="col my-5">
+            JORNAL
+        </div>
+    </div>
+    <div class="justify-content-center d-flex">
+        {{ pagination.links }}
+    </div>
+
+    <script src="{{ url_for('static', filename='index.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% endblock %}

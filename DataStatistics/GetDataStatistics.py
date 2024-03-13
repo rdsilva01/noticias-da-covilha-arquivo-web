@@ -16,7 +16,7 @@ def get_data_spacy_statistics(year):
         
         total_entities = len(all_entities)
         unique_entities = len(entity_counter)
-        sorted_entities = entity_counter.most_common()  # Sort entities by count
+        sorted_entities = entity_counter.most_common()  # sort entities by count
         
         if year not in statistics_by_type:
             statistics_by_type[year] = {}

@@ -1,0 +1,219 @@
+body {
+    font-family: "Oswald", sans-serif;
+    overflow-y: auto; 
+    scrollbar-width: 0px; 
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+ .display-1, .display-2, .display-3 {
+    font-family: "Oswald", sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6, .nav-link{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.secondary-nav-item {
+    display: none;
+}
+.active-nav-item {
+    background-color: red; 
+}
+.vertical-line {
+    margin: 0 5px; 
+    color: #000;
+}
+
+.front-page-image img{
+    width: 100%;
+    height: 300;
+    transition: all 0.25s ease-in-out
+}
+
+.front-page-image:hover img{
+    transform: scale(1.03, 1.03);
+    cursor: pointer
+}
+
+.carousel-item img {
+    height: 500px;
+    width: 600px;
+    object-fit: cover;
+}
+
+.semanario-article-image {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+}
+
+.semanario-article-image-front-page {
+    width: 320px;
+    height: 480px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+}
+
+.custom-margin {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    color: black;
+    /*opacity: 0.20;*/ 
+   /* width: 50%;
+    margin-left: auto;
+    margin-right: auto;*/
+}
+
+.custom-margin-transparent {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-b {
+    margin-bottom: 70px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-t {
+    margin-top: 70px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-sm {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-b-sm {
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-t-sm {
+    margin-top: 30px;
+    color: rgba(0, 0, 0, 0);
+}
+
+
+.custom-margin-transparent-lg {
+    margin-top: 150px;
+    margin-bottom: 150px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-b-lg {
+    margin-bottom: 150px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-t-lg {
+    margin-top: 150px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-huge {
+    margin-top: 220px;
+    margin-bottom: 220px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-b-huge {
+    margin-bottom: 220px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.custom-margin-transparent-t-huge {
+    margin-top: 235px;
+    color: rgba(0, 0, 0, 0);
+}
+
+
+.font-oswald {
+    font-family: "Oswald", sans-serif;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;;
+}
+
+.main-image {
+    width: 100%; 
+    height: auto; 
+    max-height: 500px;
+    display: block; 
+    margin: 0 auto; 
+    object-fit: cover;
+}
+
+#newsContent:first-letter {
+    font-size: 3em; 
+    line-height: 1; 
+    font-weight: bold;
+}
+
+
+  .checkbox-wrapper-23 *,
+  .checkbox-wrapper-23 *:after,
+  .checkbox-wrapper-23 *:before {
+    box-sizing: border-box;
+  }
+
+  .checkbox-wrapper-23 input {
+    position: absolute;
+    opacity: 0;
+  }
+    
+  .checkbox-wrapper-23 input:checked + label svg path {
+    stroke-dashoffset: 0;
+  }
+    
+  .checkbox-wrapper-23 input:focus + label {
+    transform: scale(1.03);
+  }
+
+  .checkbox-wrapper-23 input + label {
+    display: block;
+    border: 2px solid #ffffff;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+    
+  .checkbox-wrapper-23 input + label:active {
+    transform: scale(1.05);
+    border-radius: 12px;
+  }
+    
+  .checkbox-wrapper-23 input + label svg {
+    pointer-events: none;
+    padding: 5%;
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(3000%) contrast(119%);
+  }
+
+  .checkbox-wrapper-23 input + label svg path {      
+    fill: none;     
+    stroke: #333;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 101;
+    transition: all 250ms cubic-bezier(1,0,.37,.91);
+  }
+
+  .hidden {
+    display: none !important;
+}

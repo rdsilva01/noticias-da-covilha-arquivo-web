@@ -10,7 +10,7 @@ def sort_data(input_file, output_file, year):
 
     for i, article in enumerate(data):
         if "date" in article:
-            # Add 'id' as an attribute to the article dictionary
+            # adding 'id' as an attribute to the article dictionary
             article_id = f"{year}-{i}"
             article["id"] = article_id
             sorted_articles.append(article)

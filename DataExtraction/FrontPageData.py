@@ -12,7 +12,7 @@ def get_news_front(json_file, headers, year, debug=True):
         data = json.load(f)
 
     url_list = data[str(year)]
-    main_url_dict = {}  # Use a dictionary to store unique URLs with their corresponding content
+    main_url_dict = {} 
     
     for i, url in enumerate(url_list):
         page = requests.get(url, headers=headers)
