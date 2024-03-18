@@ -1,0 +1,46 @@
+{
+    "2009": {
+        "news_page_data_validation_time": 0.0,
+        "news_page_data_validation_len": 54
+    },
+    "2010": {
+        "news_page_data_validation_time": 0.04,
+        "news_page_data_validation_len": 438
+    },
+    "2011": {
+        "news_page_data_validation_time": 0.04,
+        "news_page_data_validation_len": 482
+    },
+    "2012": {
+        "news_page_data_validation_time": 0.05,
+        "news_page_data_validation_len": 353
+    },
+    "2013": {
+        "news_page_data_validation_time": 0.02,
+        "news_page_data_validation_len": 252
+    },
+    "2014": {
+        "news_page_data_validation_time": 0.01,
+        "news_page_data_validation_len": 155
+    },
+    "2015": {
+        "news_page_data_validation_time": 0.01,
+        "news_page_data_validation_len": 205
+    },
+    "2016": {
+        "news_page_data_validation_time": 0.01,
+        "news_page_data_validation_len": 232
+    },
+    "2017": {
+        "news_page_data_validation_time": 0.0,
+        "news_page_data_validation_len": 59
+    },
+    "2018": {
+        "news_page_data_validation_time": 0.01,
+        "news_page_data_validation_len": 105
+    },
+    "2019": {
+        "news_page_data_validation_time": 0.02,
+        "news_page_data_validation_len": 472
+    }
+}

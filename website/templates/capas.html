@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Capas
+{% endblock %}
+
+{% block content %}
+<div class="bg-light">
+    <div class="bg-dark row">
+        <div class="container text-center">
+            <hr class="custom-margin-transparent-sm">
+            <div class="container">
+                <h1 class="text-light news-per-year-title font-oswald d-inline-block">CAPAS</h1>
+            </div>
+            <h4 class="text-light fw-light mt-4">foi possível a recolha de um total de <span class="fs-2">X</span> capas</h4>
+            <hr class="custom-margin-transparent-sm">
+        </div>
+        <hr class="custom-margin-transparent-sm">
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            {% for date, news_info in all_news_data %}
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-5 mt-5">
+                <div class="text-center">
+                    <h1 class="card-title font-oswald fw-normal border border-2 border-dark px-1 display-3">{{ date }}</h1>
+                    <img src="{{ news_info['url'] }}" class="card-img-top" alt="News Image">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="justify-content-center d-flex mt-5 ">
+        {{ pagination.links }}
+    </div>
+    <hr class="custom-margin-transparent-t">
+</div>
+{% endblock %}

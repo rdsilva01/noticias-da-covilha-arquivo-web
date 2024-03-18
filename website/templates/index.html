@@ -20,26 +20,32 @@
                 {% endfor %}
             </div>
         </div>-->
-        
-    
+
         <div class="bg-dark">
             <div class="row d-flex justify-content-center">
                 <hr class="custom-margin-transparent-b-huge" id="pelaCuriosidade">
-                <h1 class="text-center text-uppercase fw-bold display-4 text-light"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-clock-history mb-2" viewBox="0 0 16 16">
+                <h1 class="text-center text-uppercase fw-normal display-1 text-light font-oswald">
+                    <!--<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-clock-history mb-2" viewBox="0 0 16 16">
                     <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
                     <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
                     <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
-                </svg>&nbsp;Pela Curiosidade!</h1>
-                <h5 class="text-uppercase text-center fw-normal text-light opacity-75">Quer pesquisar mais artigos do Notícias da Covilhã? </h5>
-                <form class="d-flex h-5 px-4 col-12 col-md-6 mt-4" role="search">
-                    <input class="form-control rounded rounded-1 border border-black me-1" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput">
-                    <button class="btn btn-outline-danger rounded-1 px-5" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                    </svg>-->
+                Pela <span class="border-bottom border-danger border-3 px-1 lh-base">Curiosidade!</span></h1>
+                <h5 class="text-uppercase text-center fw-normal text-light opacity-75 mt-3">Quer pesquisar mais artigos do Notícias da Covilhã? </h5>
+                <form class="d-flex h-5 px-4 col-12 col-md-6 mt-4" action="/pelacuriosidade" method="GET" role="search">
+                    <input class="form-control rounded rounded-1 border border-black me-1" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput" name="query">
+                    <button class="btn btn-outline-danger rounded-1 px-5" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                         </svg>
-                    </button> <!--btn-outline-success-->
+                    </button>
                 </form>
                 <div class="text-center font-oswald fw-light">
-                    <button type="button" class="btn btn-link mt-3 px-3 text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase" id="showFiltersBtn" onclick="toggleFilters()">Opções Avançadas</button>
+                    <button type="button" class="btn btn-link mt-3 px-3 text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase" id="showFiltersBtn" onclick="toggleFilters()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-gear-wide-connected text-light" viewBox="0 0 16 16">
+                            <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z"/>
+                          </svg>
+                    </button>
                 </div>
             </div>
             
@@ -131,14 +137,14 @@
                                         </div>
                                     
                                         <h4 class="text-uppercase font-oswald fw-light text-start mt-1">
-                                            <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">{{ news[i].title }}</a>
+                                            <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">{{ news[i].title }}</a>
                                         </h4>
                                         <span class="font-montserrat bg-secondary text-light"> &nbsp;{{news[i].date}}&nbsp;</span>
                                         <p class="text-start font-montserrat fw-light">
                                             {{ news[i].content[:180] }}{% if news[i].content|length > 180 %}...{% endif %}
                                         </p>
                                         {% if news[i].content|length > 180 %}
-                                        <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-dark font-oswald">MAIS DETALHES</a>
+                                        <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-dark font-oswald">MAIS DETALHES</a>
                                         {% endif %}
                                     {% endif %}
                                     {% if i == 0 %}
@@ -183,7 +189,7 @@
                     <div class="col-md-7">
                         <div class="main-article mb-2 pt-1">
                             <!-- Large image -->
-                            <img src="{{ news[1].image_url }}" class="w-100 rounded main-article-image" alt="...">
+                            <img src="{{ news[1].image_url }}" class="w-100 rounded-1 main-article-image" alt="...">
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -191,12 +197,12 @@
                             <!-- Text content -->
                             <span class="font-montserrat bg-light text-dark fs-5">&nbsp;{{news[1].date}}&nbsp;</span>
                             <h1 class="lh-base text-uppercase font-oswald fw-light mt-1">
-                                <a href="{{ url_for('news_item', article_id=news[1].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">{{ news[1].title }}</a>
+                                <a href="{{ url_for('news_item', article_id=news[1].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">{{ news[1].title }}</a>
                             </h1>
                             <p class="font-montserrat fw-light fs-5" id="newsContent">{{ news[1].content[:500] }}{% if news[1].content|length > 500 %}...{% endif %} </p>
                             {% if news[1].content|length > 500 %}
                             <div class="text-end font-oswald text-uppercase fs-4">
-                                <p>&rightarrow; <a href="{{ url_for('news_item', article_id=news[1].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Continuar a leitura</a></p>
+                                <p>&rightarrow; <a href="{{ url_for('news_item', article_id=news[1].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Continuar a leitura</a></p>
                             </div>
                             {% endif %} 
                         </div>
@@ -224,7 +230,7 @@
                                             </div>
                                             <div class="col">
                                                 <p class="fw-thin text-uppercase font-oswald text-end me-4">
-                                                    <a href="{{ url_for('news_item', article_id=news[i].id, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Mais Detalhes</a>
+                                                    <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Mais Detalhes</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -264,7 +270,7 @@
                                 </div>
                                 <div class="col">
                                     <p class="fw-thin text-uppercase font-oswald text-end me-4">
-                                        <a href="{{ url_for('news_item', article_id=news[i].id) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark">Mais Detalhes</a>
+                                        <a href="{{ url_for('news_item', article_id=news[i].nid) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark">Mais Detalhes</a>
                                     </p>
                                 </div>
                             </div>

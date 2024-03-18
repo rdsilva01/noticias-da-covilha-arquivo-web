@@ -128,14 +128,14 @@ def get_news_data_func(url):
                             
                             for ent in doc.ents:
                                 if ent.label_ == "PER":
-                                    if ent.text not in [item['token'] for item in data_PER]:
-                                        data_PER.append({'token': ent.text})
+                                    if ent.text not in data_PER:
+                                        data_PER.append(ent.text)
                                 elif ent.label_ == "ORG":
-                                    if ent.text not in [item['token'] for item in data_ORG]:
-                                        data_ORG.append({'token': ent.text})
+                                    if ent.text not in data_ORG:
+                                        data_ORG.append(ent.text)
                                 elif ent.label_ == "LOC":
-                                    if ent.text not in [item['token'] for item in data_LOC]:
-                                        data_LOC.append({'token': ent.text})
+                                    if ent.text not in data_LOC:
+                                        data_LOC.append(ent.text)
                         
                         # KEYWORDS
                         content_plus_title = title
@@ -250,14 +250,14 @@ def get_news_data_func(url):
                                 
                         for ent in doc.ents:
                             if ent.label_ == "PER":
-                                if ent.text not in [item['token'] for item in data_PER]:
-                                    data_PER.append({'token': ent.text})
+                                if ent.text not in data_PER:
+                                    data_PER.append(ent.text)
                                 elif ent.label_ == "ORG":
-                                    if ent.text not in [item['token'] for item in data_ORG]:
-                                        data_ORG.append({'token': ent.text})
+                                    if ent.text not in data_ORG:
+                                        data_ORG.append(ent.text)
                                 elif ent.label_ == "LOC":
-                                    if ent.text not in [item['token'] for item in data_LOC]:
-                                        data_LOC.append({'token': ent.text})
+                                    if ent.text not in data_LOC:
+                                        data_LOC.append(ent.text)
                         
                 
             else:
@@ -339,4 +339,4 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
     return execution_time_dict
 
 
-get_news_data(2019, 2019)
+get_news_data(2010, 2019)

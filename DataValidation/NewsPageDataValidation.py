@@ -12,7 +12,7 @@ def sort_data(input_file, output_file, year):
         if "date" in article:
             # id
             article_id = f"{year}-{i}"
-            article["id"] = article_id
+            article["nid"] = article_id
             
             # formatted_content + html
             content_list = article["formatted_content"]

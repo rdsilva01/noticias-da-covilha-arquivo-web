@@ -1,6 +1,5 @@
 {
-    "2009-09-24": [
-        {
+    "2009-09-24": {
             "url": "https://arquivo.pt/noFrame/replay/20090927121705im_/http://material.noticiasdacovilha.pt///capas/5251_capa.jpg",
             "attributes": [
                 "UBI quer converter plástico em fertilizante",
@@ -14,27 +13,27 @@
                 "Covilhã recebe Braga para a Taça",
                 "Vitor Pereira (PS) \"Objetivo é ganhar\"",
                 "Jorge Fael (CDU) \"Fazemos falta na Câmara\""
-            ]
-        },
-        {
+            ],
             "pubs": [
-                "COVIALVI",
-                "PENHAS DA SAÚDE",
-                "JC&MARIO CARRIÇO",
-                "V-CAR SEAT SERVICE"
+                {
+                    "ad_name": "COVIALVI",
+                    "image_file": ""
+                },
+                {
+                    "ad_name": "PENHAS DA SAÚDE",
+                    "image_file": ""
+                },
+                {
+                    "ad_name": "JC&MARIO CARRIÇO",
+                    "image_file": ""
+                },
+                {
+                    "ad_name": "V-CAR SEAT SERVICE",
+                    "image_file": ""
+                }
             ]
-        },
-        {
-            "images": [
-                "2009_09_24/COVIALVI.png",
-                "2009_09_24/PENHAS_DA_SAUDE.png",
-                "2009_09_24/J&CMARIO_CARRICO.png",
-                "2009_09_24/VCAR_SEAT_SERVICE.png"
-            ]
-        }
-    ],
-    "2009-12-17": [
-        {   
+    },
+    "2009-12-17": { 
             "url": "https://arquivo.pt/noFrame/replay/20091219001830im_/http://material.noticiasdacovilha.pt///capas/5263_capa.jpg",
             "attributes": [
                 "Não ao aumento do preço da água\\n Onze dos 16 municípios que integram a Águas do Zêzere e Côa mostram-se contra o possível aumento do preço da água em 2010",
@@ -47,15 +46,24 @@
                 "Bispo lembra o direito à vida",
                 "Leões perdem pontos em casa",
                 "Bienal da Azeitona de Mesa em 2010 na Covilhã"
-            ]
-        },
-        {
+            ],
             "pubs": [
-                "COVIALVI",
-                "PENHAS DA SAÚDE",
-                "JC&MARIO CARRIÇO",
-                "ABREU"
+                {
+                    "ad_name": "COVIALVI",
+                    "image_file": ""
+                },
+                {
+                    "ad_name": "PENHAS DA SAÚDE",
+                    "image_file": ""
+                },
+                {
+                    "ad_name": "JC&MARIO CARRIÇO",
+                    "image_file": ""
+                },
+                {
+                    "ad_name": "ABREU",
+                    "image_file": ""
+                }
             ]
         }
-    ]
 }

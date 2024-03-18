@@ -1,0 +1,251 @@
+[
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20160226180211/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3001",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20160226181429im_/http://media.noticiasdacovilha.pt///capas/5572_primeira.jpg",
+        "title": "Estrada da Quinta Branca já não vai levar camada para regularizar o piso",
+        "date": "2016-02-25",
+        "image_url": "https://arquivo.pt/noFrame/replay/20160226181429im_/http://media.noticiasdacovilha.pt///multimedia/estrada 2.jpg",
+        "image_desc": "estrada 2",
+        "paragraph": "Vítor Pereira considera que seria \"malbaratar dinheiro público\" gastar 150 mil euros numa solução provisória Vítor Pereira, presidente da Câmara da Covilhã, considera ter-se \"precipitado\" quando anunciou aos moradores da Quinta Branca que ia colocar uma camada no piso da Estrada Municipal 506, por ter verificado que a intervenção rondaria os 150 mil euros e entender que seria \"malbaratar\" dinheiro público para uma solução provisória, que duraria no máximo dois anos até a via estar novamente degradada. O edil informou na reunião pública da passada sexta-feira, 17, que mudou de ideias. A solução, até haver verbas para se poder fazer uma intervenção de fundo na estrada, com a correção de curvas e a melhoria do traçado e do piso, passa por ir verificar aquele troço \"regularmente e atentamente\" para ir tapando os buracos. Marco Gabriel, presidente da Junta de Freguesia da Boidobra, afirma receber a notícia \"com desagrado\". \"Não estávamos nada à espera\", realça o autarca, para quem ir tapando os buracos de uma estrada em tão mau estado \"não é solução\". (Artigo completo na edição impressa)",
+        "author": "Ana Ribeiro Rodrigues",
+        "text_snippet": "Vítor Pereira considera que seria \"malbaratar dinheiro público\" gastar 150 mil euros numa solução provisória",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "provisória Vítor Pereira",
+            "Vítor Pereira considera",
+            "malbaratar dinheiro público",
+            "Vítor Pereira",
+            "solução provisória Vítor",
+            "Câmara da Covilhã",
+            "dinheiro público",
+            "Pereira considera",
+            "provisória Vítor",
+            "malbaratar dinheiro"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Vítor Pereira"
+            },
+            {
+                "token": "Marco Gabriel"
+            },
+            {
+                "token": "Ana Ribeiro Rodrigues"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Junta de Freguesia da Boidobra"
+            },
+            {
+                "token": "autarca"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Câmara da Covilhã"
+            },
+            {
+                "token": "Quinta Branca"
+            },
+            {
+                "token": "Estrada Municipal"
+            }
+        ],
+        "spacy_entities_misc": []
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20160720170215/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=3113",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20160720171905im_/http://media.noticiasdacovilha.pt///capas/1_5593_primeira.jpg",
+        "title": "José Mendes assume objectivo da subida",
+        "date": "2016-06-08",
+        "image_url": "https://arquivo.pt/noFrame/replay/20160720171905im_/http://media.noticiasdacovilha.pt///multimedia/jos%C3%A9%20mendes%20site.jpg",
+        "image_desc": "josé mendes site",
+        "paragraph": "Presidente serrano define como objectivo para a próxima temporada a promoção ao principal escalão do futebol nacional O objectivo do Sporting da Covilhã na próxima época é a subida à I Liga de futebol. A ambição foi assumida pelo presidente, José Mendes, durante o jantar do 93.º aniversário do clube, perante cerca de 400 sócios e convidados presentes na unidade hoteleira em Unhais da Serra, que aplaudiram efusivamente o dirigente serrano. \"Garantimos que os novos desafios continuarão a ser encarados com a mesma coragem e determinação com que foram ultrapassados os obstáculos do passado. Saberemos trilhar o caminho que conduzirá o clube ao sucesso. Na próxima época, lutaremos pela subida à I Liga, com o apoio de toda a cidade\", acentuou José Mendes, na noite da passada quinta-feira, 2. O presidente dos \"leões da serra\", que em épocas anteriores não assumiu claramente esse objetivo, deixou os sócios satisfeitos com o anúncio de que a equipa tem os olhos postos na promoção ao principal escalão do futebol nacional, embora avise que não há apoios nem condições para aumentar o orçamento. Minutos antes Filipe Gouveia, o novo treinador, foi mais cauteloso, ao informar que pretendia formar uma equipa que andasse na primeira metade da tabela para, cumprido esse desígnio, em Dezembro os objetivos serem redefinidos. \"Acreditamos que vamos fazer um grupo forte, uma equipa boa, para andarmos do meio da tabela para cima. Se conseguirmos esse objectivo, queremos em Dezembro reformular os objectivos e pensar em algo mais\", disse o técnico, após ser apresentado aos sócios. (Peça completa na edição papel)",
+        "author": "Ana Ribeiro Rodrigues",
+        "text_snippet": "Presidente serrano define como objectivo para a próxima temporada a promoção ao principal escalão do futebol nacional",
+        "category": "Secções",
+        "sub_category": "Desporto",
+        "keywords": [
+            "Sporting da Covilhã",
+            "Presidente serrano define",
+            "José Mendes",
+            "acentuou José Mendes",
+            "serrano define",
+            "Unhais da Serra",
+            "Sporting",
+            "Covilhã",
+            "Presidente serrano",
+            "principal escalão"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "José Mendes"
+            },
+            {
+                "token": "Filipe Gouveia"
+            },
+            {
+                "token": "Ana Ribeiro Rodrigues"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Sporting da Covilhã"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Unhais da Serra"
+            },
+            {
+                "token": "Dezembro"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "O objectivo"
+            },
+            {
+                "token": "I Liga"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20160808170211/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=3123",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20160808171655im_/http://media.noticiasdacovilha.pt///capas/1_5593_primeira.jpg",
+        "title": "Santos Silva suspende mandato",
+        "date": "2016-07-06",
+        "image_url": "https://arquivo.pt/noFrame/replay/20160808171655im_/http://media.noticiasdacovilha.pt///multimedia/primeira grande.jpg",
+        "image_desc": "primeira grande",
+        "paragraph": "Por período de um ano. Oposição diz ser sinal de desnorte da autarquia O presidente da Assembleia Municipal da Covilhã, Santos Silva, suspendeu por 365 dias o seu mandato à frente deste órgão. Partidos da oposição já reagiram à decisão. A secção do PSD da Covilhã acusa o executivo municipal covilhanense de \"falta de rumo estratégico\". \"A história da demissão anunciada comprova a falta de saber estar democrático. A Covilhã não pode ficar refém dos interesses pessoais e políticos de meia dúzia de eleitos locais. Anunciar a suspensão por 365 dias é um acto de profundo desrespeito pelos eleitores covilhanenses\", afirma, em comunicado, a comissão política de sessão do PSD Covilhã. Para o Movimento Acreditar Covilhã (MAC) a suspensão do mandato por parte do presidente da Assembleia Municipal da Covilhã, Manuel Santos Silva, é \"mais um momento de total desorientação desta gestão municipal\". A segunda força mais votada nas últimas eleições autárquicas diz que a as razões para a suspensão do mandato pelo período máximo permitido \"são conhecidas de todos\". \"Os processos que envolvem a família do senhor Professor Santos Silva e a Câmara Municipal da Covilhã\", acrescenta o MAC, aludindo ao acordo \"com contornos menos claros\" celebrado entre ambas as partes a propósito de uns terrenos no Canhoso. (Mais informação na edição papel)",
+        "author": "NC",
+        "text_snippet": "Por período de um ano. Oposição diz ser sinal de desnorte da autarquia",
+        "category": "Secções",
+        "sub_category": "Actualidade",
+        "keywords": [
+            "Santos Silva",
+            "Covilhã",
+            "Assembleia Municipal",
+            "Manuel Santos Silva",
+            "Professor Santos Silva",
+            "Municipal",
+            "Movimento Acreditar Covilhã",
+            "Municipal da Covilhã",
+            "presidente da Assembleia",
+            "PSD Covilhã"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Santos Silva"
+            },
+            {
+                "token": "Manuel Santos Silva"
+            },
+            {
+                "token": "Professor Santos Silva"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Oposição"
+            },
+            {
+                "token": "Partidos"
+            },
+            {
+                "token": "PSD"
+            },
+            {
+                "token": "PSD Covilhã"
+            },
+            {
+                "token": "Movimento Acreditar Covilhã"
+            },
+            {
+                "token": "MAC"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Assembleia Municipal da Covilhã"
+            },
+            {
+                "token": "Covilhã"
+            },
+            {
+                "token": "Câmara Municipal da Covilhã"
+            },
+            {
+                "token": "Canhoso"
+            },
+            {
+                "token": "NC"
+            }
+        ],
+        "spacy_entities_misc": []
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20161016170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3139",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20161016171641im_/http://media.noticiasdacovilha.pt///capas/1_5605_primeira.jpg",
+        "title": "Externato fecha",
+        "date": "2016-09-14",
+        "image_url": "https://arquivo.pt/noFrame/replay/20161016171641im_/http://media.noticiasdacovilha.pt///multimedia/externato.jpg",
+        "image_desc": "externato",
+        "paragraph": "No Tortosendo Fim. O Externato de Nossa Senhora dos Remédios, no Tortosendo, não reabre portas no início deste ano lectivo. Alegadamente, por falta de alunos. E devido à política que o Governo tem seguido de não renovação dos contratos de associação. A notícia foi confirmada na passada semana pelo presidente da Câmara da Covilhã, Vítor Pereira. \"É uma situação que lamentamos, como lamentamos todas as situações idênticas que ocorrem na nossa região e no nosso País. Mas a Câmara da Covilhã, neste caso concreto, não tem capacidade. E à semelhança de outras, não estou a ver como uma Câmara se pode substituir a uma entidade privada para que seja ministrado ensino\". Vítor Pereira destaca a importância do colégio durante anos, quando as alternativas públicas eram escassas. Mas frisa que a situação mudou. \"Efectivamente existem alternativas públicas. Por mais que no caso concreto fosse justo manter aquele estabelecimento de ensino de portas abertas, porque ele serviu durante muitos anos enquanto não havia alternativas públicas, serviu as nossas populações, os nossos estudantes. E a verdade é que é triste ver um estabelecimento com aquela importância, com aquela dimensão, que outrora já teve, neste momento fechar portas. É sempre algo que não nos agrada constatar\". (Notícia completa na edição papel)",
+        "author": "João Alves",
+        "text_snippet": "No Tortosendo",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "Tortosendo",
+            "Vítor Pereira",
+            "Senhora dos Remédios",
+            "Câmara da Covilhã",
+            "Câmara",
+            "alternativas públicas",
+            "Covilhã",
+            "Vítor Pereira destaca",
+            "Pereira",
+            "alternativas"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Externato de Nossa Senhora dos Remédios"
+            },
+            {
+                "token": "Vítor Pereira"
+            },
+            {
+                "token": "Câmara"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [],
+        "spacy_entities_loc": [
+            {
+                "token": "Tortosendo Fim"
+            },
+            {
+                "token": "Tortosendo"
+            },
+            {
+                "token": "Governo"
+            },
+            {
+                "token": "Câmara da Covilhã"
+            },
+            {
+                "token": "País"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Notícia"
+            }
+        ]
+    }
+]

@@ -1,0 +1,292 @@
+[
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20110130160226/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=11&idartigo=1082",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20110130162201im_/http://material.noticiasdacovilha.pt///capas/5319_primeira.jpg",
+        "title": "Gripe A já foi embora",
+        "date": "2011-01-19",
+        "image_url": "https://arquivo.pt/noFrame/replay/20110130162201im_/http://material.noticiasdacovilha.pt///multimedia/gripe a site.jpg",
+        "image_desc": "gripe a site",
+        "paragraph": "Após casos da semana passada, hospital já não regista mais nenhuma pessoa infectada com o vírus O Hospital Sousa Martins da Guarda não regista novos casos de gripe A desde a semana passada, estando a situação \"ultrapassada\", disse esta semana à Lusa fonte do conselho de administração (CA) da Unidade Local de Saúde (ULS). Segundo Fernando Girão, presidente do conselho de administração da ULS da Guarda, nas duas últimas semanas foram detetados 33 casos de gripe A, sendo 18 entre profissionais e 15 de doentes mas \"neste momento é uma situação completamente ultrapassada\". O responsável adiantou que os profissionais que foram infetados pelo vírus \"já estão a trabalhar\" e que não há casos de doentes a ser acompanhados. \"Nunca mais apareceram novos casos e, portanto, penso que está debelada toda a situação\", disse o responsável, recordando que as últimas situações de análises com resultado positivo na gripe A ocorreram no início da semana passada. Fernando Girão observou que apesar de não haver registo de novos casos, o panorama poderá alterar-se de um momento para o outro, daí que a ULS esteja a promover uma campanha de vacinação junto dos utentes e dos profissionais do Hospital da Guarda que não tomaram a vacina da gripe. \"Neste momento, a grande preocupação é a vacinação\", dos profissionais e dos utentes, nomeadamente daqueles que integram \"situações de risco\", disse. O responsável adiantou que \"da parte dos utentes tem havido alguma procura\" da vacina, mas em relação aos profissionais da unidade de saúde, essa procura é \"bastante lenta\". Para a resistência apresentada pelos profissionais aponta razões relacionadas com \"situações alarmistas por alguns efeitos colaterais que foram surgindo\" que terão, eventualmente, \"inibido os profissionais a tomarem a vacina\". O presidente do CA da ULS da Guarda recordou que durante o surto da gripe A, que atingiu profissionais do Serviço de Medicina Interna, o hospital funcionou \"normalmente\", com recurso à \"reorganização das escalas\".",
+        "author": "Notícias da Covilhã",
+        "text_snippet": "Após casos da semana passada, hospital já não regista mais nenhuma pessoa infectada com o vírus",
+        "category": "Local",
+        "sub_category": "Guarda",
+        "keywords": [
+            "Hospital Sousa Martins",
+            "Sousa Martins",
+            "Martins da Guarda",
+            "Lusa fonte",
+            "Hospital Sousa",
+            "semana passada",
+            "ULS da Guarda",
+            "situação completamente ultrapassada",
+            "Fernando Girão",
+            "pessoa infectada"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Fernando Girão"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Lusa"
+            },
+            {
+                "token": "CA"
+            },
+            {
+                "token": "Unidade Local de Saúde"
+            },
+            {
+                "token": "CA da ULS da Guarda"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Hospital Sousa Martins da Guarda"
+            },
+            {
+                "token": "ULS"
+            },
+            {
+                "token": "ULS da Guarda"
+            },
+            {
+                "token": "Hospital da Guarda"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Serviço de Medicina Interna"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20110630150228/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=3&idartigo=1328",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20110630151532im_/http://media.noticiasdacovilha.pt///capas/5341_primeira.jpg",
+        "title": "O novo padre Rafael Neves",
+        "date": "2011-06-29",
+        "image_url": "https://arquivo.pt/noFrame/replay/20110630151532im_/http://media.noticiasdacovilha.pt///multimedia/padre rafael.jpg",
+        "image_desc": "padre rafael",
+        "paragraph": "Tem 25 anos, é natural de Vale de Estrela e é ordenado no domingo, 3, na Sé, padre Notícias da Covilhã: Como é que está a viver o facto de no próximo domingo, dia 3 de Julho, ser ordenado padre? Estou a viver estes dias que antecedem a minha ordenação presbiteral com a ansiedade natural de quem sente que está prestes a abraçar um enorme desafio, que nós não conseguimos abarcar totalmente: ser padre segundo o modelo de Jesus Cristo. O que o levou a optar por esta vocação? Falar de vocação é falar de felicidade. Assim, falar da minha opção pela vocação sacerdotal é falar da felicidade, enquanto caminho de realização pessoal no seguimento de Jesus. Sempre teve essa ideia, desde pequeno? O encontro com Deus que nos chama é sempre um encontro mediado. Eu diria que, no meu caso, esse encontro foi decididamente mediado desde muito cedo. Desde muito pequenino. Depois surgiram dúvidas e interrogações, que na minha caminhada desempenharam um papel importante. A sua família teve alguma influência nesta decisão? Sim. A paisagem de fundo da minha vocação é a minha família. (Entrevistas completas na edição papel)",
+        "author": "João Alves",
+        "text_snippet": "Tem 25 anos, é natural de Vale de Estrela e é ordenado no domingo, 3, na Sé, padre",
+        "category": "Secções",
+        "sub_category": "Religião",
+        "keywords": [
+            "Notícias da Covilhã",
+            "Vale de Estrela",
+            "natural de Vale",
+            "padre Notícias",
+            "ordenado padre",
+            "Jesus Cristo",
+            "domingo",
+            "Covilhã",
+            "Julho",
+            "ordenado no domingo"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Jesus Cristo"
+            },
+            {
+                "token": "Jesus"
+            },
+            {
+                "token": "Deus"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [],
+        "spacy_entities_loc": [
+            {
+                "token": "Vale de Estrela"
+            },
+            {
+                "token": "Sé"
+            },
+            {
+                "token": "padre Notícias da Covilhã"
+            }
+        ],
+        "spacy_entities_misc": []
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20110629150223/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=1330",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20110629151205im_/http://media.noticiasdacovilha.pt///capas/5341_primeira.jpg",
+        "title": "Trespasses comerciais aumentam",
+        "date": "2011-06-29",
+        "image_url": "https://arquivo.pt/noFrame/replay/20110629151205im_/http://media.noticiasdacovilha.pt///multimedia/fam%C3%ADlias%20numerosas%20site.jpg",
+        "image_desc": "famílias numerosas site",
+        "paragraph": "Cenário pode constatar-se na principal rua da vila É a crise, dizem muitos belmontenses. É a falta de gente, dizem outros. É um bocadinho de tudo, pensam outros. Seja lá o que for, a verdade é que, em Belmonte, uma vila sobretudo de serviços e de turismo, após anos a viver à base das confecções, há cada vez mais lojas fechadas, espaços que se alugam e ao longo da principal rua da vila, a Pedro Álvares Cabral, é possível perspectivar mais de uma dezena de lojas em trespasse comercial. As razões nem todas são as mesmas. Uns, é devido ao facto dos lojistas estarem a atingir a idade de reforma e não terem sucessores. Mas outros há que apontam a falta de volume de negócios para se desfazerem das suas lojas. Desde a pequena mercearia, à loja de brindes, a uma drogaria, café ou loja de bazar. Há um pouco de tudo. Não é bem assim, diz o autarca local, Amândio Melo, que lembra que, por exemplo, na restauração \"há casos de sucesso e de locais que têm muita procura\". E que até houve lojas nova que abriram, em detrimento de outras que fecharam. Já em outros sectores, o autarca acredita que é a consequência dos tempos que se vivem. \"Estamos em época de crise. E não se gasta o que se gastava antes. Espero que seja só uma fase\" deseja o autarca. O presidente da Câmara de Belmonte lembra que apesar da vila ser muito frequentada por turistas, estes costumam vir em grupos, em roteiros já perfeitamente definidos, pelo que permanecem pouco tempo pelas ruas da vila, impedindo assim à dinamização do comércio local. E recorda também que este pode ser um sinal da desertificação do território. \"A retirada de serviços públicos no meio rural também acaba por levar pessoas\" critica.",
+        "author": "João Alves",
+        "text_snippet": "Cenário pode constatar-se na principal rua da vila",
+        "category": "Local",
+        "sub_category": "Belmonte",
+        "keywords": [
+            "Cenário pode constatar-se",
+            "Pedro Álvares Cabral",
+            "principal rua",
+            "vila",
+            "rua da vila",
+            "Álvares Cabral",
+            "lojas",
+            "Pedro Álvares",
+            "constatar-se na principal",
+            "autarca"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Pedro Álvares Cabral"
+            },
+            {
+                "token": "Amândio Melo"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [],
+        "spacy_entities_loc": [
+            {
+                "token": "Cenário"
+            },
+            {
+                "token": "Belmonte"
+            },
+            {
+                "token": "Câmara de Belmonte"
+            }
+        ],
+        "spacy_entities_misc": []
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20110801150213/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=1360",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20110801151931im_/http://media.noticiasdacovilha.pt///capas/5345_primeira.jpg",
+        "title": "Portagens? Passar e não pagar...",
+        "date": "2011-07-20",
+        "image_url": "https://arquivo.pt/noFrame/replay/20110801151931im_/http://media.noticiasdacovilha.pt///multimedia/protesto portagens pelourinho.jpg",
+        "image_desc": "protesto portagens pelourinho",
+        "paragraph": "Sinicatos defendem desobediência civil Está a subir de tom a contestação ao anunciado pagamento de portagens na A23 e A25, anunciado já pelo Governo para Setembro. Depois de autarcas, utentes e empresártios terem, na passada semana, apelado à luta e prometido a intensificação de acções para que a medida não seja posta em prática, outras entidades também já vieram a p+ublico denunciar os \"estragos\" que tal pagamento poderá ter para o Interior. Uma dessas entidades foi a Turismo da Serra da Estrela (TSE), que divulgou uma carta do presidente da entidade, Jorge Patrão, enviada ao primeiro-ministro, em que alerta para o facto de possíveis portagens colocarem em risco 111,5 milhões de euros de investimentos em curso no sector, na região. Jorge Patrão acredita que o território \"que dista cerca de 300 quilómetros de Lisboa e mais de 200 do Porto, que equacionou investimentos sem o peso de custos das portagens e cuja alternativa praticamente não existe, pode ver afectada a competitividade entretanto ganha\". Apela por isso para que \"sejam bem equacionadas as consequências da colocação de portagens na A23 (Beira Interior) e na A25 (Beiras Litoral e Alta). Aquele responsável diz estar \"ciente da grave situação financeira nacional\", mas diz também que \"a tarefa enorme que o Governo tem pela frente não deve apagar as políticas de valorização do território que implicam por vezes essa discriminação positiva\". A cobrança nas auto-estradas A23 e A25, assim como A22 (Algarve) e A24 (Interior Norte), chegou a estar prevista para 15 de Abril. No entanto, o anterior Governo suspendeu a medida por considerar, com base num parecer jurídico, que seria inconstitucional um executivo de gestão aprovar um decreto-lei para introduzir novas portagens, respectivo regime de isenções e descontos. Fonte ligada às negociações da cobrança no Interior do País disse no início do mês à Agência Lusa que as portagens \"deverão avançar em Setembro\", sendo aguardada, entretanto, \"a publicação em Diário da República dos preços a praticar\". Passar e não pagar Já na última sexta-feira, 15, o coordenador da União de Sindicatos de Castelo Branco da CGTP, Luís Garra, apelou à desobediência civil caso sejam criadas portagens na A23. O dirigente sindical falava no início de uma \"marcha de protesto e proposta\" promovida pela CGTP na Covilhã (ver páginas da cidade), Fundão e Castelo Branco, em que declarou aberta \"a época oficial de caça ao Coelho\", numa alusão à luta contra as medidas de austeridade anunciadas pelo primeiro-ministro. A introdução de portagens é vista como \"uma medida grave e dramática para a economia regional, para o emprego e a estabilidade social\". Face às consequências, Luís Garra garante que \"não fica fora dos horizontes da União de Sindicatos, se a medida avançar, um apelo muito forte a desobediência civil, porque as medidas imorais e ilegítimas só podem ser combatidas com atitudes muito fortes e corajosas\". Na prática, seria um apelo \"para não pagar, pura e simplesmente não pagar\". A garantia de que a Auto-Estrada da Beira Interior continua gratuita é uma das propostas que a União de Sindicatos vai apresentar em breve aos partidos com assento parlamentar, anunciou Luís Garra. A anteceder a marcha de hoje, declarou aberta \"a época oficial de caça ao Coelho\", uma \"figura de estilo, que tem um objectivo: dizer que da nossa parte o governo não vai ter tréguas, connosco não há estado de graça\".",
+        "author": "João Alves",
+        "text_snippet": "Sinicatos defendem desobediência civil",
+        "category": "Secções",
+        "sub_category": "Centrais",
+        "keywords": [
+            "Sinicatos defendem desobediência",
+            "anunciado pagamento",
+            "Sinicatos defendem",
+            "Jorge Patrão",
+            "União de Sindicatos",
+            "subir de tom",
+            "tom a contestação",
+            "Luís Garra",
+            "Beira Interior",
+            "portagens"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Jorge Patrão"
+            },
+            {
+                "token": "Luís Garra"
+            },
+            {
+                "token": "Coelho"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Governo para Setembro"
+            },
+            {
+                "token": "TSE"
+            },
+            {
+                "token": "Agência Lusa"
+            },
+            {
+                "token": "União de Sindicatos de Castelo Branco"
+            },
+            {
+                "token": "CGTP"
+            },
+            {
+                "token": "União de Sindicatos"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "A23"
+            },
+            {
+                "token": "A25"
+            },
+            {
+                "token": "Interior"
+            },
+            {
+                "token": "Turismo da Serra da Estrela"
+            },
+            {
+                "token": "Lisboa"
+            },
+            {
+                "token": "Porto"
+            },
+            {
+                "token": "Beira Interior"
+            },
+            {
+                "token": "Beiras Litoral"
+            },
+            {
+                "token": "Alta"
+            },
+            {
+                "token": "Governo"
+            },
+            {
+                "token": "A22"
+            },
+            {
+                "token": "Algarve"
+            },
+            {
+                "token": "A24"
+            },
+            {
+                "token": "Interior Norte"
+            },
+            {
+                "token": "Interior do País"
+            },
+            {
+                "token": "Setembro"
+            },
+            {
+                "token": "Covilhã"
+            },
+            {
+                "token": "Fundão"
+            },
+            {
+                "token": "Castelo Branco"
+            },
+            {
+                "token": "Auto-Estrada da Beira Interior"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Diário da República"
+            }
+        ]
+    }
+]

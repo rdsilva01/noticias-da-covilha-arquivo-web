@@ -1,0 +1,300 @@
+[
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20170120180210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3150",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20170120181749im_/http://media.noticiasdacovilha.pt///capas/1_primeira_5619.jpg",
+        "title": "Empresa cria 70 postos de trabalho",
+        "date": "2016-10-26",
+        "image_url": "https://arquivo.pt/noFrame/replay/20170120181749im_/http://media.noticiasdacovilha.pt///multimedia/covilh%C3%A3%20cidade%20%28arr%29%20nc.jpg",
+        "image_desc": "covilhã cidade (arr) nc",
+        "paragraph": "Fábrica de mecânica de precisão A Mupi Surfaces, empresa de polimentos instalada na Covilhã, vai reforçar o investimento no concelho. A empresa já contratou 40 pessoas, em fase de instalação na unidade do Canhoso, que vai ser ampliada. No próximo ano juntam-se mais 30 pessoas, entre as quais as da fábrica do grupo no Fundão, a Poliphenix, que emprega 23 trabalhadores. A informação foi adiantada pelo director da empresa, Pascal Emonim, durante a cerimónia comemorativa do 20 de Outubro. A centralização da produção na Covilhã prende-se com \"razões práticas, de racionalização, de especialização da empresa\", com o objectivo de aumentar a eficiência e tornar a unidade de mecânica de precisão mais competitiva no que toca a prazos. Para uma segunda fase está previsto um novo investimento no Parque Industrial do Tortosendo, em instalações a construir de raiz, dedicada a actividades complementares à indústria de polimento e que pode também albergar outras empresas desta área de negócio que se podem vir a fixar, acrescenta o empresário. Pascal Emonin, director do Grupo Sycrilor FMI, que detém a Mupi Surface e a Poliphenix, explica que a intenção no futuro é concentrar toda a produção no Tortosendo, inclusive a que está actualmente localizada em França e Suíça. O empresário não revela valores, por motivos de confidencialidade, mas adianta ser um investimento de \"alguns milhões de euros\".",
+        "author": "Ana Ribeiro Rodrigues",
+        "text_snippet": "Fábrica de mecânica de precisão",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "instalada na Covilhã",
+            "Mupi Surfaces",
+            "polimentos instalada",
+            "mecânica de precisão",
+            "empresa",
+            "investimento no concelho",
+            "Pascal Emonim",
+            "Covilhã",
+            "Mupi",
+            "Poliphenix"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Pascal Emonim"
+            },
+            {
+                "token": "Pascal Emonin"
+            },
+            {
+                "token": "Poliphenix"
+            },
+            {
+                "token": "Ana Ribeiro Rodrigues"
+            }
+        ],
+        "spacy_entites_org": [],
+        "spacy_entities_loc": [
+            {
+                "token": "Covilhã"
+            },
+            {
+                "token": "Canhoso"
+            },
+            {
+                "token": "Fundão"
+            },
+            {
+                "token": "Poliphenix"
+            },
+            {
+                "token": "Parque Industrial do Tortosendo"
+            },
+            {
+                "token": "Tortosendo"
+            },
+            {
+                "token": "França"
+            },
+            {
+                "token": "Suíça"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Mupi Surfaces"
+            },
+            {
+                "token": "20 de Outubro"
+            },
+            {
+                "token": "Grupo Sycrilor FMI"
+            },
+            {
+                "token": "Mupi Surface"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20170130180212/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3157",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20170130181528im_/http://media.noticiasdacovilha.pt///capas/2_5620_primeira.jpg",
+        "title": "Antigas fábricas para classificar",
+        "date": "2016-12-14",
+        "image_url": "https://arquivo.pt/noFrame/replay/20170130181528im_/http://media.noticiasdacovilha.pt///multimedia/caminhada%20lanif%C3%ADcios.jpg",
+        "image_desc": "caminhada lanifícios",
+        "paragraph": "Conjunto integra a Nova Penteação, Fábrica Velha, Manuel Grifo, Lavadouro e algumas estruturas de apoio, mas mais edifícios podem vir a ser incluídos Um conjunto de edifícios industriais na Ribeira da Carpinteira estão em vias de virem a ser classificados pela Direcção Geral do Património Cultural, informou o presidente da Câmara da Covilhã, Vítor Pereira, na passada segunda-feira, 12, após a reunião onde foi dado conhecimento da abertura do procedimento por parte da Direcção Regional de Cultura do Centro, publicado em Diário da República, a 7 de Dezembro. Do conjunto industrial fazem parte as antigas fábricas Nova Penteação e Fiação da Covilhã, Campos Mello & Irmão, conhecida por Fábrica Velha, a Manuel Batista Grifo e o edifício do Lavadouro, tal como algumas estruturas complementares de apoio. Mas o edil adianta que mais imóveis podem vir a ser incluídos. Vítor Pereira, presidente do município, explica que se tratou de uma iniciativa da autarquia, cujos técnicos elaboraram a proposta enviada à Direcção Regional de Cultura do Centro. \"Foi uma iniciativa da Câmara Municipal. Depois tem de ser apoiada naquilo que diz respeito aos organismos que superintendem esta matéria\", acrescenta.",
+        "author": "Ana Ribeiro Rodrigues",
+        "text_snippet": "Conjunto integra a Nova Penteação, Fábrica Velha, Manuel Grifo, Lavadouro e algumas estruturas de apoio, mas mais edifícios podem vir a ser incluídos",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "Manuel Batista Grifo",
+            "Património Cultural",
+            "Diário da República",
+            "Ribeira da Carpinteira",
+            "Fábrica Velha",
+            "publicado em Diário",
+            "industriais na Ribeira",
+            "Cultura do Centro",
+            "Vítor Pereira",
+            "Regional de Cultura"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Manuel Grifo"
+            },
+            {
+                "token": "Lavadouro"
+            },
+            {
+                "token": "Vítor Pereira"
+            },
+            {
+                "token": "Campos Mello & Irmão"
+            },
+            {
+                "token": "Manuel Batista Grifo"
+            },
+            {
+                "token": "superintendem"
+            },
+            {
+                "token": "Ana Ribeiro Rodrigues"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Direcção Geral do Património Cultural"
+            },
+            {
+                "token": "Direcção Regional de Cultura do Centro"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Nova Penteação"
+            },
+            {
+                "token": "Fábrica Velha"
+            },
+            {
+                "token": "Ribeira da Carpinteira"
+            },
+            {
+                "token": "Câmara da Covilhã"
+            },
+            {
+                "token": "Fiação da Covilhã"
+            },
+            {
+                "token": "Câmara Municipal"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Diário da República"
+            },
+            {
+                "token": "7 de Dezembro"
+            },
+            {
+                "token": "Lavadouro"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20170801170212/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3186",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20170801172137im_/http://media.noticiasdacovilha.pt///capas/5646_primeira.jpg",
+        "title": "Mónica Ramôa apresenta prioridades",
+        "date": "2017-05-31",
+        "image_url": "https://arquivo.pt/noFrame/replay/20170801172137im_/http://media.noticiasdacovilha.pt///multimedia/m%C3%B3nica%20ram%C3%B4a%201%20%28arr%29.jpg",
+        "image_desc": "mónica ramôa 1 (arr)",
+        "paragraph": "Democratizar, desenvolver e fazer evoluir o concelho Democratizar, desenvolver e evoluir. São estes os três pilares em que assenta a estratégia de acção de Mónica Ramôa, candidata pela Coligação Democrática Unitária (CDU) à Câmara da Covilhã, com o objectivo de trabalhar por um concelho \"socialmente justo, gerador de emprego com direitos, urbanisticamente equilibrado e sustentável e que seja uma referência cultural e desportiva\". Na apresentação dos cabeças-de-lista à Assembleia e Câmara Municipal, realizada ao final da tarde da passada quarta-feira, 24, no Miradouro das Portas do Sol, Mónica Ramôa mostrou-se preocupada com a perda de população, de serviços públicos, de empresas e acentuou que os efeitos da crise na origem de alguns problemas foram potenciados pela gestão autárquica e pelas opções feitas por quem esteve à frente da edilidade. A professora de Biologia e Geologia, de 50 anos, residente no Teixoso, vincou a postura diferente da força política que representa, composta pelo Partido Comunista e Os Verdes, que afirma ter \"provas dadas no trabalho autárquico neste município, tendo estado sempre ao lado das aspirações e luta das populações\", sublinhando a falta que a CDU faz no concelho. \"Somos diferentes e distintos de todos os outros. Ainda bem\", acrescenta. Para a actual deputada municipal, eleita em 2009, assuntos como uma segunda negociação do preço dos transportes, a redução da factura da água e a luta contra a precariedade de trabalhadores que há anos trabalham para o município tiveram no eleito da CDU um papel que considera relevante. (Artigo completo na edição papel)",
+        "author": "Ana Ribeiro Rodrigues",
+        "text_snippet": "Democratizar, desenvolver e fazer evoluir o concelho",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "Coligação Democrática Unitária",
+            "concelho Democratizar",
+            "Mónica Ramôa",
+            "Mónica Ramôa mostrou-se",
+            "desenvolver e evoluir",
+            "Democratizar",
+            "Democrática Unitária",
+            "Coligação Democrática",
+            "desenvolver",
+            "Ramôa mostrou-se preocupada"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Mónica Ramôa"
+            },
+            {
+                "token": "Ana Ribeiro Rodrigues"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Coligação Democrática Unitária"
+            },
+            {
+                "token": "CDU"
+            },
+            {
+                "token": "Assembleia"
+            },
+            {
+                "token": "Partido Comunista"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Democratizar"
+            },
+            {
+                "token": "Câmara da Covilhã"
+            },
+            {
+                "token": "Câmara Municipal"
+            },
+            {
+                "token": "Miradouro das Portas do Sol"
+            },
+            {
+                "token": "Teixoso"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Biologia e Geologia"
+            },
+            {
+                "token": "Os Verdes"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20170826170213/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3191",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20170826172059im_/http://media.noticiasdacovilha.pt///capas/5648_primeira.jpg",
+        "title": "Câmara quer edificio do antigo Banco de Portugal",
+        "date": "2017-07-31",
+        "image_url": "https://arquivo.pt/noFrame/replay/20170826172059im_/http://media.noticiasdacovilha.pt///multimedia/1 - banco de portugal (arr).jpg",
+        "image_desc": "1 - banco de portugal (arr)",
+        "paragraph": "Acordo com proprietário à espera do visto do Tribunal de Contas A Câmara Municipal da Covilhã chegou a acordo com a instituição bancária proprietária do antigo edifício do Banco de Portugal, na Rua Rui Faleiro, para a aquisição do imóvel, onde pretende instalar a empresa municipal Águas da Covilhã (AdC). Para formalizar a compra, falta o visto do Tribunal de Contas, informou, na passada sexta-feira, 21, o presidente da autarquia, Vítor Pereira, após a reunião pública camarária. O edil explica que a decisão foi tomada numa lógica de \"manter vida no Centro Histórico da cidade\". Vítor Pereira considera tratar-se de um \"edifício nobre, que é importante preservar\", e por isso a autarquia pretende requalificá-lo.",
+        "author": "Ana Ribeiro Rodrigues",
+        "text_snippet": "Acordo com proprietário à espera do visto do Tribunal de Contas",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "Rua Rui Faleiro",
+            "empresa municipal Águas",
+            "instituição bancária proprietária",
+            "Águas da Covilhã",
+            "Banco de Portugal",
+            "Rui Faleiro",
+            "Rua Rui",
+            "Câmara Municipal",
+            "municipal Águas",
+            "Tribunal de Contas"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Vítor Pereira"
+            },
+            {
+                "token": "Ana Ribeiro Rodrigues"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Tribunal de Contas A Câmara Municipal da Covilhã"
+            },
+            {
+                "token": "AdC"
+            },
+            {
+                "token": "Tribunal de Contas"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Banco de Portugal"
+            },
+            {
+                "token": "Rua Rui Faleiro"
+            },
+            {
+                "token": "Águas da Covilhã"
+            },
+            {
+                "token": "Centro Histórico"
+            }
+        ],
+        "spacy_entities_misc": []
+    }
+]

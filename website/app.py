@@ -2,19 +2,23 @@ from flask import Flask, render_template, request
 from flask_paginate import Pagination, get_page_args
 import os
 import json
+from redis_search import get_search
 
 app = Flask(__name__)
 
 from datetime import datetime
 
-def get_news_front_page():
-        directory = os.path.join(app.static_folder, 'news_data', '2011', 'capa_2011')
-        json_file_path = os.path.join(directory, 'capa_2011.json')
+def get_redis_search(query):
+    results = get_search(query)
+    return results
+   
+def get_news_front_page(year):
+        directory = os.path.join(app.static_folder, 'news_data', f'{year}', f'capa_{year}')
+        json_file_path = os.path.join(directory, f'capa_{year}.json')
         
         with open(json_file_path, 'r') as f:
             news_data = json.load(f)
         
-        print(json.dumps(news_data, indent=4, ensure_ascii=False))
         return news_data
 
 def get_today_date():
@@ -63,7 +67,7 @@ def get_stats(year):
 def get_news_by_id(article_id, year):
     dados = load_data(year)
     for article in dados:
-        if article.get('id') == article_id:
+        if article.get('nid') == article_id:
             return article
     return None
 
@@ -72,19 +76,73 @@ def get_news(offset=0, per_page=8, year=None):
     dados = load_data(year)
     return dados[offset: offset + per_page]
 
+
 def paginacao(page, per_page=8, year=None):
     dados = load_data(year)
     total = len(dados)
     offset = (page - 1) * per_page
     return get_news(offset=offset, per_page=per_page, year=year), total
 
+def paginacao_query(page, per_page=12, results=None):
+    total, dados = results
+    offset = (page - 1) * per_page
+    # print(f"Total results: {total}")
+    # print(f"Offset: {offset}")
+    # print(f"Total documents: {len(dados)}")
+    paginated_results = dados[offset: offset + per_page]
+    # print(f"Paginated results: {paginated_results}")
+    return paginated_results, total
+
+def paginacao_capas(news_data, page, per_page=9):
+    # Convert dictionary items to a list of tuples
+    dados = list(news_data.items())
+    total = len(dados)
+    offset = (page - 1) * per_page
+    return dados[offset: offset + per_page], total
+
+
+@app.route('/capas')
+def capas():
+    all_news_data = {}
+    for year in range(2009, 2016):
+        news_data_year = get_news_front_page(year)
+        all_news_data.update(news_data_year)
+        
+    page = int(request.args.get('page', 1))
+    per_page = 9
+    offset = (page - 1) * per_page
+    
+    current_page_results, total = paginacao_capas(page=page, per_page=per_page, news_data=all_news_data)
+    pagination = Pagination(page=page, per_page=9, total=total, css_framework='bootstrap5')
+
+    
+    return render_template('capas.html', all_news_data=current_page_results, pagination=pagination)
+
+
+@app.route('/pelacuriosidade')
+def pelacuriosidade():
+    query = request.args.get('query', '')
+    results = get_redis_search(query=query)
+    
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    current_page_results, total = paginacao_query(page=page, per_page=per_page, results=results)
+    pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap5')
+    
+    # Print debug information
+    # print(f"Query: {query}")
+    # print(f"Page: {page}")
+    # print(f"Total pages: {pagination.total_pages}")
+    # print(f"Total results: {total}")
+    # print(f"Current page results: {current_page_results}")
+    
+    return render_template('query.html', results=current_page_results, pagination=pagination, query=query, total=total)
+
+
 @app.route('/news')
 def news():
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     news, total = paginacao(page, per_page)
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap5')
+    pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap5')
     return render_template('news.html', news=news, pagination=pagination)
 
 
@@ -165,7 +223,7 @@ def index():
     directory = os.path.join(app.static_folder, 'news_data', '2009', 'capa_2009')
     json_file_path = os.path.join(directory, 'custom_news.json')
     
-    news_front_page = get_news_front_page()
+    news_front_page = get_news_front_page(2011)
     
     current_date = datetime.today()
     

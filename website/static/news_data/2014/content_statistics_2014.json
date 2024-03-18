@@ -1,0 +1,630 @@
+{
+    "2014": {
+        "content_stats": {
+            "num_words_year": 36142,
+            "avg_word_length_year": 5.04,
+            "num_words_per_news": {
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=4&idseccao=26&idartigo=2572": {
+                    "num_words": 702,
+                    "avg_word_length": 5.11
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2571": {
+                    "num_words": 295,
+                    "avg_word_length": 5.17
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2576": {
+                    "num_words": 866,
+                    "avg_word_length": 5.02
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2573": {
+                    "num_words": 190,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2574": {
+                    "num_words": 97,
+                    "avg_word_length": 5.07
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2575": {
+                    "num_words": 187,
+                    "avg_word_length": 5.06
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2579": {
+                    "num_words": 324,
+                    "avg_word_length": 5.09
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2577": {
+                    "num_words": 362,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2578": {
+                    "num_words": 309,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2583": {
+                    "num_words": 122,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2582": {
+                    "num_words": 117,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2585": {
+                    "num_words": 170,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=3&idartigo=2586": {
+                    "num_words": 97,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2580": {
+                    "num_words": 123,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=32&idartigo=2584": {
+                    "num_words": 131,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2587": {
+                    "num_words": 41,
+                    "avg_word_length": 5.14
+                },
+                "https://arquivo.pt/noFrame/replay/20140508170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2592": {
+                    "num_words": 141,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140508170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2591": {
+                    "num_words": 210,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140508170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2590": {
+                    "num_words": 70,
+                    "avg_word_length": 5.14
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2589": {
+                    "num_words": 138,
+                    "avg_word_length": 5.14
+                },
+                "https://arquivo.pt/noFrame/replay/20140429170209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2588": {
+                    "num_words": 93,
+                    "avg_word_length": 5.14
+                },
+                "https://arquivo.pt/noFrame/replay/20140508170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2594": {
+                    "num_words": 515,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140508170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2595": {
+                    "num_words": 379,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140508170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=2593": {
+                    "num_words": 483,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2596": {
+                    "num_words": 389,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=32&idartigo=2599": {
+                    "num_words": 218,
+                    "avg_word_length": 5.13
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2598": {
+                    "num_words": 309,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2597": {
+                    "num_words": 333,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2601": {
+                    "num_words": 580,
+                    "avg_word_length": 5.11
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2604": {
+                    "num_words": 320,
+                    "avg_word_length": 5.11
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2603": {
+                    "num_words": 316,
+                    "avg_word_length": 5.11
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2600": {
+                    "num_words": 306,
+                    "avg_word_length": 5.12
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=4&idseccao=26&idartigo=2606": {
+                    "num_words": 738,
+                    "avg_word_length": 5.09
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2602": {
+                    "num_words": 313,
+                    "avg_word_length": 5.08
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2605": {
+                    "num_words": 480,
+                    "avg_word_length": 5.06
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2609": {
+                    "num_words": 319,
+                    "avg_word_length": 5.06
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2611": {
+                    "num_words": 346,
+                    "avg_word_length": 5.06
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2614": {
+                    "num_words": 352,
+                    "avg_word_length": 5.06
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2607": {
+                    "num_words": 278,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2608": {
+                    "num_words": 169,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2613": {
+                    "num_words": 605,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=4&idseccao=26&idartigo=2615": {
+                    "num_words": 610,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=9&idartigo=2610": {
+                    "num_words": 351,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140517170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2612": {
+                    "num_words": 505,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2616": {
+                    "num_words": 299,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2622": {
+                    "num_words": 272,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2620": {
+                    "num_words": 383,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2621": {
+                    "num_words": 113,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2619": {
+                    "num_words": 353,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=32&idartigo=2617": {
+                    "num_words": 366,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140525170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2618": {
+                    "num_words": 246,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2625": {
+                    "num_words": 195,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2623": {
+                    "num_words": 333,
+                    "avg_word_length": 5.05
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2626": {
+                    "num_words": 658,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2624": {
+                    "num_words": 598,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2627": {
+                    "num_words": 546,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140604170212/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2629": {
+                    "num_words": 671,
+                    "avg_word_length": 5.03
+                },
+                "https://arquivo.pt/noFrame/replay/20140604170212/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=9&idartigo=2630": {
+                    "num_words": 556,
+                    "avg_word_length": 5.03
+                },
+                "https://arquivo.pt/noFrame/replay/20140601170207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2628": {
+                    "num_words": 238,
+                    "avg_word_length": 5.03
+                },
+                "https://arquivo.pt/noFrame/replay/20140604170212/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2631": {
+                    "num_words": 375,
+                    "avg_word_length": 5.03
+                },
+                "https://arquivo.pt/noFrame/replay/20140604170212/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2632": {
+                    "num_words": 481,
+                    "avg_word_length": 5.03
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2651": {
+                    "num_words": 121,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2655": {
+                    "num_words": 83,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2652": {
+                    "num_words": 51,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=2653": {
+                    "num_words": 78,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2656": {
+                    "num_words": 184,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2654": {
+                    "num_words": 71,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2663": {
+                    "num_words": 197,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140727170206/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2659": {
+                    "num_words": 97,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140819170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2661": {
+                    "num_words": 136,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2665": {
+                    "num_words": 131,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140819170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2662": {
+                    "num_words": 118,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140819170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2660": {
+                    "num_words": 97,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=3&idartigo=2664": {
+                    "num_words": 175,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2670": {
+                    "num_words": 76,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2669": {
+                    "num_words": 170,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2666": {
+                    "num_words": 113,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2668": {
+                    "num_words": 239,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=32&idartigo=2667": {
+                    "num_words": 147,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2671": {
+                    "num_words": 313,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2673": {
+                    "num_words": 126,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2674": {
+                    "num_words": 131,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2672": {
+                    "num_words": 127,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2675": {
+                    "num_words": 34,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2677": {
+                    "num_words": 121,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=32&idartigo=2676": {
+                    "num_words": 90,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2678": {
+                    "num_words": 126,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2681": {
+                    "num_words": 93,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2680": {
+                    "num_words": 130,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2682": {
+                    "num_words": 191,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140822170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2679": {
+                    "num_words": 98,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=2684": {
+                    "num_words": 55,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2686": {
+                    "num_words": 39,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2687": {
+                    "num_words": 43,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2683": {
+                    "num_words": 43,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2685": {
+                    "num_words": 60,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2688": {
+                    "num_words": 71,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2690": {
+                    "num_words": 161,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2695": {
+                    "num_words": 124,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2693": {
+                    "num_words": 213,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140906170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2689": {
+                    "num_words": 210,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2694": {
+                    "num_words": 153,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2691": {
+                    "num_words": 109,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2692": {
+                    "num_words": 226,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=2696": {
+                    "num_words": 150,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2700": {
+                    "num_words": 320,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2697": {
+                    "num_words": 145,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2698": {
+                    "num_words": 127,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2702": {
+                    "num_words": 154,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20140917170208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2699": {
+                    "num_words": 110,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=16&idartigo=2703": {
+                    "num_words": 214,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2701": {
+                    "num_words": 235,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2709": {
+                    "num_words": 230,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2708": {
+                    "num_words": 217,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2705": {
+                    "num_words": 280,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2704": {
+                    "num_words": 325,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2707": {
+                    "num_words": 80,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2706": {
+                    "num_words": 228,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2711": {
+                    "num_words": 172,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2714": {
+                    "num_words": 126,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=32&idartigo=2710": {
+                    "num_words": 146,
+                    "avg_word_length": 5.03
+                },
+                "https://arquivo.pt/noFrame/replay/20141004170210/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2713": {
+                    "num_words": 119,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2717": {
+                    "num_words": 221,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=2716": {
+                    "num_words": 136,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2720": {
+                    "num_words": 138,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=4&idseccao=26&idartigo=2721": {
+                    "num_words": 786,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2718": {
+                    "num_words": 218,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2719": {
+                    "num_words": 208,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2715": {
+                    "num_words": 260,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=2722": {
+                    "num_words": 126,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2723": {
+                    "num_words": 159,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2726": {
+                    "num_words": 113,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2725": {
+                    "num_words": 171,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2724": {
+                    "num_words": 250,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=5&idartigo=2728": {
+                    "num_words": 460,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2727": {
+                    "num_words": 105,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2729": {
+                    "num_words": 119,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2731": {
+                    "num_words": 95,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2732": {
+                    "num_words": 153,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141125180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2730": {
+                    "num_words": 56,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2735": {
+                    "num_words": 131,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2733": {
+                    "num_words": 231,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2734": {
+                    "num_words": 166,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141230180208/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=4&idseccao=26&idartigo=2741": {
+                    "num_words": 494,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2739": {
+                    "num_words": 183,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2738": {
+                    "num_words": 79,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2737": {
+                    "num_words": 119,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2736": {
+                    "num_words": 174,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141218180209/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=3&idartigo=2740": {
+                    "num_words": 581,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141231180207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2744": {
+                    "num_words": 135,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141231180207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2743": {
+                    "num_words": 144,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141231180207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2742": {
+                    "num_words": 54,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141231180207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2745": {
+                    "num_words": 156,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141231180207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=27&idartigo=2746": {
+                    "num_words": 161,
+                    "avg_word_length": 5.04
+                },
+                "https://arquivo.pt/noFrame/replay/20141231180207/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=2747": {
+                    "num_words": 129,
+                    "avg_word_length": 5.04
+                }
+            }
+        }
+    }
+}

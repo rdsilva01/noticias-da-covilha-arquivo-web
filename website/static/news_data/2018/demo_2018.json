@@ -1,0 +1,292 @@
+[
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20180430170223/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=3206",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20180430174127im_/http://media.noticiasdacovilha.pt///capas/5683_primeira.jpg",
+        "title": "Alcains é campeão",
+        "date": "2018-04-17",
+        "image_url": "https://arquivo.pt/noFrame/replay/20180430174127im_/http://media.noticiasdacovilha.pt///multimedia/alcians%20campe%C3%A3o.jpg",
+        "image_desc": "alcians campeão",
+        "paragraph": "Vitória na Atalaia dá título a uma jornada do fim O Clube Desportivo de Alcains está de regresso, oito anos depois, aos nacionais. A equipa de João Laia venceu, no último domingo, fora, a Atalaia do Campo e assegurou, a uma jornada do fim, o título distrital. Com justiça, diz o técnico. Mais para ver e ler na próxima edição do NC.",
+        "author": "João Alves",
+        "text_snippet": "Vitória na Atalaia dá título a uma jornada do fim",
+        "category": "Secções",
+        "sub_category": "Desporto",
+        "keywords": [
+            "Clube Desportivo",
+            "Desportivo de Alcains",
+            "João Laia venceu",
+            "João Laia",
+            "Vitória na Atalaia",
+            "Clube",
+            "Desportivo",
+            "Alcains",
+            "Atalaia",
+            "Laia venceu"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "João Laia"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "NC"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Vitória"
+            },
+            {
+                "token": "Atalaia"
+            },
+            {
+                "token": "Atalaia do Campo"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "O Clube Desportivo de Alcains"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20180726140511/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=8&idartigo=3223",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20180726141300im_/http://media.noticiasdacovilha.pt///capas/5696_primeira.jpg",
+        "title": "Amândio a meio tempo",
+        "date": "2018-05-16",
+        "image_url": "https://arquivo.pt/noFrame/replay/20180726141300im_/http://media.noticiasdacovilha.pt///multimedia/amelo.jpg",
+        "image_desc": "amelo",
+        "paragraph": "Vereador da oposição com cinco pelouros Os vereadores eleitos pelo PSD/MPT em Bemonte, Amândio Melo e Luís António Almeida, viram na última sessão privada do executivo, na passada semana, o autarca local, Dias Rocha (PS) atribuir-lhes pelouros. No caso de Melo, que foi presidente de Câmara durante vários anos, foram cinco os pelouros atribuídos, assumindo ainda a vereação a meio tempo. Mais informação na edição desta semana.",
+        "author": "João Alves",
+        "text_snippet": "Vereador da oposição com cinco pelouros",
+        "category": "Local",
+        "sub_category": "Belmonte",
+        "keywords": [
+            "Luís António Almeida",
+            "Vereador da oposição",
+            "MPT em Bemonte",
+            "António Almeida",
+            "Amândio Melo",
+            "Luís António",
+            "eleitos pelo PSD",
+            "Vereador",
+            "Melo",
+            "pelouros"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Amândio Melo"
+            },
+            {
+                "token": "Luís António Almeida"
+            },
+            {
+                "token": "Dias Rocha"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "PSD"
+            },
+            {
+                "token": "MPT"
+            },
+            {
+                "token": "PS"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Bemonte"
+            },
+            {
+                "token": "Melo"
+            },
+            {
+                "token": "Câmara"
+            }
+        ],
+        "spacy_entities_misc": []
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20180904170010/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=1&idseccao=1&idartigo=3233",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20180904170959im_/http://media.noticiasdacovilha.pt///capas/5699_primeira.jpg",
+        "title": "Inês e Paixão ganham Meia de Belmonte",
+        "date": "2018-06-20",
+        "image_url": "https://arquivo.pt/noFrame/replay/20180904170959im_/http://media.noticiasdacovilha.pt///multimedia/In%C3%AAs%20Monteiro.jpg",
+        "image_desc": "Inês Monteiro",
+        "paragraph": "Vitórias fáceis no passado domingo Foram vitórias fáceis as alcançadas no passado domingo, 17, por Bruno Paixão, do Beja Atlético Clube, e Inês Monteiro, do Sporting, na quarta Meia Maratona de Belmonte, organizada pela autarquia local, em colaboração com Chrono Eventos. No sector masculino, Bruno Paixão repetiu o triunfo do ano passado, cortando a meta completamente isolado, em uma hora, sete minutos e oito segundos, tempo acima do recorde da prova que tinha alcançado em 2017. Ainda assim com larga vantagem, superior a dois minutos, em relação ao segundo, Carlos Silva, do Grupo Desportivo da Reboleira. \"A organização está de parabéns. É um percurso excelente, que exige de nós, e o objectivo era ganhar. Sabia dos meus adversários, à altura, e por isso tentei controlar\" explica o vencedor, que tem ganho imensas provas na região, mas que agora tenta novos objectivos: correr uma maratona. \"Vamos ver se em Portugal ou noutro país da Europa\" afirma. Já Inês Monteiro, que correu e ganhou pela primeira vez em Belmonte, teve tarefa ainda mais fácil, ganhando com o tempo de uma hora, 20 minutos e 20 segundos (foi 23ª da geral). A segunda, no sector feminino, foi a ex-atleta olímpica Clarisse Cruz, pela Comensana Sporting Club, que gastou mais seis minutos que a vencedora.",
+        "author": "João Alves",
+        "text_snippet": "Vitórias fáceis no passado domingo",
+        "category": "Secções",
+        "sub_category": "Desporto",
+        "keywords": [
+            "Beja Atlético Clube",
+            "Atlético Clube",
+            "Chrono Eventos",
+            "Beja Atlético",
+            "Bruno Paixão repetiu",
+            "Bruno Paixão",
+            "Vitórias fáceis",
+            "colaboração com Chrono",
+            "passado domingo",
+            "Meia Maratona"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Vitórias"
+            },
+            {
+                "token": "Bruno Paixão"
+            },
+            {
+                "token": "Inês Monteiro"
+            },
+            {
+                "token": "Carlos Silva"
+            },
+            {
+                "token": "Clarisse Cruz"
+            },
+            {
+                "token": "João Alves"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Beja Atlético Clube"
+            },
+            {
+                "token": "Sporting"
+            },
+            {
+                "token": "Grupo Desportivo da Reboleira"
+            },
+            {
+                "token": "Comensana Sporting Club"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Belmonte"
+            },
+            {
+                "token": "em Portugal"
+            },
+            {
+                "token": "Europa"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Meia Maratona"
+            },
+            {
+                "token": "Chrono Eventos"
+            }
+        ]
+    },
+    {
+        "url": "https://arquivo.pt/noFrame/replay/20180808170011/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=7&idartigo=3242",
+        "news_front_page_image_url": "https://arquivo.pt/noFrame/replay/20180808170512im_/http://media.noticiasdacovilha.pt///capas/5697_primeira.jpg",
+        "title": "Hospital tem 19 vagas para médicos",
+        "date": "2018-08-01",
+        "image_url": "https://arquivo.pt/noFrame/replay/20180808170512im_/http://media.noticiasdacovilha.pt///multimedia/chcb.jpg",
+        "image_desc": "chcb",
+        "paragraph": "Há mais de 1200 vagas a nível nacional Abriram na passada quinta-feira, 26, os despachos que autorizam a abertura de concursos para a contratação de médicos especialistas, nas áreas de Medicina Geral e Familiar, Saúde pública e Hospitalar. O Centro Hospitalar Cova da Beira (CHCB) tem 19 vagas, num total de 1234 disponíveis a nível nacional. As vagas são para as áreas de Medicina Interna (4), Anestesiologia (2), Cirurgia Geral, Endocrinologia e Nutrição, Hematologia Clínica, Imuno-hemoterapia, Medicina Nuclear; Nefrologia, Oftalmologia, Oncologia Médica, Ortopedia, Otorrinolaringologia, Patologia Clínica, Psiquiatria e Reumatologia (1). Para a Administração Regional de Saúde do Centro (ARSC) a contratação destes novos profissionais \"conjugada com a atribuição de incentivos à fixação em zonas carenciadas será reforçada, de forma substancial, a resposta ao nível dos cuidados hospitalares e cuidados de saúde primários na região Centro\".",
+        "author": "NC",
+        "text_snippet": "Há mais de 1200 vagas a nível nacional",
+        "category": "Local",
+        "sub_category": "Covilhã",
+        "keywords": [
+            "Centro Hospitalar Cova",
+            "Abriram na passada",
+            "nacional Abriram",
+            "passada quinta-feira",
+            "médicos especialistas",
+            "despachos que autorizam",
+            "autorizam a abertura",
+            "abertura de concursos",
+            "Hospitalar Cova",
+            "Centro Hospitalar"
+        ],
+        "spacy_entities_per": [
+            {
+                "token": "Abriram"
+            }
+        ],
+        "spacy_entites_org": [
+            {
+                "token": "Hematologia Clínica"
+            },
+            {
+                "token": "Oncologia Médica"
+            },
+            {
+                "token": "Ortopedia"
+            },
+            {
+                "token": "Otorrinolaringologia"
+            },
+            {
+                "token": "ARSC"
+            }
+        ],
+        "spacy_entities_loc": [
+            {
+                "token": "Medicina Geral e Familiar"
+            },
+            {
+                "token": "Saúde"
+            },
+            {
+                "token": "Hospitalar"
+            },
+            {
+                "token": "Centro Hospitalar Cova da Beira"
+            },
+            {
+                "token": "CHCB"
+            },
+            {
+                "token": "Medicina Interna"
+            },
+            {
+                "token": "Cirurgia Geral"
+            },
+            {
+                "token": "Imuno-hemoterapia"
+            },
+            {
+                "token": "Medicina Nuclear; Nefrologia"
+            },
+            {
+                "token": "Patologia Clínica,"
+            },
+            {
+                "token": "Administração Regional de Saúde do Centro"
+            },
+            {
+                "token": "Centro"
+            },
+            {
+                "token": "NC"
+            }
+        ],
+        "spacy_entities_misc": [
+            {
+                "token": "Anestesiologia"
+            },
+            {
+                "token": "Oftalmologia"
+            }
+        ]
+    }
+]

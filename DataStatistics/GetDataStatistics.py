@@ -3,7 +3,7 @@ from collections import Counter
 import os
 
 def get_data_spacy_statistics(year):
-    json_file = f'./data/data_{year}/validated_{year}.json'
+    json_file = f'../data/data_{year}/validated_{year}.json'
     with open(json_file, 'r') as f:
         data = json.load(f)
     
@@ -42,7 +42,7 @@ def get_data_spacy_statistics(year):
     return statistics_by_type
 
 def get_content_statistics(year):
-    json_file = f'./data/data_{year}/validated_{year}.json'
+    json_file = f'../data/data_{year}/validated_{year}.json'
     with open(json_file, 'r') as f:
         data = json.load(f)
     
@@ -87,3 +87,10 @@ def get_content_statistics(year):
         json.dump(content_statistics, file, indent=4, ensure_ascii=False)
         
     return content_statistics
+
+def main():
+    for i in range(2009, 2020):
+        get_data_spacy_statistics(i)
+        get_content_statistics(i)
+        
+main()
