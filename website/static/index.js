@@ -86,3 +86,15 @@ function toggleFilters() {
         filtersButton.textContent = "Opções Avançadas";
     }
 }
+
+function toggleStatistics() {
+    var statisticsContainer = document.querySelector('.statistics-container');
+    var button = document.querySelector('.toggle-button');
+    if (statisticsContainer.style.display === 'none') {
+        statisticsContainer.style.display = 'block';
+        button.textContent = 'FECHAR ESTATÍSTICAS';
+    } else {
+        statisticsContainer.style.display = 'none';
+        button.textContent = 'VER ESTATÍSTICAS';
+    }
+}

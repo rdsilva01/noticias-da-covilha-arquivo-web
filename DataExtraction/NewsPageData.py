@@ -38,6 +38,7 @@ def get_news_data_func(url):
         image_desc = ""
         author = ""
         content = ""
+        formatted_content = ""
         text_snippet = ""
         category = ""
         sub_category = ""
@@ -101,22 +102,28 @@ def get_news_data_func(url):
                         date = span_regions[0].text # date
 
                         span_mtexto = unique_news_div.find('span', id='mtexto')
-                        clean_span_mtexto = clean(span_mtexto.text, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
                         span_text_list = span_mtexto.get_text(separator='\n').splitlines()
-                        span_text_list = [text for text in span_text_list if text.strip()]
+                        #span_text_list = [text for text in span_text_list if text.strip()]
+                        
+                        clean_span_mtexto = clean(span_mtexto.text, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
 
                         contents = span_text_list
+                        contents_clean_tmp = []
+                        for tmp_content in contents:
+                            tmp_content = clean(tmp_content, to_ascii=False ,fix_unicode=True, lang="pt", lower=False)
+                            contents_clean_tmp.append(tmp_content)
+                            
+                        
+                        contents = contents_clean_tmp
                         content = clean_span_mtexto
                         
                         author_tmp = span_regions[2].text # author
                         author = clean(author_tmp, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
                         
-                        for i in range(0,3):
+                        for i in range(0,2):
                             if i == 0:
                                 doc = nlp(content)
                             elif i == 1:
-                                doc = nlp(author)
-                            elif i == 2:
                                 doc = nlp(title)
                             
                             for ent in doc.ents:
@@ -214,7 +221,19 @@ def get_news_data_func(url):
                     content = path_div.find("div", class_="article-content clearfix").text
                     first_sentence = content.split('.')[0]
                     text_snippet = first_sentence.strip() 
-
+                    
+                    contents = path_div.find("div", class_="article-content clearfix")
+                    contents = contents.find_all("p")
+                    
+                    contents_clean_tmp = []
+                    for tmp_content in contents:
+                        tmp_content = tmp_content.get_text()
+                        tmp_content = clean(tmp_content, to_ascii=False ,fix_unicode=True, lang="pt", lower=False)
+                        contents_clean_tmp.append(tmp_content)
+                    # print(contents_clean_tmp)
+                    
+                    contents = contents_clean_tmp
+                            
                     content_plus_title = title
                     content_plus_title += " {}".format(content)
                     keywords_tmp = custom_kw_extractor.extract_keywords(content_plus_title)
@@ -253,6 +272,7 @@ def get_news_data_func(url):
                     "image_url": image_url,
                     "image_desc": image_desc,
                     "content": content,
+                    "formatted_content": contents,
                     "author": author,
                     "text_snippet": text_snippet,
                     "category": category,
@@ -302,8 +322,8 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
     for i in range(s_year, e_year+1, 1):
         print(f'\n{i}')
         start_time = time.time()
-        folder_path = "./data/data_{}".format(i)
-        json_file =  './data/data_{}/validated_urls_{}.json'.format(i,i)
+        folder_path = "../data/data_{}".format(i)
+        json_file =  '../data/data_{}/validated_urls_{}.json'.format(i,i)
         file_name = "{}.json".format(i)
         save_to_file(folder_path_arg=folder_path, file_name_arg=file_name, json_file_path=json_file, debug=debug)
         if debug:
@@ -317,6 +337,6 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
             execution_time_dict.update(execution_time_dict_tmp)
     
     return execution_time_dict
-# dict = get_news_data_func("https://arquivo.pt/noFrame/replay/20190705171733/https://www.noticiasdacovilha.pt/amendoal-motiva-investimento-de-50-milhoes-no-fundao-e-idanha/")
-# dict = get_news_data_func("https://arquivo.pt/noFrame/replay/20190825171204/https://www.noticiasdacovilha.pt/manteigas-requalifica-pavilhao/")
-# print(json.dumps(dict, indent=4, ensure_ascii=False))
+
+
+get_news_data(2019, 2019)

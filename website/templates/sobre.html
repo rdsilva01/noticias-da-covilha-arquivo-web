@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Sobre
+{% endblock %}
+
+{% block content %} 
+    <div class="container py-5">
+        <div class="row bg-light rounded-1">
+            <div class="col-md-8 offset-md-2 font-montserrat">
+                <hr class="custom-margin-transparent-b" id="sobre">
+                <h1 class="display-4 mb-5 text-center text-uppercase font-oswald">Sobre o Projeto</h1>
+                <p class="lead fs-4">
+                    O projeto <span class="text-danger fw-semibold">Arquivo NC - Notícias da Covilhã @ Arquivo Web</span>  é uma proposta de projeto desenvolvida por Rodrigo Silva no âmbito da Unidade Curricular de Projeto da Licenciatura em Engenharia Informática, com orientação do professor Ricardo Campos (ricardo.campos@ubi.pt).
+                </p>
+                <p class="lead fs-4">
+                    O objetivo principal deste projeto é preservar a história e o legado do jornal "Notícias da Covilhã" tornando o seu conteúdo histórico facilmente acessível ao público e investigadores. Além disso, o projeto visa criar um sistema de pesquisa para recuperar informações a partir dos dados coletados do Arquivo.pt.
+                </p>
+                <p class="lead fs-4">
+                    O plano de trabalho incluiu várias etapas, desde a definição e planeamento até à documentação e apresentação dos resultados. Os requisitos técnicos/académicos abrangem conhecimentos em Python, linguagens de programação web (Flask, HTML, CSS e JS), Elasticsearch, Docker, entre outros.
+                </p>
+                
+                <br>
+                <span class="bg-danger text-light px-1"> LINKS</span>
+                <ol>
+                    <li>
+                        <a href="https://github.com/rdsilva01/noticias-da-covilha-arquivo-web" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald">REPOSITÓRIO GITHUB</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/rdsilva01/noticias-da-covilha-arquivo-web" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald">(FUTURAMENTE) ARQUIVO.PT</a>
+                    </li>
+                </ol>
+                    
+                <hr class="custom-margin-transparent-sm">
+                <div class="text-center">
+                    <!--<span class="text-uppercase font-oswald fs-6">voltar à</span>--> <a href="/" class="link link-underline-opacity-50 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald fs-2">Página Inicial</a>
+                </div>
+            </div>
+            <hr class="custom-margin-transparent-b">
+        </div>
+    </div>
+{% endblock %}

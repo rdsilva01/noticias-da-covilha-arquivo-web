@@ -112,7 +112,7 @@ def main(url, header):
     #url_validation_fun(s_year=2019, e_year=2019) # news urls validation (remove duplicates)
     #data_extraction_fun(s_year=2019, e_year=2019) # data from the news urls
     data_validation_fun() # validation of the data (remove duplicates)
-    # data_statistics_fun()
+    #data_statistics_fun()
 
     # statistics = data_statistics_fun(2009, 2019)
     # print(json.dumps(statistics, indent=4, ensure_ascii=False))
