@@ -364,3 +364,7 @@ h1,h2,h3,h4,h5,h6, .nav-link{
     height: 3px; /* Adjust the thickness of the underline */
     background-color: #DC3545; /* Adjust the color of the underline */
 }
+
+.stats-title {
+    font-size: 60px;
+}

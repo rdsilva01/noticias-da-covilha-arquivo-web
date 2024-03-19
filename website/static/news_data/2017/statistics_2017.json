@@ -1,17 +1,13 @@
 {
     "2017": {
         "spacy_entities_per": {
-            "total_entities": 202,
-            "unique_entities": 120,
-            "most_common_entity": "Ana Ribeiro Rodrigues",
-            "most_common_count": 26,
+            "total_entities": 151,
+            "unique_entities": 116,
+            "most_common_entity": "Vítor Pereira",
+            "most_common_count": 18,
             "entity_frequency": {
-                "Ana Ribeiro Rodrigues": 26,
                 "Vítor Pereira": 18,
-                "João Alves": 14,
-                "Ana Rito Pinto": 7,
                 "Noticia": 6,
-                "Ana Rita Pinto": 4,
                 "João Casteleiro": 3,
                 "Álvaro Amaro": 3,
                 "Dias Rocha": 3,
@@ -129,12 +125,12 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 120,
-            "unique_entities": 82,
+            "total_entities": 118,
+            "unique_entities": 81,
             "most_common_entity": "NC",
-            "most_common_count": 11,
+            "most_common_count": 10,
             "entity_frequency": {
-                "NC": 11,
+                "NC": 10,
                 "PSD": 5,
                 "PS": 5,
                 "MAC": 4,
@@ -197,7 +193,6 @@
                 "EPC": 1,
                 "CDS-PP": 1,
                 "Arigo": 1,
-                "Lusa": 1,
                 "Associação Estrela Três Pontas": 1,
                 "Associação Estrela de Três Pontas": 1,
                 "Associação de Ginástica do Centro": 1,
@@ -219,14 +214,13 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 257,
-            "unique_entities": 161,
+            "total_entities": 250,
+            "unique_entities": 160,
             "most_common_entity": "Covilhã",
             "most_common_count": 21,
             "entity_frequency": {
                 "Covilhã": 21,
                 "Câmara da Covilhã": 15,
-                "NC": 7,
                 "Câmara Municipal da Covilhã": 5,
                 "Beira Interior": 4,
                 "Câmara Municipal": 4,

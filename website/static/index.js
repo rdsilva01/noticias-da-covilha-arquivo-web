@@ -103,3 +103,59 @@ function toggleStatistics() {
         button.textContent = 'VER ESTATÍSTICAS';
     }
 }
+/*
+// STATS
+var selectElement = document.getElementById('yearSelect');
+var statsContainer = document.querySelector('.statsContainer');
+
+selectElement.addEventListener('change', function() {
+    var selectedYear = this.value;
+    showStats(selectedYear);
+});
+
+function showStats(year) {
+    // Hide all stats
+    var allStats = statsContainer.getElementsByClassName('stats');
+    for (var i = 0; i < allStats.length; i++) {
+        allStats[i].style.display = 'none';
+    }
+
+    // Show stats for the selected year
+    var statsToShow = document.getElementById('stats_' + year);
+    if (statsToShow) {
+        statsToShow.style.display = 'block';
+    }
+}
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    const prevYearBtn = document.getElementById('prevYear');
+    const nextYearBtn = document.getElementById('nextYear');
+    const currentYearBtn = document.getElementById('currentYear');
+    
+    let currentYearIndex = 0;
+    const statsContainers = document.querySelectorAll('.stats');
+    const years = Array.from(statsContainers).map(container => container.id.split('_')[1]);
+
+    function showStatsContainer(index) {
+        statsContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        statsContainers[index].style.display = 'block';
+        currentYearBtn.textContent = years[index];
+        currentYearIndex = index;
+    }
+
+    prevYearBtn.addEventListener('click', function() {
+        currentYearIndex = Math.max(0, currentYearIndex - 1);
+        showStatsContainer(currentYearIndex);
+    });
+
+    nextYearBtn.addEventListener('click', function() {
+        currentYearIndex = Math.min(years.length - 1, currentYearIndex + 1);
+        showStatsContainer(currentYearIndex);
+    });
+
+    // Show the initial stats container
+    showStatsContainer(currentYearIndex);
+});

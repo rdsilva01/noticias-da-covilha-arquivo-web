@@ -121,7 +121,7 @@
         </div>
 
         <!-- SEMANÁRIO -->
-
+        <!--
         <div class="bg-light">
             <hr class="custom-margin-transparent-b-sm">
             <div class="container">
@@ -169,7 +169,75 @@
             </div>
             <hr class="custom-margin-transparent-t">
         </div>
-        
+        -->
+
+        <!-- TOP ENTITIES -->
+        <div class="bg-light"> 
+            <hr class="custom-margin-transparent-b-lg" id="entidadesMaisFaladas">
+            <div class="container">
+                <h1 class="text-start font-oswald fw-normal text-uppercase display-4 mb-5 text-center">Entidades mais faladas ao longo dos anos</h1>
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="">
+                            <div class="btn-group">
+                                <button id="prevYear" class="btn btn-transparent fs-1  rounded-start-1">&#8249;</button>
+                                <button id="currentYear" class="bg-light display-1 font-montserrat fw-bold text-danger border-0" style="pointer-events: none;">{{ current_year }}</button>
+                                <button id="nextYear" class="btn btn-transparent fs-1 rounded-end-1">&#8250;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container mt-4 text-center">
+                    <div class="statsContainer">
+                        {% for stats_dict in stats_list %}
+                            {% for year, stats in stats_dict.items() %}
+                                <div class="stats" id="stats_{{ year }}" style="display:none; margin-bottom: 20px;">
+                                        
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p class="font-montserrat fs-5">A pessoa mais comentada foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entities_per.most_common_entity }}</span> <br> <span class="fw-bold">({{ stats.spacy_entities_per.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entities_per.unique_entities }}</span> pessoas</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="font-montserrat fs-5">A organização mais falada foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entites_org.most_common_entity }}</span> <br> <span class="fw-bold">({{ stats.spacy_entites_org.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entites_org.unique_entities }}</span> organizações</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="font-montserrat fs-5">A localidade que mais apareceu foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entities_loc.most_common_entity }}</span>  <br> <span class="fw-bold">({{ stats.spacy_entities_loc.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entities_loc.unique_entities }}</span> localidades</p>
+                                        </div>      
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <script>
+                    var selectElement = document.getElementById('yearSelect');
+                    var statsContainer = document.querySelector('.statsContainer');
+                
+                    selectElement.addEventListener('change', function() {
+                        var selectedYear = this.value;
+                        showStats(selectedYear);
+                    });
+                
+                    function showStats(year) {
+                        // Hide all stats
+                        var allStats = statsContainer.getElementsByClassName('stats');
+                        for (var i = 0; i < allStats.length; i++) {
+                            allStats[i].style.display = 'none';
+                        }
+                
+                        // Show stats for the selected year
+                        var statsToShow = document.getElementById('stats_' + year);
+                        if (statsToShow) {
+                            statsToShow.style.display = 'block';
+                        }
+                    }
+                </script>
+                
+            </div>
+            <hr class="custom-margin-transparent-t-lg">
+        </div>
 
         <!-- MAIN NEWS -->
         <hr class="custom-margin-transparent-sm" id="mainNews">

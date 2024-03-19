@@ -2,6 +2,10 @@ import json
 from collections import Counter
 import os
 
+import json
+from collections import Counter
+import os
+
 def get_data_spacy_statistics(year):
     json_file = f'../data/data_{year}/validated_{year}.json'
     with open(json_file, 'r') as f:
@@ -11,12 +15,14 @@ def get_data_spacy_statistics(year):
     statistics_by_type = {}
 
     for entity_type in entity_types:
-        all_entities = [entry.get('token') for entry in sum((entry.get(entity_type, []) for entry in data), [])]
-        entity_counter = Counter(all_entities)
+        entity_counter = Counter()
+        for entry in data:
+            all_entities = entry.get(entity_type, [])  # Get list of entities for current type
+            entity_counter.update(all_entities)  # Update counter with occurrences of each entity
         
-        total_entities = len(all_entities)
+        total_entities = sum(entity_counter.values())
         unique_entities = len(entity_counter)
-        sorted_entities = entity_counter.most_common()  # sort entities by count
+        sorted_entities = entity_counter.most_common()  # Sort entities by count
         
         if year not in statistics_by_type:
             statistics_by_type[year] = {}
@@ -29,13 +35,13 @@ def get_data_spacy_statistics(year):
             "entity_frequency": dict(sorted_entities)
         }
     
-    folder_name = "data_{}".format(year)
-    folder_path = "./data/{}".format(folder_name)
+    folder_name = f"data_{year}"
+    folder_path = f"./data/{folder_name}"
 
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
-    file_path = os.path.join(folder_path, "statistics_{}.json".format(year))
+    file_path = os.path.join(folder_path, f"statistics_{year}.json")
     with open(file_path, "w") as file:
         json.dump(statistics_by_type, file, indent=4, ensure_ascii=False)
         
@@ -91,6 +97,5 @@ def get_content_statistics(year):
 def main():
     for i in range(2009, 2020):
         get_data_spacy_statistics(i)
-        get_content_statistics(i)
         
 main()

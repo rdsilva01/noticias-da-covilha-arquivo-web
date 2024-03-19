@@ -8,6 +8,15 @@ app = Flask(__name__)
 
 from datetime import datetime
 
+
+def get_all_stats(s_year, e_year):
+    stats_list = []
+    for i in range(s_year, e_year+1):
+        statistics_year = get_stats(i)
+        stats_list.append(statistics_year)
+        
+    return stats_list
+
 def get_redis_search(query):
     results = get_search(query)
     return results
@@ -162,7 +171,6 @@ def news_per_year(year):
     current_date = datetime.today()
     
     statistics_year = get_stats(year)
-    print(statistics_year)  # Add this line for debugging
     
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
@@ -223,13 +231,16 @@ def index():
     directory = os.path.join(app.static_folder, 'news_data', '2009', 'capa_2009')
     json_file_path = os.path.join(directory, 'custom_news.json')
     
+    stats_list = get_all_stats(2009, 2019)
+    print(stats_list)
+    
     news_front_page = get_news_front_page(2011)
     
     current_date = datetime.today()
     
     news_from_period = get_news_from_period()
     num_articles = len(news_from_period)
-    return render_template('index.html', news=news_from_period, num_articles=num_articles, news_front_page=news_front_page, current_date = current_date)
+    return render_template('index.html', news=news_from_period, num_articles=num_articles, news_front_page=news_front_page, current_date = current_date, stats_list = stats_list)
 
 if __name__ == '__main__':
     app.run(debug=True)
