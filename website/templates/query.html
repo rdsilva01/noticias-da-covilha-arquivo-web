@@ -9,22 +9,29 @@
     <div class="row d-flex justify-content-center">
         <hr class="custom-margin-transparent-b-lg">
         <h1 class="text-center text-uppercase fw-normal fs-3 text-light font-oswald">Pesquise no <span class="fs-1 font-oswald lh-lg px-1 border-2 border-bottom border-danger">Arquivo Web</span> do <span class="fs-1 font-oswald">Notícias da Covilhã</span></h1>
-        <form class="d-flex h-5 px-4 col-12 col-md-6 mt-4" action="/pelacuriosidade" method="GET" role="search">
-            <input class="form-control rounded rounded-1 border border-black me-1" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput" name="query">
-            <button class="btn btn-outline-danger rounded-1 px-5" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-            </button>
-        </form>        
-        <div class="text-center font-oswald fw-light">
-            <button type="button" class="btn btn-link mt-3 px-3 text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase" id="showFiltersBtn" onclick="toggleFilters()">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-gear-wide-connected text-light" viewBox="0 0 16 16">
-                    <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z"/>
-                  </svg>
-            </button>
-        </div>
-
+        <form class="" action="/pelacuriosidade" method="GET" role="search" id="searchForm">
+            <div class="row d-flex justify-content-center g-0">
+                <!-- Column for search input -->
+                <div class="col-md-6 offset-md-2">
+                    <div class="d-flex">
+                        <input class="form-control rounded rounded-1 border border-black me-1 ms-2" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput" name="query">
+                        <button class="btn btn-outline-danger rounded-1 px-5" type="submit" id="searchButton" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Column for "Opções Avançadas" -->
+                <div class="col-md-2 d-flex font-oswald fw-normal align-items-end justify-content-end">
+                    <button type="button" class="btn btn-link text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase text-end" id="showFiltersBtn" onclick="toggleFilters()">
+                        Opções Avançadas
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
         <div class="container justify-content-center filters-container mt-4" style="display: none;">
             <div class="row text-light ">
                 <div class="col-md-12 offset-md-0">
@@ -79,11 +86,34 @@
                                 <label class="checkbox" for="category5">
                                   <input type="checkbox" id="category5" class="checkbox__input" />  
                                   <span class="checkbox__label"></span>
-                                  <span class="checkbox-wrapper-text text-uppercase font-oswald">Notícias</span> 
+                                  <span class="checkbox-wrapper-text text-uppercase font-oswald">Categoria</span> 
                                 </label>
                               </div>
                         </div>
+                    </div> 
+                    <div class="form-check mb-2">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="checkbox-wrapper-29">
+                                <label class="checkbox" for="category6">
+                                  <input type="checkbox" id="category6" class="checkbox__input" />  
+                                  <span class="checkbox__label"></span>
+                                  <span class="checkbox-wrapper-text text-uppercase font-oswald">Imagens</span> 
+                                </label>
+                              </div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center mb-2">
+                            <label for="startYear" class="form-label me-3 font-oswald fw-normal fs-5">DE</label>
+                            <input type="number" id="startYear" name="startYear" class="form-control rounded-0 bg-dark text-light border-3 font-oswald fw-normal fs-5" min="2009" max="2019" step="1" value="2009">
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center mb-2">
+                            <label for="endYear" class="form-label me-3 text-light font-oswald fw-normal fs-5">ATÉ</label>
+                            <input type="number" id="endYear" name="endYear" class="form-control rounded-0 bg-dark text-light border-3 font-oswald fw-normal fs-5" min="2009" max="2019" step="1" value="2019">
+                        </div>
                     </div>
+                    
+                    
                     <!-- Add more checkboxes for categories -->
                 </div>
                 <div class="col-md-8">
@@ -92,8 +122,6 @@
             </div>
         </div>
         <hr class="custom-margin-transparent-b-lg">
-        
-    </div>
     
 </div>
 <div class="bg-light">
@@ -142,5 +170,5 @@
     </div>
 </div>
 
-
+<script src="{{ url_for('static', filename='query.js')}}"></script>
 {% endblock %}

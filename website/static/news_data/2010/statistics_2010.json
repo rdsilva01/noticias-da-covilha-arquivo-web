@@ -1286,14 +1286,13 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 1291,
-            "unique_entities": 721,
+            "total_entities": 1258,
+            "unique_entities": 720,
             "most_common_entity": "Sporting da Covilhã",
             "most_common_count": 46,
             "entity_frequency": {
                 "Sporting da Covilhã": 46,
                 "Lusa": 42,
-                "NC": 33,
                 "Câmara": 31,
                 "PS": 25,
                 "GNR": 20,
@@ -2015,8 +2014,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 3929,
-            "unique_entities": 1710,
+            "total_entities": 3926,
+            "unique_entities": 1709,
             "most_common_entity": "Covilhã",
             "most_common_count": 183,
             "entity_frequency": {
@@ -2255,7 +2254,6 @@
                 "Estados Unidos da América": 3,
                 "Erada": 3,
                 "Silvares": 3,
-                "NC": 3,
                 "Hospital do Fundão": 3,
                 "Sernache": 3,
                 "NERCAB": 3,

@@ -125,12 +125,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 118,
-            "unique_entities": 81,
-            "most_common_entity": "NC",
-            "most_common_count": 10,
+            "total_entities": 108,
+            "unique_entities": 80,
+            "most_common_entity": "PSD",
+            "most_common_count": 5,
             "entity_frequency": {
-                "NC": 10,
                 "PSD": 5,
                 "PS": 5,
                 "MAC": 4,

@@ -653,12 +653,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 721,
-            "unique_entities": 395,
-            "most_common_entity": "NC",
-            "most_common_count": 43,
+            "total_entities": 678,
+            "unique_entities": 394,
+            "most_common_entity": "PS",
+            "most_common_count": 37,
             "entity_frequency": {
-                "NC": 43,
                 "PS": 37,
                 "PSD": 37,
                 "Câmara": 30,
@@ -1056,8 +1055,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 1701,
-            "unique_entities": 805,
+            "total_entities": 1698,
+            "unique_entities": 804,
             "most_common_entity": "Covilhã",
             "most_common_count": 116,
             "entity_frequency": {
@@ -1146,7 +1145,6 @@
                 "Rua Marquês D`Ávila": 3,
                 "A23": 3,
                 "Loja do Zé André": 3,
-                "NC": 3,
                 "Leões": 3,
                 "Peso": 3,
                 "Tribunal Constitucional": 3,

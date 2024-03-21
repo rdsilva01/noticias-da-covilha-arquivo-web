@@ -424,12 +424,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 479,
-            "unique_entities": 317,
-            "most_common_entity": "NC",
-            "most_common_count": 33,
+            "total_entities": 446,
+            "unique_entities": 316,
+            "most_common_entity": "PSD",
+            "most_common_count": 14,
             "entity_frequency": {
-                "NC": 33,
                 "PSD": 14,
                 "Sporting da Covilhã": 14,
                 "MAC": 13,

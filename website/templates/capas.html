@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='capas.css')}}">
 {% block title %}
     Capas
 {% endblock %}
@@ -10,21 +10,58 @@
         <div class="container text-center">
             <hr class="custom-margin-transparent-sm">
             <div class="container">
-                <h1 class="text-light news-per-year-title font-oswald d-inline-block">CAPAS</h1>
+                <h1 class="text-light big-title font-oswald d-inline-block"><span class="">10</span> ANOS DE CAPAS</h1>
             </div>
-            <h4 class="text-light fw-light mt-4">foi possível a recolha de um total de <span class="fs-2">X</span> capas</h4>
+            <h5 class="text-light fw-light mt-4 mb-5">foi possível proceder à recolha de um total de <span class="fs-3 text-danger fw-bold">{{num_capas}}</span> capas</h5>
+
+            <div class="statistics-container-capas">
+                <div class="text-light fs-6 mt-3">
+                    {% if 'spacy_entities_per' in statistics %}
+                        <span class="font-montserrat text-uppercase">Total de Pessoas: {{ statistics.spacy_entities_per.unique_entities }}</span>
+                        <br>
+                        <span class="font-montserrat text-uppercase">Pessoa mais comum: <span class="fw-bold fs-4 text-danger">{{ statistics.spacy_entities_per.most_common_entity }}</span> ({{ statistics.spacy_entities_per.most_common_count }} vezes)</span>
+                    {% else %}
+                        <span class="font-montserrat text-uppercase">Nenhuma estatística disponível para entidades</span>
+                    {% endif %}
+                </div>
+                <div class="text-light fs-6 mt-3">
+                    {% if 'spacy_entites_org' in statistics %}
+                        <span class="font-montserrat text-uppercase">Total de Organizações: {{ statistics.spacy_entites_org.unique_entities }}</span>
+                        <br>
+                        <span class="font-montserrat text-uppercase">Organização mais comum: <span class="fw-bold fs-4 text-danger">{{ statistics.spacy_entites_org.most_common_entity }}</span> ({{ statistics.spacy_entites_org.most_common_count }} vezes)</span>
+                    {% else %}
+                        <span class="font-montserrat text-uppercase">Nenhuma estatística disponível para Organizações</span>
+                    {% endif %}
+                </div>
+                <div class="text-light fs-6 mt-3">
+                    {% if 'spacy_entities_loc' in statistics %}
+                        <span class="font-montserrat text-uppercase">Total de Organizações: {{ statistics.spacy_entities_loc.unique_entities }}</span>
+                        <br>
+                        <span class="font-montserrat text-uppercase">Organização mais comum: <span class="fw-bold fs-4 text-danger">{{ statistics.spacy_entities_loc.most_common_entity }}</span> ({{ statistics.spacy_entities_loc.most_common_count }} vezes)</span>
+                    {% else %}
+                        <span class="font-montserrat text-uppercase">Nenhuma estatística disponível para Localidades</span>
+                    {% endif %}
+                </div>
+            </div>
             <hr class="custom-margin-transparent-sm">
         </div>
         <hr class="custom-margin-transparent-sm">
     </div>
     
     <div class="container">
+        <!-- MODAL -->
+        <div id="myModal" class="modal">
+            <div id="caption" class="font-oswald fw-light fs-1 text-center">
+
+            </div>
+            <img class="modal-content rounded-1" id="modal-img">
+        </div>
         <div class="row">
             {% for date, news_info in all_news_data %}
             <div class="col-lg-4 col-md-6 col-sm-6 mb-5 mt-5">
-                <div class="text-center">
+                <div class="text-center capa">
                     <h1 class="card-title font-oswald fw-normal border border-2 border-dark px-1 display-3">{{ date }}</h1>
-                    <img src="{{ news_info['url'] }}" class="card-img-top" alt="News Image">
+                    <img src="{{ news_info['url'] }}" class="news-img img-fluid" alt="{{ date }}" data-date="{{ date }}">
                 </div>
             </div>
             {% endfor %}
@@ -35,4 +72,7 @@
     </div>
     <hr class="custom-margin-transparent-t">
 </div>
+
+<script src="{{ url_for('static', filename='capas.js')}}"></script>
+
 {% endblock %}

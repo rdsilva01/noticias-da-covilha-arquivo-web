@@ -21,6 +21,18 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body class="overflow-y-auto overflow-x-hidden bg-dark">
+    <div class="bg-dark px-1">
+        <div class="me-2 mt-2  text-end">
+            <!--<h5><a href="#" class="d-none d-sm-block mt-2 me-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase opacity-75">Arquivo Web</a></h5>-->
+            <h5>
+                <a href="" class="ms-2 link-light fs-6 link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase font-oswald fw-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg> REPOSITÓRIO
+                </a>
+            </h5>
+        </div>
+    </div>
     <div class="row bg-dark">
         <div class="col-md-7">
             <div class="row">
@@ -33,15 +45,15 @@
                 <h6 class="ms-2 fw-normal text-white text-uppercase mt-3">O <span class="fw-bold text-danger">Arquivo Web</span> do semanário mais antigo do Distrito de Castelo Branco</h6>
            </div>   
         </div>
-        <div class="col-md-5 mt-2 text-end">
-            <!--<h5><a href="#" class="d-none d-sm-block mt-2 me-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase opacity-75">Arquivo Web</a></h5>-->
+        <!-- <div class="col-md-5 mt-2 text-end">
             <h5><a href="" class="d-none d-sm-block me-2 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase opacity-75"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
               </svg></a></h5>
-        </div>
+        </div> -->
         
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger text-center">
+    <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger text-center">
             <div class="container ms-0">
                 <button class="navbar-toggler text-uppercase font-oswald text-light text-center text-sm-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     MENU
@@ -56,25 +68,19 @@
                             </div>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link mt-2 " href="#" onclick="toggleSecondaryNav('seccoes', this)">SECÇÕES</a>
+                            <a class="nav-link mt-2 " href="#seccoes" onclick="toggleSecondaryNav('seccoes', this)">SECÇÕES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mt-2" href="#" onclick="toggleSecondaryNav('local', this)">LOCAL</a>
+                            <a class="nav-link mt-2" href="#local" onclick="toggleSecondaryNav('local', this)">LOCAL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mt-2" href="#" onclick="toggleSecondaryNav('canais', this)">CANAIS</a>
+                            <a class="nav-link mt-2" href="#canais" onclick="toggleSecondaryNav('canais', this)">CANAIS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mt-2" href="#" onclick="toggleSecondaryNav('opiniao', this)">OPINIÃO</a>
+                            <a class="nav-link mt-2" href="#opiniao" onclick="toggleSecondaryNav('opiniao', this)">OPINIÃO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mt-2" href="#" onclick="toggleSecondaryNav('editorial', this)">EDITORIAL</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mt-2" href="#">MAIS POPULARES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mt-2" href="#">MULTIMEDIA</a>
+                            <a class="nav-link mt-2" href="#editorial" onclick="toggleSecondaryNav('editorial', this)">EDITORIAL</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mt-2" href="#" onclick="toggleSecondaryNav('anos', this)">ANOS</a>
@@ -82,7 +88,6 @@
                         <li class="nav-item">
                             <a class="nav-link mt-2" href="/capas">CAPAS</a>
                         </li>
-                        
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -101,26 +106,34 @@
                 <ul class="navbar-nav me-auto" id="secondaryNav">
                     <li class="nav-item secondary-nav-item" id="seccoesItem">
                         <a class="nav-link d-inline" href="#">CENTRAIS</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">ACTUALIDADE</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">DESPORTO</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">RELIGIÃO</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">CULTURA</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">ASSOCIATIVISMO</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">ECONOMIA</a>
-                        <span class="vertical-line">|</span>
+                        <span class="vertical-line text-secondary">|</span>
                         <a class="nav-link d-inline" href="#">AGENDA</a>
                     </li>
                     
                     <li class="nav-item secondary-nav-item" id="localItem">
-                        <a class="nav-link d-inline" href="#">Link 1</a>
-                      
-                        <a class="nav-link d-inline" href="#">Link 2</a>
+                        <a class="nav-link d-inline" href="#">COVILHÃ</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="#">BELMONTE</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="#">FUNDÃO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="#">CASTELO BRANCO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="#">GUARDA</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="#">REGIÃO</a>
                     </li>
                     <li class="nav-item secondary-nav-item" id="canaisItem">
                         <a class="nav-link d-inline" href="#">Link 1</a>
@@ -129,23 +142,25 @@
                     <li class="nav-item secondary-nav-item" id="anosItem">
                         {% for year in range(2009, 2020, 1) %}
                             <a class="nav-link d-inline" href="{{ url_for('news_per_year', year=year) }}">{{ year }}</a>
-                            <span class="vertical-line">|</span>
+                            <span class="vertical-line text-secondary">|</span>
                         {% endfor %}
                     </li>
                 </ul>
             </div>
         </nav>
+    </div>
+    
 
     {% block content %}{% endblock %}
 
     <div class="bg-dark">
-        <hr class="custom-margin-transparent-sm-b border-top opacity-25 mb-4">
-        <div class="row container">
+        <!-- <div class="row container">
+            
             <div class="col">
             </div>
             <div class="col">
             </div>
-            <div class="col-md-3 text-end text-light me-3">
+             <div class="col-md-3 text-end text-light me-3">
                 <p class="font-montserrat fw-normal text-uppercase">Receba a nossa Newsletter!</p>
                 <form action="#" method="post" class="d-flex align-items-center">
                     <div class="flex-fill me-1">
@@ -160,69 +175,126 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> 
             
 
-        </div>
-       <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 mt-5 pt-4 text-white ">
-        <div class="col-md-4 mb-3 text-center">
-            <h5 class="font-montserrat fw-light text-uppercase opacity-50">&copy;2024</h5> 
-            <ul class="nav flex-column text-center">
-              <li class="nav-item footer-link mb-2">
-                <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="/sobre#sobre">Sobre</a>
-              </li>
-              <li class="nav-item footer-link mb-2">
-                <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
-              </li>
-              <li class="nav-item footer-link mb-2">
-                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
-              </li>
-              <li class="nav-item footer-link mb-2">
-                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
-              </li>
-            </ul>
-          </div>
-
-        <div class="col-md-4 mb-3 text-center">
-            <h5 class="font-montserrat fw-light text-uppercase opacity-50">Secções</h5> 
-          <ul class="nav flex-column">
-            <li class="nav-item footer-link mb-2">
-              <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="/#pelaCuriosidade">Pela Curiosidade</a>
-            </li>
-            <li class="nav-item footer-link mb-2">
-              <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="/#entidadesMaisFaladas">Entidades Mais Faladas</a>
-            </li>
-            <li class="nav-item footer-link mb-2">
-                <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
-            </li>
-            <li class="nav-item footer-link mb-2">
-                <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
-            </li>
-          </ul>
-        </div>
+        </div> -->
+       <footer class="">
+        <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 mt-5 pt-4 text-white ">
+            <div class="col-md-4 mb-3 text-center">
+                <h5 class="font-montserrat fw-light text-uppercase opacity-50">&copy;2024</h5> 
+                <ul class="nav flex-column text-center">
+                  <li class="nav-item footer-link mb-2">
+                    <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="/sobre#sobre">Sobre</a>
+                  </li>
+                  <li class="nav-item footer-link mb-2">
+                    <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
+                  </li>
+                  <li class="nav-item footer-link mb-2">
+                      <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
+                  </li>
+                  <li class="nav-item footer-link mb-2">
+                      <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
+                  </li>
+                </ul>
+              </div>
     
-        <div class="col-md-4 mb-3 text-center">
-          <h5 class="font-montserrat fw-light text-uppercase opacity-50">Links</h5> 
-          <ul class="nav flex-column">
-              <li class="nav-item footer-link mb-2">
-                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#">Github</a>
-              </li>
-              <li class="nav-item footer-link mb-2">
-                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#">Arquivo.pt</a>
-              </li>
-              <li class="nav-item footer-link mb-2">
-                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#">UBI</a>
-              </li>
-              <li class="nav-item footer-link mb-2">
-                  <a class="text-light text-uppercase link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light" href="#"></a>
-              </li>
-              <li class="nav-item footer-link">
-                  <a class="text-light text-uppercase link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light" href="#"></a>
-              </li>
-          </ul>
-      </div>
-      
+            <div class="col-md-4 mb-3 text-center">
+                <h5 class="font-montserrat fw-light text-uppercase opacity-50">Secções</h5> 
+              <ul class="nav flex-column">
+                <li class="nav-item footer-link mb-2">
+                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="/#pelaCuriosidade">A Desvendar Histórias</a>
+                </li>
+                <li class="nav-item footer-link mb-2">
+                  <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="/#entidadesMaisFaladas">Entidades Mais Faladas</a>
+                </li>
+                <li class="nav-item footer-link mb-2">
+                    <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
+                </li>
+                <li class="nav-item footer-link mb-2">
+                    <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#hoje">Hoje</a>
+                </li>
+              </ul>
+            </div>
+        
+            <div class="col-md-4 mb-3 text-center">
+              <h5 class="font-montserrat fw-light text-uppercase opacity-50">Links</h5> 
+              <ul class="nav flex-column">
+                  <li class="nav-item footer-link mb-2">
+                      <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#">Github</a>
+                  </li>
+                  <li class="nav-item footer-link mb-2">
+                      <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#">Arquivo.pt</a>
+                  </li>
+                  <li class="nav-item footer-link mb-2">
+                      <a class="text-light text-uppercase font-montserrat link link-underline-opacity-0 link-light" href="#">UBI</a>
+                  </li>
+                  <li class="nav-item footer-link mb-2">
+                      <a class="text-light text-uppercase link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light" href="#"></a>
+                  </li>
+                  <li class="nav-item footer-link">
+                      <a class="text-light text-uppercase link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light" href="#"></a>
+                  </li>
+              </ul>
+          </div>
+        </div> -->
+
+        <div class="text-light text-center container my-5 font-montserrat ">
+            <!-- <hr class="mb-5"> -->
+            <div class="opacity-75">
+                <p>
+                O ArquivoNC é um trabalho académico desenvolvido no âmbito do projeto final de curso do 1.º ciclo em Engenharia Informática da Universidade da Beira Interior. O projeto permite aos utilizadores pesquisar notícias na edição online do jornal Notícias da Covilhã, preservadas pelo Arquivo.pt no período de tempo compreendido entre 2009 e 2019.
+            </p>
+            <p>
+                Desenvolvido por Rodrigo Silva (afiliado à Universidade da Beira Interior) e Ricardo Campos (afiliado à Universidade da Beira Interior, INESCTEC e Ci2@IPT). Ricardo Campos foi financiado por fundos nacionais através da agência de financiamento portuguesa, FCT - Fundação para a Ciência e a Tecnologia no contexto do projeto StorySense 
+                (<a class="link link-light link-underline-opacity-50 link-underline-opacity-100-hover" href="https://doi.org/10.54499/2022.09312.PTDC " target="_blank">DOI 10.54499/2022.144 09312.PTDC</a>).
+            </p>
+            <p>
+                Agradecimentos: Paulo Crispim (Centro de Informática e Sistemas (CIS), IPTomar)
+            </p>
+            </div>
+        </div>
+        <div class="bg-white mb-5"> 
+            <div class="container">
+            <!-- LOGOS -->
+            <div class="row d-flex justify-content-center align-items-center gx-5">
+                <div class="col-4 col-md-2">
+                    <a href="https://www.ubi.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/images/ubi_logo.jpg" alt="UBI" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://www.inesctec.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/images/inesctec_logo.png" alt="INESC TEC" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="http://www.ci2.ipt.pt/pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/images/ci2_logo.png" alt="Ci2" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://www.fct.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/images/FCT_logo.png" alt="FCT" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://www.humane-ai.eu/" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/images/humane-ai.png" alt="Humane AI" class="opacity-100 img-fluid">
+                        <!-- depois tem de se tirar os ../ -->
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="../static/images/arquivo-logo.png" alt="Arquivo.pt" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+            </div>
+            </div>
+          </div>
       </footer>
+
+      <div id="cursor-circle"></div>
     </div>
     
     <script src="{{ url_for('static', filename='index.js')}}"></script>

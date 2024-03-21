@@ -352,12 +352,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 446,
-            "unique_entities": 293,
-            "most_common_entity": "NC",
-            "most_common_count": 38,
+            "total_entities": 408,
+            "unique_entities": 292,
+            "most_common_entity": "CDU",
+            "most_common_count": 15,
             "entity_frequency": {
-                "NC": 38,
                 "CDU": 15,
                 "MAC": 14,
                 "UBI": 11,
@@ -653,8 +652,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 1026,
-            "unique_entities": 545,
+            "total_entities": 1024,
+            "unique_entities": 544,
             "most_common_entity": "Covilhã",
             "most_common_count": 74,
             "entity_frequency": {
@@ -780,7 +779,6 @@
                 "Reitor": 2,
                 "Banda do Paul": 2,
                 "Paul": 2,
-                "NC": 2,
                 "Feira de São Tiago": 2,
                 "Vêm": 2,
                 "Ministério Público": 2,

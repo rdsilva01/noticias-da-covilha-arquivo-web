@@ -3,11 +3,30 @@ from flask_paginate import Pagination, get_page_args
 import os
 import json
 from redis_search import get_search
+import random
 
 app = Flask(__name__)
 
 from datetime import datetime
 
+
+def get_all_content_stats(s_year, e_year):
+    content_stats_list = []
+    for i in range(s_year, e_year+1):
+        statistics_year = get_content_stats(i)
+        content_stats_list.append(statistics_year)
+        
+    return content_stats_list
+
+content_stats_data_folder = os.path.join(app.root_path, 'static', 'news_data')
+def get_content_stats(year):
+    file_path = os.path.join(stats_data_folder, str(year), f'content_statistics_{year}.json')
+
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    else:
+        return {}
 
 def get_all_stats(s_year, e_year):
     stats_list = []
@@ -42,13 +61,25 @@ def get_today_date():
 def get_news_from_period():
     current_month, current_day, current_year = get_today_date()
 
+    max_articles_per_year = 2
     news_from_period = []
+    articles_loaded_per_year = {}
+
     for year in range(2009, 2020):
+        if year not in articles_loaded_per_year:
+            articles_loaded_per_year[year] = 0
+
         news_data = load_data(year)
 
-        news_from_period.extend([article for article in news_data if datetime.strptime(article['date'], '%Y-%m-%d').month == current_month and datetime.strptime(article['date'], '%Y-%m-%d').day in [current_day, current_day + 1]])
-        news_from_period.extend([article for article in news_data if datetime.strptime(article['date'], '%Y-%m-%d').month == current_month and datetime.strptime(article['date'], '%Y-%m-%d').day in [current_day, current_day - 1]])
+        for article in news_data:
+            article_date = datetime.strptime(article['date'], '%Y-%m-%d')
+            if article_date.month == current_month and article_date.day in [current_day, current_day + 1] and articles_loaded_per_year[year] < max_articles_per_year:
+                news_from_period.append(article)
+                articles_loaded_per_year[year] += 1
 
+            if article_date.month == current_month and article_date.day in [current_day, current_day - 1] and articles_loaded_per_year[year] < max_articles_per_year:
+                news_from_period.append(article)
+                articles_loaded_per_year[year] += 1
 
     return news_from_period
 
@@ -117,6 +148,8 @@ def capas():
         news_data_year = get_news_front_page(year)
         all_news_data.update(news_data_year)
         
+    num_capas = len(all_news_data)
+        
     page = int(request.args.get('page', 1))
     per_page = 9
     offset = (page - 1) * per_page
@@ -125,7 +158,7 @@ def capas():
     pagination = Pagination(page=page, per_page=9, total=total, css_framework='bootstrap5')
 
     
-    return render_template('capas.html', all_news_data=current_page_results, pagination=pagination)
+    return render_template('capas.html', all_news_data=current_page_results, pagination=pagination, num_capas=num_capas)
 
 
 @app.route('/pelacuriosidade')
@@ -232,7 +265,7 @@ def index():
     json_file_path = os.path.join(directory, 'custom_news.json')
     
     stats_list = get_all_stats(2009, 2019)
-    print(stats_list)
+    content_stats_list = get_all_content_stats(2009, 2019)
     
     news_front_page = get_news_front_page(2011)
     
@@ -240,7 +273,8 @@ def index():
     
     news_from_period = get_news_from_period()
     num_articles = len(news_from_period)
-    return render_template('index.html', news=news_from_period, num_articles=num_articles, news_front_page=news_front_page, current_date = current_date, stats_list = stats_list)
+    random_index = random.randint(0, num_articles - 1)
+    return render_template('index.html', news=news_from_period, num_articles=num_articles, news_front_page=news_front_page, current_date = current_date, stats_list = stats_list, random_index=random_index, content_stats_list=content_stats_list)
 
 if __name__ == '__main__':
     app.run(debug=True)

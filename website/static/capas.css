@@ -1,0 +1,60 @@
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+/* The Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: fit-content;
+    max-height: 100vh; /* Adjust as needed */
+  }
+
+@-webkit-keyframes modal-zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes modal-zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+  #caption {
+    margin: auto;
+    margin-top: 0px;
+    display: block;
+    text-align: center;
+  }
+
+.modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+/* Adjust width and height for smaller screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+  }
+}

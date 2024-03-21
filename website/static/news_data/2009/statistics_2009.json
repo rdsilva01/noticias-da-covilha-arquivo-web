@@ -229,8 +229,8 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 155,
-            "unique_entities": 128,
+            "total_entities": 152,
+            "unique_entities": 127,
             "most_common_entity": "Câmara",
             "most_common_count": 7,
             "entity_frequency": {
@@ -239,7 +239,6 @@
                 "PS": 4,
                 "GNR": 3,
                 "UBI": 3,
-                "NC": 3,
                 "Lusa": 3,
                 "Junta de Freguesia": 2,
                 "Junta": 2,
@@ -365,8 +364,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 405,
-            "unique_entities": 285,
+            "total_entities": 404,
+            "unique_entities": 284,
             "most_common_entity": "Covilhã",
             "most_common_count": 21,
             "entity_frequency": {
@@ -530,7 +529,6 @@
                 "Bispo": 1,
                 "Paróquia de Santa Maria": 1,
                 "Paróquia": 1,
-                "NC": 1,
                 "Centro Cultural e Social": 1,
                 "Serra dos Reis": 1,
                 "Carpinteira": 1,

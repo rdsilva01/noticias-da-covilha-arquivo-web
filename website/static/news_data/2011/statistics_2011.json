@@ -1322,13 +1322,12 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 1462,
-            "unique_entities": 781,
+            "total_entities": 1420,
+            "unique_entities": 780,
             "most_common_entity": "Sporting da Covilhã",
             "most_common_count": 53,
             "entity_frequency": {
                 "Sporting da Covilhã": 53,
-                "NC": 42,
                 "Câmara": 34,
                 "Liga de Honra": 25,
                 "PS": 25,
@@ -2111,8 +2110,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 4249,
-            "unique_entities": 1761,
+            "total_entities": 4246,
+            "unique_entities": 1760,
             "most_common_entity": "Covilhã",
             "most_common_count": 195,
             "entity_frequency": {
@@ -2338,7 +2337,6 @@
                 "diocese da Guarda": 3,
                 "do Norte": 3,
                 "AZC": 3,
-                "NC": 3,
                 "Carnaval da Neve": 3,
                 "ACES Cova da Beira": 3,
                 "Centro de Saúde": 3,

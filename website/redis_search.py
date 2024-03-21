@@ -26,37 +26,37 @@ def convert_lists_to_strings(data):
         return data
 
     
-# def get_search(query, page=1, per_page=8, s_year=2009, e_year=2019):
-#     search_results = []
+def get_search(query, page=1, per_page=8, s_year=2009, e_year=2019):
+    search_results = []
 
-#     # Define variables
-#     index_name = 'idx:nc'  # the name of the index
-#     fields = [TextField(name="url"), TextField(name="title"), TextField(name="content")]
+    # Define variables
+    index_name = 'idx:nc'  # the name of the index
+    fields = [TextField(name="url"), TextField(name="title"), TextField(name="content")]
 
-#     r = connect_redis()
-#     #create_index(r, index_name, "", fields)  # Create index without any prefix initially
+    r = connect_redis()
+    create_index(r, index_name, "", fields)  # Create index without any prefix initially
     
-#     # Load and index data for all years
-#     # for year in range(s_year, e_year + 1):
-#     #     doc_prefix = f'nc_news:{year}'  # Prefix for the document keys
-#     #     with open(f"static/news_data/{year}/validated_{year}.json", "r", encoding="utf8") as readfile:
-#     #         key_moments = json.load(readfile)
+    # Load and index data for all years
+    for year in range(s_year, e_year + 1):
+        doc_prefix = f'nc_news:{year}'  # Prefix for the document keys
+        with open(f"static/news_data/{year}/validated_{year}.json", "r", encoding="utf8") as readfile:
+            key_moments = json.load(readfile)
 
-#     #     #key_moments = convert_lists_to_strings(key_moments)
-#     #     #index_documents(r, doc_prefix, key_moments)  # Index data for the current year with its prefix
+        key_moments = convert_lists_to_strings(key_moments)
+        index_documents(r, doc_prefix, key_moments)  # Index data for the current year with its prefix
 
-#     # Search through all prefixes
-#     # for year in range(s_year, e_year + 1):
-#     #     doc_prefix = f'nc_news:{year}'
-#     #     results = r.ft(index_name).search(Query(f'@content:{query}'))
-#     #     print(results)
-#     #     search_results.extend(results.docs)
+    # Search through all prefixes
+    for year in range(s_year, e_year + 1):
+        doc_prefix = f'nc_news:{year}'
+        results = r.ft(index_name).search(Query(f'@content:{query}'))
+        print(results)
+        search_results.extend(results.docs)
 
-#     # Remove duplicates
-#     results = r.ft(index_name).search(Query(f'@content:{query}'))
-#     #print(search_results)
+    # Remove duplicates
+    results = r.ft(index_name).search(Query(f'@content:{query}'))
+    print(search_results)
 
-#     return results.total, results
+    return results.total, results
 
 def get_search(query, page=1, per_page=8):
     # Define variables

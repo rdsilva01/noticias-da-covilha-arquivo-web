@@ -6,6 +6,10 @@ import json
 from collections import Counter
 import os
 
+import os
+import json
+from collections import Counter
+
 def get_data_spacy_statistics(year):
     json_file = f'../data/data_{year}/validated_{year}.json'
     with open(json_file, 'r') as f:
@@ -18,7 +22,9 @@ def get_data_spacy_statistics(year):
         entity_counter = Counter()
         for entry in data:
             all_entities = entry.get(entity_type, [])  # Get list of entities for current type
-            entity_counter.update(all_entities)  # Update counter with occurrences of each entity
+            # Filter out entities that are "NC" or "Notícias da Covilhã"
+            filtered_entities = [entity for entity in all_entities if entity not in ["NC", "Notícias da Covilhã"]]
+            entity_counter.update(filtered_entities)  # Update counter with occurrences of each entity
         
         total_entities = sum(entity_counter.values())
         unique_entities = len(entity_counter)

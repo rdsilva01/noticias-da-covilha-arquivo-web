@@ -937,12 +937,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 246,
-            "unique_entities": 166,
-            "most_common_entity": "NC",
-            "most_common_count": 22,
+            "total_entities": 224,
+            "unique_entities": 165,
+            "most_common_entity": "Sporting da Covilhã",
+            "most_common_count": 16,
             "entity_frequency": {
-                "NC": 22,
                 "Sporting da Covilhã": 16,
                 "CDS": 9,
                 "GNR": 4,
@@ -1111,8 +1110,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 615,
-            "unique_entities": 376,
+            "total_entities": 613,
+            "unique_entities": 375,
             "most_common_entity": "Covilhã",
             "most_common_count": 51,
             "entity_frequency": {
@@ -1160,7 +1159,6 @@
                 "Jardim Público da Covilhã": 2,
                 "Bispo da Guarda": 2,
                 "Diocese": 2,
-                "NC": 2,
                 "Valverde": 2,
                 "Estoril": 2,
                 "Janeiro": 2,

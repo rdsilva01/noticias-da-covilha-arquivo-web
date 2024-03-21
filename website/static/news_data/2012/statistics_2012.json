@@ -847,12 +847,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 905,
-            "unique_entities": 472,
-            "most_common_entity": "NC",
-            "most_common_count": 44,
+            "total_entities": 861,
+            "unique_entities": 471,
+            "most_common_entity": "Sporting da Covilhã",
+            "most_common_count": 38,
             "entity_frequency": {
-                "NC": 44,
                 "Sporting da Covilhã": 38,
                 "PS": 24,
                 "PSD": 24,
@@ -1327,8 +1326,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 2635,
-            "unique_entities": 1137,
+            "total_entities": 2633,
+            "unique_entities": 1136,
             "most_common_entity": "Covilhã",
             "most_common_count": 150,
             "entity_frequency": {
@@ -1630,7 +1629,6 @@
                 "Gaspar": 2,
                 "Tessimax": 2,
                 "Torre de Santo António": 2,
-                "NC": 2,
                 "Tribunal Eclesiástico da Guarda": 2,
                 "Estado do Turismo": 2,
                 "Parque Industrial do Tortosendo": 2,

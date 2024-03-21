@@ -284,12 +284,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 363,
-            "unique_entities": 206,
-            "most_common_entity": "NC",
-            "most_common_count": 37,
+            "total_entities": 326,
+            "unique_entities": 205,
+            "most_common_entity": "PSD",
+            "most_common_count": 13,
             "entity_frequency": {
-                "NC": 37,
                 "PSD": 13,
                 "CDU": 11,
                 "Sporting da Covilhã": 9,

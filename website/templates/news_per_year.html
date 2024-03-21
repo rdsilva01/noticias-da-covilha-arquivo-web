@@ -15,24 +15,34 @@
             <hr class="custom-margin-transparent-sm">
     
             {% if statistics %}
-            <button class="btn rounded-0 mt-4 text-uppercase fs-2 border border-light text-light " onclick="toggleStatistics()"><span class="font-oswald toggle-button">Ver Estatísticas</span></button>
+            <a href="#stats" class="text-light text-uppercase link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light font-oswald fs-3 toggle-button" onclick="toggleStatistics()">Ver Estatísticas</a>
+
             <div class="statistics-container" style="display: none;">
-                <div class="text-light fs-4 mt-3">
+                <div class="text-light fs-6 mt-3">
                     {% if 'spacy_entities_per' in statistics %}
-                        <span class="font-oswald text-uppercase">Total de Pessoas: {{ statistics.spacy_entities_per.unique_entities }}</span>
+                        <span class="font-montserrat text-uppercase">Total de Pessoas: {{ statistics.spacy_entities_per.unique_entities }}</span>
                         <br>
-                        <span class="font-oswald text-uppercase">Pessoa mais comum: {{ statistics.spacy_entities_per.most_common_entity }} ({{ statistics.spacy_entities_per.most_common_count }} vezes)</span>
+                        <span class="font-montserrat text-uppercase">Pessoa mais comum: <span class="fw-bold fs-4 text-danger">{{ statistics.spacy_entities_per.most_common_entity }}</span> ({{ statistics.spacy_entities_per.most_common_count }} vezes)</span>
                     {% else %}
                         <span>Nenhuma estatística disponível para entidades</span>
                     {% endif %}
                 </div>
-                <div class="text-light fs-4">
+                <div class="text-light fs-6 mt-3">
                     {% if 'spacy_entites_org' in statistics %}
-                        <span class="font-oswald text-uppercase">Total de Organizações: {{ statistics.spacy_entites_org.unique_entities }}</span>
+                        <span class="font-montserrat text-uppercase">Total de Organizações: {{ statistics.spacy_entites_org.unique_entities }}</span>
                         <br>
-                        <span class="font-oswald text-uppercase">Organização mais comum: {{ statistics.spacy_entites_org.most_common_entity }} ({{ statistics.spacy_entites_org.most_common_count }} vezes)</span>
+                        <span class="font-montserrat text-uppercase">Organização mais comum: <span class="fw-bold fs-4 text-danger">{{ statistics.spacy_entites_org.most_common_entity }}</span> ({{ statistics.spacy_entites_org.most_common_count }} vezes)</span>
                     {% else %}
-                        <span class="font-oswald text-uppercase">Nenhuma estatística disponível para entidades</span>
+                        <span class="font-montserrat text-uppercase">Nenhuma estatística disponível para Organizações</span>
+                    {% endif %}
+                </div>
+                <div class="text-light fs-6 mt-3">
+                    {% if 'spacy_entities_loc' in statistics %}
+                        <span class="font-montserrat text-uppercase">Total de Organizações: {{ statistics.spacy_entities_loc.unique_entities }}</span>
+                        <br>
+                        <span class="font-montserrat text-uppercase">Organização mais comum: <span class="fw-bold fs-4 text-danger">{{ statistics.spacy_entities_loc.most_common_entity }}</span> ({{ statistics.spacy_entities_loc.most_common_count }} vezes)</span>
+                    {% else %}
+                        <span class="font-montserrat text-uppercase">Nenhuma estatística disponível para Localidades</span>
                     {% endif %}
                 </div>
             </div>

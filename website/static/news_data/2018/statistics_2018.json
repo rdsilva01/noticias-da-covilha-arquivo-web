@@ -224,12 +224,11 @@
             }
         },
         "spacy_entites_org": {
-            "total_entities": 220,
-            "unique_entities": 155,
-            "most_common_entity": "NC",
-            "most_common_count": 20,
+            "total_entities": 200,
+            "unique_entities": 154,
+            "most_common_entity": "Sporting da Covilhã",
+            "most_common_count": 12,
             "entity_frequency": {
-                "NC": 20,
                 "Sporting da Covilhã": 12,
                 "PSD": 6,
                 "PS": 5,
@@ -387,8 +386,8 @@
             }
         },
         "spacy_entities_loc": {
-            "total_entities": 531,
-            "unique_entities": 346,
+            "total_entities": 528,
+            "unique_entities": 345,
             "most_common_entity": "Covilhã",
             "most_common_count": 40,
             "entity_frequency": {
@@ -416,7 +415,6 @@
                 "Câmara Municipal": 3,
                 "Teixoso": 3,
                 "Centro Histórico": 3,
-                "NC": 3,
                 "Pelourinho": 3,
                 "Fundão": 3,
                 "França": 3,

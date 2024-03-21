@@ -4,6 +4,9 @@
 {% block title %}Arquivo Web @ Notícias da Covilhã{% endblock %}
 
 {% block content %}
+
+
+
     <div class="">
         <!--<div class="container mt-4">
             <div class="row">
@@ -21,32 +24,221 @@
             </div>
         </div>-->
 
+        <!-- MAIN NEWS -->
+     <hr class="custom-margin-transparent-sm" id="mainNews">
+     <div class="bg-dark">
+        <hr class="custom-margin-transparent-sm-b">
+        <div class="container text-light">
+            <h1 class="text-start font-montserrat fw-bold text-uppercase display-6 mb-3">
+                {{news[random_index].category}}
+                {% if news[random_index].sub_category == news[random_index].category %}
+                {% elif news[random_index].sub_category == "" %}
+                {% elif news[random_index].sub_category != "" %}
+                <span class="fw-semibold display-6"> &#8250; </span>
+                <a href="" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light"> 
+                    {{news[random_index].sub_category}}
+                </a>
+
+                {% endif %}
+            </h1>
+            <div class="row">
+                <div class="col-md-7" id="imageColumn">
+                    <div class="main-article mb-2 pt-1">
+                        <!-- Large image -->
+                        <img src="{{ news[random_index].image_url }}" class="w-100 rounded-1 main-article-image" alt="..." onerror="handleImageError(this);">
+                    </div>
+                </div>
+                <div class="col-md-5" id="textColumn">
+                    <div class="container text-start">
+                        <!-- Text content -->
+                        <span class="font-montserrat bg-danger text-light fs-3">&nbsp;{{news[random_index].date}}&nbsp;</span>
+                        <h1 class="lh-base text-uppercase font-oswald fw-light mt-1">
+                            <a href="{{ url_for('news_item', article_id=news[random_index].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">{{ news[random_index].title }}</a>
+                        </h1>
+                        <p class="font-montserrat fw-light fs-5" id="newsContent">{{ news[random_index].content[:500] }}{% if news[random_index].content|length > 500 %}...{% endif %} </p>
+                        {% if news[random_index].content|length > 500 %}
+                        <div class="text-end font-oswald text-uppercase fs-4">
+                            <p>&rightarrow; <a href="{{ url_for('news_item', article_id=news[random_index].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Continuar a leitura</a></p>
+                        </div>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+
+        <hr class="custom-margin-transparent-sm">
+    </div>
+
+
+     <!-- TRIFETA -->
+    <!-- TRIFETA LIGHT -->
+    <div class="bg-light">
+        <hr class="custom-margin-transparent-b-sm">
+        <div class="container mt-5">
+            <!-- MODAL DA CAPA DO JORNAL -->
+            <div id="myModal" class="modal">
+                <div id="caption" class="font-oswald fs-2 text-light text-center">
+
+                </div>
+                <!-- <span class="close">&times;</span> -->
+                <img class="modal-content rounded-1" id="img01">
+            </div>
+            <div class="row">
+                <!-- CAPA DE JORNAL -->
+                <div class="col-md-4 font-oswald">
+                    {% set first_date, first_data = news_front_page | dictsort | last %}
+                    <h2 class="text-uppercase font-oswald fw-normal fs-1 text-light bg-danger border border-4 border-danger text-center">&nbsp;Há {{ first_date | years_ago }}  anos atrás</h2>
+                    {% if 'url' in first_data %}
+                        <div class="front-page-image">
+                            <img src="{{ first_data.url }}" alt="{{first_date}}" id="myImg" class="img-fluid">
+                        </div>
+                    {% endif %}
+                    <a href="/capas" target="_blank" rel="noopener noreferrer" class="btn btn-danger w-100 rounded-0 fs-3 mt-2 ">
+                        VER TODAS AS CAPAS
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <h2 class="text-uppercase font-oswald fw-normal fs-1 text-center bg-danger text-light border border-4 border-danger"> Antigamente era assim </h2>
+                    <div class="row">
+                        {% for i in range(num_articles) %}
+                        {% if i < 8 %}
+                            <div class="col-md-6 semanario-item">
+                                <div class="row">
+                                    <!-- <div class="col-md-3">
+                                        <img src="{{ news[i].image_url }}" class="img-fluid" alt="{{ news[i].title }}">
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark" target="_blank" rel="noopener noreferrer">
+                                            <h3 class="fw-bold text-uppercase">{{ news[i].title }}</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="text-uppercase fw-normal px-1 m-0 mb-2 text-start text-light bg-dark d-inline-block">{{ news[i].date }}</h4>
+                                    </div>
+                                    <div class="col">
+                                        <p class="fw-thin text-uppercase font-oswald text-end me-4 ">
+                                            <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark">Mais Detalhes</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    
+
+                    {% for i in range(num_articles, 8) %}
+                        <div class="col-md-6 semanario-item">
+                            <div class="row">
+                                <div class="col-md-12 text-center fw-normal font-oswald text-light text-uppercase">
+                                    {% if loop.index == 1 %}
+                                    <a href="/capas" target="_blank" rel="noopener noreferrer" class="btn btn-danger w-100 rounded-0 fs-3">
+                                        VER TODAS AS CAPAS
+                                    </a>
+                                    {% else %}
+                                    <a href="/capas" target="_blank" rel="noopener noreferrer" class="btn btn-danger w-100 rounded-0 fs-3">
+                                        VER 2019
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    </div>
+                </div>
+                <!-- <div class="col-md-5">
+                    <div class="">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner border border-1 border-dark">
+                                {% for i in range(num_articles) %}
+                                <div class="carousel-item {% if i == 0 %}active{% endif %}">
+                                    <img src="{{ news[i].image_url }}" class="img-fluid" alt="...">
+                                    <div class="carousel-caption pt-3 pb-0">
+                                        <h3 class="text-uppercase fw-bold">{{ news[i].title }}</h3>
+                                        <div class="row">
+                                            <div class="col">
+                                                <h4 class="text-uppercase fw-semibold m-0 mb-2 text-start ms-4">{{ news[i].date }}</h4>
+                                            </div>
+                                            <div class="col">
+                                                <p class="fw-thin text-uppercase font-oswald text-end me-4">
+                                                    <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Mais Detalhes</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <h2 class="text-uppercase fw-bold text-center"> O Hoje de Antigamente</h2>
+                    </div>
+                </div> -->
+               
+                <!-- <div class="col-md-3">
+                    {% for i in range(num_articles) %}
+                        <div class="container article-far-right mb-2 pt-1 border {% if i >= 5 %}d-none{% endif %}">
+                            <h4 class="text-uppercase fw-bold">{{ news[i].title }}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="text-uppercase fw-semibold">{{ news[i].date }}</h5>
+                                </div>
+                                <div class="col">
+                                    <p class="fw-thin text-uppercase font-oswald text-end me-4">
+                                        <a href="{{ url_for('news_item', article_id=news[i].nid) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark">Mais Detalhes</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <p class="font-oswald text-center border bg-dark"><button id="verMaisBtn" class="fs-3 text-uppercase btn btn-link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">Ver Mais</button></p>
+                </div>-->
+            </div>
+        </div>
+        <hr class="custom-margin-transparent-t">
+    </div>
+
+     
+
         <div class="bg-dark">
             <div class="row d-flex justify-content-center">
                 <hr class="custom-margin-transparent-b-huge" id="pelaCuriosidade">
-                <h1 class="text-center text-uppercase fw-normal display-1 text-light font-oswald">
-                    <!--<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-clock-history mb-2" viewBox="0 0 16 16">
-                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
-                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
-                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
-                    </svg>-->
-                Pela <span class="border-bottom border-danger border-3 px-1 lh-base">Curiosidade!</span></h1>
-                <h5 class="text-uppercase text-center fw-normal text-light opacity-75 mt-3">Quer pesquisar mais artigos do Notícias da Covilhã? </h5>
-                <form class="d-flex h-5 px-4 col-12 col-md-6 mt-4" action="/pelacuriosidade" method="GET" role="search">
-                    <input class="form-control rounded rounded-1 border border-black me-1" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput" name="query">
-                    <button class="btn btn-outline-danger rounded-1 px-5" type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                        </svg>
-                    </button>
+                <h1 class="text-center text-uppercase fw-normal display-1 text-light font-oswald big-title" id="searchTitle">DEMO</h1>
+                <h5 class="text-uppercase text-center fw-normal text-light opacity-75 mt-3 mb-4">Quer pesquisar mais artigos do Notícias da Covilhã? </h5>
+                <!-- SEARCH BAR -->
+                <form class="" action="/pelacuriosidade" method="GET" role="search" id="searchForm">
+                    <div class="row d-flex justify-content-center g-0">
+                        <!-- Column for search input -->
+                        <div class="col-md-6 offset-md-2">
+                            <div class="d-flex">
+                                <input class="form-control rounded rounded-1 border border-black me-1 ms-2" type="search" placeholder="Rampa da Serra da Estrela 2012..." aria-label="Search" id="searchInput" name="query">
+                                <button class="btn btn-outline-danger rounded-1 px-5" type="submit" id="searchButton" disabled>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Column for "Opções Avançadas" -->
+                        <div class="col-md-2 d-flex font-oswald fw-normal align-items-end justify-content-end">
+                            <button type="button" class="btn btn-link text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase text-end" id="showFiltersBtn" onclick="toggleFilters()">
+                                Opções Avançadas
+                            </button>
+                        </div>
+                    </div>
                 </form>
-                <div class="text-center font-oswald fw-light">
-                    <button type="button" class="btn btn-link mt-3 px-3 text-uppercase link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase" id="showFiltersBtn" onclick="toggleFilters()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-gear-wide-connected text-light" viewBox="0 0 16 16">
-                            <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z"/>
-                          </svg>
-                    </button>
-                </div>
+                
             </div>
             
             <div class="container justify-content-center filters-container mt-4" style="display: none;">
@@ -97,7 +289,7 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="form-check mb-2">
+                        <!-- <div class="form-check mb-2">
                             <div class="d-flex align-items-center mb-2">
                                 <div class="checkbox-wrapper-29">
                                     <label class="checkbox" for="category5">
@@ -107,8 +299,39 @@
                                     </label>
                                   </div>
                             </div>
+                        </div> -->
+                        <div class="form-check mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="checkbox-wrapper-29">
+                                    <label class="checkbox" for="category5">
+                                      <input type="checkbox" id="category5" class="checkbox__input" />  
+                                      <span class="checkbox__label"></span>
+                                      <span class="checkbox-wrapper-text text-uppercase font-oswald">Categoria</span> 
+                                    </label>
+                                  </div>
+                            </div>
+                        </div> 
+                        <div class="form-check mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="checkbox-wrapper-29">
+                                    <label class="checkbox" for="category6">
+                                      <input type="checkbox" id="category6" class="checkbox__input" />  
+                                      <span class="checkbox__label"></span>
+                                      <span class="checkbox-wrapper-text text-uppercase font-oswald">Imagens</span> 
+                                    </label>
+                                  </div>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center mb-2">
+                                <label for="startYear" class="form-label me-4 font-oswald fw-normal fs-5">DE</label>
+                                <input type="number" id="startYear" name="startYear" class="form-control rounded-0 bg-dark text-light border-3 font-oswald fw-normal fs-5" min="2009" max="2019" step="1" value="2009">
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center mb-2">
+                                <label for="endYear" class="form-label me-3 text-light font-oswald fw-normal fs-5">ATÉ</label>
+                                <input type="number" id="endYear" name="endYear" class="form-control rounded-0 bg-dark text-light border-3 font-oswald fw-normal fs-5" min="2009" max="2019" step="1" value="2019">
+                            </div>
                         </div>
-                        <!-- Add more checkboxes for categories -->
                     </div>
                     <div class="col-md-8">
                         <!-- Add more checkboxes for locations -->
@@ -168,188 +391,96 @@
                 </div>
             </div>
             <hr class="custom-margin-transparent-t">
-        </div>
-        -->
-
-        <!-- TOP ENTITIES -->
-        <div class="bg-light"> 
-            <hr class="custom-margin-transparent-b-lg" id="entidadesMaisFaladas">
+        </div>-->
+    
+    <!-- TOP ENTITIES -->
+    <div class="bg-light"> 
+        <hr class="custom-margin-transparent-b-lg" id="entidadesMaisFaladas">
+        <div class="container">
+            <h1 class="text-start font-oswald fw-normal text-uppercase display-4 mb-5 text-center">Entidades mais faladas ao longo dos anos</h1>
             <div class="container">
-                <h1 class="text-start font-oswald fw-normal text-uppercase display-4 mb-5 text-center">Entidades mais faladas ao longo dos anos</h1>
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="">
-                            <div class="btn-group">
-                                <button id="prevYear" class="btn btn-transparent fs-1  rounded-start-1">&#8249;</button>
-                                <button id="currentYear" class="bg-light display-1 font-montserrat fw-bold text-danger border-0" style="pointer-events: none;">{{ current_year }}</button>
-                                <button id="nextYear" class="btn btn-transparent fs-1 rounded-end-1">&#8250;</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container mt-4 text-center">
-                    <div class="statsContainer">
-                        {% for stats_dict in stats_list %}
-                            {% for year, stats in stats_dict.items() %}
-                                <div class="stats" id="stats_{{ year }}" style="display:none; margin-bottom: 20px;">
-                                        
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p class="font-montserrat fs-5">A pessoa mais comentada foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entities_per.most_common_entity }}</span> <br> <span class="fw-bold">({{ stats.spacy_entities_per.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entities_per.unique_entities }}</span> pessoas</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p class="font-montserrat fs-5">A organização mais falada foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entites_org.most_common_entity }}</span> <br> <span class="fw-bold">({{ stats.spacy_entites_org.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entites_org.unique_entities }}</span> organizações</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p class="font-montserrat fs-5">A localidade que mais apareceu foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entities_loc.most_common_entity }}</span>  <br> <span class="fw-bold">({{ stats.spacy_entities_loc.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entities_loc.unique_entities }}</span> localidades</p>
-                                        </div>      
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <script>
-                    var selectElement = document.getElementById('yearSelect');
-                    var statsContainer = document.querySelector('.statsContainer');
-                
-                    selectElement.addEventListener('change', function() {
-                        var selectedYear = this.value;
-                        showStats(selectedYear);
-                    });
-                
-                    function showStats(year) {
-                        // Hide all stats
-                        var allStats = statsContainer.getElementsByClassName('stats');
-                        for (var i = 0; i < allStats.length; i++) {
-                            allStats[i].style.display = 'none';
-                        }
-                
-                        // Show stats for the selected year
-                        var statsToShow = document.getElementById('stats_' + year);
-                        if (statsToShow) {
-                            statsToShow.style.display = 'block';
-                        }
-                    }
-                </script>
-                
-            </div>
-            <hr class="custom-margin-transparent-t-lg">
-        </div>
-
-        <!-- MAIN NEWS -->
-        <hr class="custom-margin-transparent-sm" id="mainNews">
-        <div class="bg-dark">
-            <hr class="custom-margin-transparent-b">
-            <div class="container text-light">
-                <h1 class="text-start font-montserrat fw-semibold text-uppercase display-4 mb-3">
-                    {{news[1].category}}
-                    {% if news[1].sub_category == news[1].category %}
-                    {% elif news[1].sub_category == "" %}
-                    {% elif news[1].sub_category != "" %}
-                    - {{news[1].sub_category}}
-                    {% endif %}
-                      
-                </h1>
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="main-article mb-2 pt-1">
-                            <!-- Large image -->
-                            <img src="{{ news[1].image_url }}" class="w-100 rounded-1 main-article-image" alt="...">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="container text-start">
-                            <!-- Text content -->
-                            <span class="font-montserrat bg-light text-dark fs-5">&nbsp;{{news[1].date}}&nbsp;</span>
-                            <h1 class="lh-base text-uppercase font-oswald fw-light mt-1">
-                                <a href="{{ url_for('news_item', article_id=news[1].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">{{ news[1].title }}</a>
-                            </h1>
-                            <p class="font-montserrat fw-light fs-5" id="newsContent">{{ news[1].content[:500] }}{% if news[1].content|length > 500 %}...{% endif %} </p>
-                            {% if news[1].content|length > 500 %}
-                            <div class="text-end font-oswald text-uppercase fs-4">
-                                <p>&rightarrow; <a href="{{ url_for('news_item', article_id=news[1].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Continuar a leitura</a></p>
-                            </div>
-                            {% endif %} 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr class="custom-margin-transparent">
-        </div>
-<div class="bg-light">
-        <hr class="custom-margin-transparent">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-5">
+                <div class="row text-center">
                     <div class="">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner border border-1 border-dark">
-                                {% for i in range(num_articles) %}
-                                <div class="carousel-item {% if i == 0 %}active{% endif %}">
-                                    <img src="{{ news[i].image_url }}" class="img-fluid" alt="...">
-                                    <div class="carousel-caption pt-3 pb-0">
-                                        <h3 class="text-uppercase fw-bold">{{ news[i].title }}</h3>
-                                        <div class="row">
-                                            <div class="col">
-                                                <h4 class="text-uppercase fw-semibold m-0 mb-2 text-start ms-4">{{ news[i].date }}</h4>
-                                            </div>
-                                            <div class="col">
-                                                <p class="fw-thin text-uppercase font-oswald text-end me-4">
-                                                    <a href="{{ url_for('news_item', article_id=news[i].nid, year=request.args.get('year')) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-light">Mais Detalhes</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                        <div class="btn-group">
+                            <button id="prevYear" class="btn btn-transparent fs-1  rounded-start-1">&#8249;</button>
+                            <button id="currentYear" class="bg-light display-1 font-montserrat fw-bold text-danger border-0" style="pointer-events: none;">{{ current_year }}</button>
+                            <button id="nextYear" class="btn btn-transparent fs-1 rounded-end-1">&#8250;</button>
                         </div>
-                        <h2 class="text-uppercase fw-bold text-center"> O Hoje de Antigamente</h2>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    {% set first_date, first_data = news_front_page | dictsort | first %}
-                    <h2 class="text-uppercase bg-secondary text-light">&nbsp;Há {{ first_date | years_ago }}  anos atrás...</h2>
-                    {% if 'url' in first_data %}
-                        <div class="front-page-image">
-                            <img src="{{ first_data.url }}" alt="Image" class="img-fluid">
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="col-md-3">
-                    {% for i in range(num_articles) %}
-                        <div class="container article-far-right mb-2 pt-1 border {% if i >= 5 %}d-none{% endif %}">
-                            <h4 class="text-uppercase fw-bold">{{ news[i].title }}</h4>
-                            <div class="row">
-                                <div class="col">
-                                    <h5 class="text-uppercase fw-semibold">{{ news[i].date }}</h5>
-                                </div>
-                                <div class="col">
-                                    <p class="fw-thin text-uppercase font-oswald text-end me-4">
-                                        <a href="{{ url_for('news_item', article_id=news[i].nid) }}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 link-dark">Mais Detalhes</a>
-                                    </p>
+            </div>
+            
+            <div class="container mt-4 text-center">
+                <div class="contentStatsContainer">
+                    {% for content_stats_dict in content_stats_list %}
+                        {% for year, stats in content_stats_dict.items() %}
+                            <div class="content-stats" id="contentstats_{{ year }}" style="display:none; margin-bottom: 20px;">   
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="font-montserrat fs-5 text-secondary"><i>(contabilizadas a partir de&nbsp;<span class="fw-bold fs-2"> {{ stats.content_stats.num_words_year }} </span>&nbsp;palavras)</i></p>
+                                    </div>
+                                    <!-- <div class="col-md-12">
+                                        <p class="font-montserrat fs-5">Comprimento médio das palavras no ano: <span class="fw-bold fs-2">{{ stats.content_stats.avg_word_length_year }}</span></p>
+                                    </div> -->
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     {% endfor %}
-                    <p class="font-oswald text-center border bg-dark"><button id="verMaisBtn" class="fs-3 text-uppercase btn btn-link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-light">Ver Mais</button></p>
-                </div>                
+                </div>
+                <div class="statsContainer">
+                    {% for stats_dict in stats_list %}
+                        {% for year, stats in stats_dict.items() %}
+                            <div class="stats" id="stats_{{ year }}" style="display:none; margin-bottom: 20px;">          
+                                <div class="row align-items-start">
+                                    <div class="col-md-4 d-flex justify-content-center align-items-center mb-4">
+                                        <p class="font-montserrat fs-5">A pessoa mais referida foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entities_per.most_common_entity }}</span> <br> <span class="fw-bold">({{ stats.spacy_entities_per.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entities_per.unique_entities }}</span> pessoas</p>
+                                    </div>
+                                    <div class="col-md-4 d-flex justify-content-center align-items-center mb-4">
+                                        <p class="font-montserrat fs-5">A organização mais falada foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entites_org.most_common_entity }}</span> <br> <span class="fw-bold">({{ stats.spacy_entites_org.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entites_org.unique_entities }}</span> organizações</p>
+                                    </div>
+                                    <div class="col-md-4 d-flex justify-content-center align-items-center mb-4">
+                                        <p class="font-montserrat fs-5">A localidade que mais apareceu foi <br> <span class="display-1 fw-normal text-uppercase font-oswald text-danger">{{ stats.spacy_entities_loc.most_common_entity }}</span>  <br> <span class="fw-bold">({{ stats.spacy_entities_loc.most_common_count }} vezes)</span> <br> de um total de <span class="fw-bold fs-2">{{ stats.spacy_entities_loc.unique_entities }}</span> localidades</p>
+                                    </div>      
+                                </div>
+                                
+                                
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
+
+            <!-- PASSAR ISTO PARA O INDEX.JS -->
+            <script>
+                var selectElement = document.getElementById('yearSelect');
+                var statsContainer = document.querySelector('.statsContainer');
+            
+                selectElement.addEventListener('change', function() {
+                    var selectedYear = this.value;
+                    showStats(selectedYear);
+                });
+            
+                function showStats(year) {
+                    // Hide all stats
+                    var allStats = statsContainer.getElementsByClassName('stats');
+                    for (var i = 0; i < allStats.length; i++) {
+                        allStats[i].style.display = 'none';
+                    }
+            
+                    // Show stats for the selected year
+                    var statsToShow = document.getElementById('stats_' + year);
+                    if (statsToShow) {
+                        statsToShow.style.display = 'block';
+                    }
+                }
+            </script>
+            
         </div>
+        <hr class="custom-margin-transparent-t-lg">
     </div>
-        <hr class="custom-margin">
+   
+
+<!-- <hr class="custom-margin">
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-6">
@@ -362,7 +493,7 @@
                     <h1 class="text-uppercase text-center fw-bold">OPINIÃO</h1>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
