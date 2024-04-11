@@ -50,8 +50,11 @@ def get_news_data_func(url):
                         
         # YAKE args
         language = "pt"
+        max_ngram_size = 1
+        deduplication_thresold = 0.9
+        deduplication_algo = 'seqm'
         windowSize = 1
-        numOfKeywords = 10
+        numOfKeywords = 20
         keywords = []
         
         custom_kw_extractor = yake.KeywordExtractor(lan=language, windowsSize=windowSize, top=numOfKeywords, features=None)
@@ -63,7 +66,6 @@ def get_news_data_func(url):
         path_div = soup.find(id='div_caminho') # div that contains the path info
 
         if path_div:
-            
             nested_path_div = path_div.find('div')
             path_span = nested_path_div.find('span')
             path_category = path_span.find('b').text
@@ -102,16 +104,25 @@ def get_news_data_func(url):
                         date = span_regions[0].text # date
 
                         span_mtexto = unique_news_div.find('span', id='mtexto')
-                        span_text_list = span_mtexto.get_text(separator='\n').splitlines()
+
+                        span_text_list = span_mtexto.get_text().split("\n")
                         #span_text_list = [text for text in span_text_list if text.strip()]
                         
+                        # print("span_mtexto.text")
+                        # print(span_mtexto.text)
+                        
                         clean_span_mtexto = clean(span_mtexto.text, to_ascii=False ,fix_unicode=True, no_line_breaks=True, lang="pt", lower=False)
-
+                        # print("clean_span_mtexto")
+                        # print(clean_span_mtexto)
+                        
                         contents = span_text_list
                         contents_clean_tmp = []
                         for tmp_content in contents:
-                            tmp_content = clean(tmp_content, to_ascii=False ,fix_unicode=True, lang="pt", lower=False)
-                            contents_clean_tmp.append(tmp_content)
+                            if tmp_content == "":
+                                continue
+                            else:
+                                tmp_content = clean(tmp_content, to_ascii=False ,fix_unicode=True, lang="pt", lower=False, strip_lines=True, no_line_breaks=False)
+                                contents_clean_tmp.append(tmp_content)  
                             
                         
                         contents = contents_clean_tmp
@@ -139,10 +150,13 @@ def get_news_data_func(url):
                         
                         # KEYWORDS
                         content_plus_title = title
-                        content_plus_title += " {}".format(span_mtexto.text)
+                        content_plus_title += " {}".format(content)
+                        print(content_plus_title)
+                        custom_kw_extractor = yake.KeywordExtractor(lan=language, n=max_ngram_size, dedupLim=deduplication_thresold, dedupFunc=deduplication_algo, windowsSize=windowSize, top=numOfKeywords, features=None)
                         keywords_tmp = custom_kw_extractor.extract_keywords(content_plus_title)
-                        
+
                         for kw in keywords_tmp:
+                            print(kw)
                             keywords.append(kw[0])
                         
                         for i, content_tmp in enumerate(contents):
@@ -233,11 +247,19 @@ def get_news_data_func(url):
                     # print(contents_clean_tmp)
                     
                     contents = contents_clean_tmp
-                            
+
+                    # keywords_tmp = custom_kw_extractor.extract_keywords(content_plus_title)
+                    # for kw in keywords_tmp:
+                    #     keywords.append(kw[0])
+                        
                     content_plus_title = title
                     content_plus_title += " {}".format(content)
+                    print(content_plus_title)
+                    custom_kw_extractor = yake.KeywordExtractor(lan=language, n=max_ngram_size, dedupLim=deduplication_thresold, dedupFunc=deduplication_algo, windowsSize=windowSize, top=numOfKeywords, features=None)
                     keywords_tmp = custom_kw_extractor.extract_keywords(content_plus_title)
+
                     for kw in keywords_tmp:
+                        print(kw)
                         keywords.append(kw[0])
                         
                     for i in range(0,3):
@@ -339,4 +361,10 @@ def get_news_data(s_year, e_year, debug=True, demo=False):
     return execution_time_dict
 
 
-get_news_data(2010, 2019)
+#demo = get_news_data_func("https://arquivo.pt/noFrame/replay/20090624063518/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=9&idartigo=118")
+#print(json.dumps(demo, indent=4) )
+
+get_news_data(2011, 2019)
+
+#demo = get_news_data_func("https://arquivo.pt/noFrame/replay/20090624063518/http://www.noticiasdacovilha.pt/pt/artigos/show/scripts/core.htm?p=artigos&f=show&lang=pt&pag=&area=2&idseccao=9&idartigo=118")
+#print(json.dumps(demo, indent=4) )

@@ -21,14 +21,14 @@ def get_data_spacy_statistics(year):
     for entity_type in entity_types:
         entity_counter = Counter()
         for entry in data:
-            all_entities = entry.get(entity_type, [])  # Get list of entities for current type
-            # Filter out entities that are "NC" or "Notícias da Covilhã"
+            all_entities = entry.get(entity_type, [])  
+            # filtering.........
             filtered_entities = [entity for entity in all_entities if entity not in ["NC", "Notícias da Covilhã"]]
-            entity_counter.update(filtered_entities)  # Update counter with occurrences of each entity
+            entity_counter.update(filtered_entities) 
         
         total_entities = sum(entity_counter.values())
         unique_entities = len(entity_counter)
-        sorted_entities = entity_counter.most_common()  # Sort entities by count
+        sorted_entities = entity_counter.most_common() 
         
         if year not in statistics_by_type:
             statistics_by_type[year] = {}
@@ -89,7 +89,7 @@ def get_content_statistics(year):
     content_statistics[year]["content_stats"]["avg_word_length_year"]=  avg_word_length
     
     folder_name = f"data_{year}"
-    folder_path = f"./data/{folder_name}"
+    folder_path = f"../data/{folder_name}"
 
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
