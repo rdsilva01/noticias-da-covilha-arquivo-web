@@ -1,0 +1,147 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+    Pesquise
+{% endblock %}
+
+{% block content %}
+<div class="bg-dark min-vh-100 justify-content-center align-items-center d-flex"  id="pesquise">   
+    <hr class="custom-margin-transparent-b-sm">
+    <div class="d-flex justify-content-center align-items-center">   
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center" style="margin: 0;">
+            <!-- <hr class="custom-margin-transparent-b-huge"> -->
+            <h1 class=" d-inline-block text-center text-uppercase fw-thin display-3 text-light font-oswald big-title" id="searchTitle">RECORDAR O <span class="fw-normal">PASSADO</span></h1>
+            <h5 class=" text-center fst-italic font-oswald fw-light text-light opacity-75 mt-2 mb-4 fs-4">Quer pesquisar mais artigos do <span class="fw-normal">Notícias da Covilhã</span>? </h5>
+            <!-- SEARCH FORM -->
+            <form class="" action="pesquisa" method="GET" role="search" id="searchForm">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center g-0" style="margin: 0;">
+                        <!-- SEARCH INPUT -->
+                        <div class="col-md-10 col-lg-6 offset-md-0">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex">
+                                    <input class="form-control rounded rounded-1 border border-light me-1 ms-2 font-montserrat" type="search" placeholder="Rampa da Serra da Estrela" aria-label="Search" id="searchIndexInput" name="query">
+                                    <button class="btn btn-outline-danger rounded-1 px-3 px-md-5 me-2" type="submit" id="searchButton">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-end mt-2">
+                                    <div class="btn-group ms-2 rounded-1 font-oswald w-100 me-2" role="group" aria-label="radio group btn">
+                                        <input type="radio" class="btn-check" name="modo" id="text" autocomplete="off" value="text" checked  onclick="sendSubmit()">
+                                        <label class="btn font-oswald btn-outline-danger border-end-0 rounded-start-1 rounded-end-0" for="text">TEXTO</label>
+                                    
+                                        <input type="radio" class="btn-check" name="modo" id="imagens" autocomplete="off" value="imagens">
+                                        <label class="btn font-oswald btn-outline-danger " for="imagens">IMAGENS</label>
+                                    
+                                        <input type="radio" class="btn-check" name="modo" id="capas" value="capas" autocomplete="off" >
+                                        <label class="btn font-oswald btn-outline-danger border-start-0 rounded-end-1 rounded-start-0" for="capas">CAPAS</label>
+                                    </div>
+                                </div>
+                                <script>
+                            $(document).ready(function(){
+                            // Add event listener for change event on radio buttons
+                            $('input[type="radio"]').change(function() {
+                                // Trigger the search button click event
+                                $('#searchButton').click();
+                            });
+
+                            $('input[type="radio"]').click(function() {
+                                if ($('#searchIndexInput').val() == "") {
+                                $('#searchIndexInput').val($('#searchIndexInput').attr('placeholder'));
+                            }
+                                // Trigger the search button click event
+                                $('#searchButton').click();
+                            });
+                        });
+                        function sendSubmit() {
+                        if ($('#searchIndexInput').val() == "") {
+                                $('#searchIndexInput').val($('#searchIndexInput').attr('placeholder'));
+                            }
+
+                        $('#searchForm').submit();
+                        }    
+                                </script>
+                                <div class="font-oswald fw-normal text-end">
+                                    <button type="button" class="btn btn-link text-uppercase fs-6 link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase px-0 px-md-0 me-2" id="showFiltersBtn" onclick="toggleFilters()">
+                                        <span class="text-end" id="textoOpcoes">
+                                            Opções Avançadas
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="hidden" id="exact_match_check" name="exact_match" value="0">
+                <!-- <input type="hidden" id="opcao2_check" name="opcao2" value="0">
+                <input type="hidden" id="opcao3_check" name="opcao3" value="0"> -->
+                
+                <div class="container-fluid justify-content-center filters-container mt-4" style="display: none;">
+                    <div class="row text-light w-100 d-flex justify-content-center">
+                        <div class="col-md-10 col-lg-6">
+                            <div class="row">
+                                <div class="col-12 col-md-4 col-md-3">
+                                    <div class="form-check mb-2">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="checkbox-wrapper-29">
+                                                <label class="checkbox" for="category0Checkbox">
+                                                {% if exact_match == "1" %}
+                                                <input type="checkbox" id="category0Checkbox" class="checkbox__input" onchange="updateHiddenField('category0Checkbox', 'exact_match_check')" checked />  
+                                                {% else %}
+                                                <input type="checkbox" id="category0Checkbox" class="checkbox__input" onchange="updateHiddenField('category0Checkbox', 'exact_match_check')"/>  
+                                                {% endif %}
+                                                <span class="checkbox__label"></span>
+                                                <span class="checkbox-wrapper-text text-uppercase font-oswald">Pesquisa Exata</span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container-fluid" data-bs-theme="dark">
+                                <div class="row" style="margin: 0;">
+                                    <div class="col-md-6 d-flex mb-2">
+                                        <label for="startDate" class="form-label me-4 mb-0 mt-1 font-oswald fw-normal fs-5">DE</label>
+                                        <input type="text" id="startDate" name="startDate" class="form-control rounded-0 text-light bg-dark border-bottom border-0  border-white font-montserrat fw-light fs-5" placeholder="2009-01-01" value="2009-01-01" readonly>
+                                    </div>
+                                    <div class="col-md-6 d-flex mb-2">
+                                        <label for="endDate" class="form-label me-3 mb-0 mt-1 text-light font-oswald fw-normal fs-5">ATÉ</label>
+                                        <input type="text" id="endDate" name="endDate" class="form-control rounded-0 text-light bg-dark border-0 border-bottom  border-white font-montserrat fw-light fs-5" placeholder="2019-12-31" value="2019-12-31" readonly>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-md-8">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </div> 
+</div>
+</div>
+
+
+<script>
+
+        function updateHiddenField(checkboxId, hiddenFieldId) {
+            var checkbox = document.getElementById(checkboxId);
+            var hiddenField = document.getElementById(hiddenFieldId);
+            if (checkbox.checked) {
+                hiddenField.value = 1;
+            } else {
+                hiddenField.value = 0;
+            }
+        }
+</script>
+
+<script src="static/js/query.js"></script>
+<script src="static/js/search.js"></script>
+{% endblock %}
+

@@ -6,8 +6,37 @@ to-do.md
 data-retrieval/DataExtraction/__pycache__
 
 data-retrieval/DataStatistics/__pycache__
-data-retrieval/DataStatistics/data
+data-retrieval/DataStatistics/data/
 
 data-retrieval/DataValidation/__pycache__
 
 data-retrieval/EMBEDDINGS/ACIDENTE/
+
+
+website/MyDocker/redis/data/
+
+website/MyWebsites/websites/arquivonc/__pycache__
+website/MyWebsites/websites/arquivonc/newsletter/__pycache__
+website/MyWebsites/websites/arquivonc/redis/news_data/2009/
+website/MyWebsites/websites/arquivonc/redis/news_data/2010/
+website/MyWebsites/websites/arquivonc/redis/news_data/2011/
+website/MyWebsites/websites/arquivonc/redis/news_data/2012/
+website/MyWebsites/websites/arquivonc/redis/news_data/2013/
+website/MyWebsites/websites/arquivonc/redis/news_data/2014/
+website/MyWebsites/websites/arquivonc/redis/news_data/2015/
+website/MyWebsites/websites/arquivonc/redis/news_data/2016/
+website/MyWebsites/websites/arquivonc/redis/news_data/2017/
+website/MyWebsites/websites/arquivonc/redis/news_data/2018/
+website/MyWebsites/websites/arquivonc/redis/news_data/2019/
+
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2009/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2010/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2011/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2012/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2013/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2014/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2015/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2016/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2017/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2018/
+website/MyWebsites/websites/arquivonc/redis/static/news_data/2019/

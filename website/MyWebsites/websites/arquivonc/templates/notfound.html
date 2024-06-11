@@ -1,0 +1,19 @@
+{% extends "base_not_text.html" %}
+
+{% block title %}
+    Erro 404
+{% endblock %}
+
+{% block content %} 
+<div class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="text-center">
+            <h1 class="display-4 mb-4 font-oswald text-uppercase">404 Página não encontrada</h1>
+            <p class="lead font-montserrat">A página que procura não foi encontrada. Por favor, verifique o URL, volte atrás ou volte à página inicial.</p>
+            <a href="index" class="link link-underline-opacity-50 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald fs-2 ms-3">Página Inicial</a>
+            <br>
+            <a href="javascript:history.back()" class="link link-underline-opacity-0 link-underline-opacity-0-hover link-offset-1 link-dark text-uppercase font-oswald fs-2 big-title">&leftarrow; Voltar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

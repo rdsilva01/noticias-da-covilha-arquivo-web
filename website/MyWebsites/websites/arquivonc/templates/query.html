@@ -1,0 +1,379 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+    {{query}}
+{% endblock %}
+
+{% block content %}
+<div class="capas-loader min-vh-100" id="loader">
+    <!-- <p class="font-oswald fw-normal text-light display-6"><span class="border-bottom border-danger border-3 px-1 lh-base">A CARREGAR </span>&nbsp;</p> -->
+    <span class="circle"></span>
+    <span class="circle"></span>
+    <span class="circle"></span>
+</div>
+<div class="page bg-dark" id="query_text"> 
+    <div class="d-flex justify-content-center align-items-center" >   
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center" style="margin: 0;">
+                <hr class="custom-margin-transparent-b">
+                <h1 class="text-center text-uppercase fw-light text-light font-oswald mb-4 fs-2">Pesquise no Arquivo Web do <span class="fw-normal fs-1 font-oswald">Notícias da Covilhã</span></h1>
+                <!-- SEARCH FORM -->
+                <form class="" action="pesquisa" method="GET" role="search" id="searchForm">
+                    <div class="container-fluid">
+                        <div class="row d-flex justify-content-center g-0" style="margin: 0;">
+                            <!-- SEARCH INPUT -->
+                            <div class="col-md-10 col-lg-6 offset-md-0">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex">
+                                        <input class="form-control rounded rounded-1 border border-light me-1 ms-2 font-montserrat" type="search" placeholder="{{query}}" aria-label="Search" id="searchInput" name="query">
+                                        <button class="btn btn-outline-danger rounded-1 px-3 px-md-5 me-2" type="submit" id="searchButton">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-end mt-2">
+                                        <div class="btn-group ms-2 rounded-1 font-oswald w-100 me-2" role="group" aria-label="radio group btn">
+                                            <input type="radio" class="btn-check" name="modo" id="text" autocomplete="off" value="text" checked onclick="sendSubmit()">
+                                            <label class="btn font-oswald btn-outline-danger border-end-0 rounded-start-1 rounded-end-0" for="text">TEXTO</label>
+                                        
+                                            <input type="radio" class="btn-check" name="modo" id="imagens" autocomplete="off" value="imagens">
+                                            <label class="btn font-oswald btn-outline-danger " for="imagens">IMAGENS</label>
+                                        
+                                            <input type="radio" class="btn-check" name="modo" id="capas" value="capas" autocomplete="off" >
+                                            <label class="btn font-oswald btn-outline-danger border-start-0 rounded-end-1 rounded-start-0" for="capas">CAPAS</label>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(document).ready(function(){
+                                            // Add event listener for change event on radio buttons
+                                            $('input[type="radio"]').change(function() {
+                                                // make sure the value of the type search has a value, otherwise set it its placeholder as its value
+                                                if ($('#searchInput').val() == "") {
+                                                    $('#searchInput').val($('#searchInput').attr('placeholder'));
+                                                }
+
+                                                $('#searchForm').submit();
+                                            });
+                                        });
+
+                                        function sendSubmit() {
+                                            if ($('#searchInput').val() == "") {
+                                                    $('#searchInput').val($('#searchInput').attr('placeholder'));
+                                                }
+
+                                            $('#searchForm').submit();
+                                        }
+                                    </script>
+                                    <div class="font-oswald fw-normal text-end">
+                                        <button type="button" class="btn btn-link text-uppercase fs-6 link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase px-0 px-md-0 me-2" id="showFiltersBtn" onclick="toggleFilters()">
+                                            <span class="text-end" id="textoOpcoes">
+                                                Opções Avançadas
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% if exact_match == 1 %}
+                        <input type="hidden" id="exact_match_check" name="exact_match" value="1">
+                    {% else %}
+                        <input type="hidden" id="exact_match_check" name="exact_match" value="0">
+                    {% endif %}
+                    <!-- <input type="hidden" id="opcao2_check" name="opcao2" value="0">
+                    <input type="hidden" id="opcao3_check" name="opcao3" value="0"> -->
+
+                    <div class="container-fluid justify-content-center filters-container mt-4" style="display: none;">
+                        <div class="row text-light w-100">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-4 col-md-3">
+                                        <div class="form-check mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="checkbox-wrapper-29">
+                                                    <label class="checkbox" for="category0Checkbox">
+                                                    {% if exact_match == "1" %}
+                                                        <input type="checkbox" id="category0Checkbox" class="checkbox__input" onchange="updateHiddenField('category0Checkbox', 'exact_match_check')" checked />  
+                                                    {% else %}
+                                                        <input type="checkbox" id="category0Checkbox" class="checkbox__input" onchange="updateHiddenField('category0Checkbox', 'exact_match_check')"/>  
+                                                    {% endif %}
+                                                    <span class="checkbox__label"></span>
+                                                    <span class="checkbox-wrapper-text text-uppercase font-oswald">Pesquisa Exata</span> 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-12 col-md-4 col-md-3">
+                                        <div class="form-check mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="checkbox-wrapper-29">
+                                                    <label class="checkbox" for="category1Checkbox">
+                                                    <input type="checkbox" id="category1Checkbox" class="checkbox__input" onchange="updateHiddenField('category1Checkbox', 'opcao2_check')" />  
+                                                    <span class="checkbox__label"></span>
+                                                    <span class="checkbox-wrapper-text text-uppercase font-oswald">OPÇÃO 2</span> 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-md-3">
+                                        <div class="form-check mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="checkbox-wrapper-29">
+                                                    <label class="checkbox" for="category2Checkbox">
+                                                    <input type="checkbox" id="category2Checkbox" class="checkbox__input" onchange="updateHiddenField('category2Checkbox', 'opcao3_check')" />  
+                                                    <span class="checkbox__label"></span>
+                                                    <span class="checkbox-wrapper-text text-uppercase font-oswald">OPÇÃO 3</span> 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                
+                                <div class="container-fluid" data-bs-theme="dark">
+                                    <div class="row" style="margin: 0;">
+                                        <div class="col-md-6 d-flex mb-2">
+                                            <label for="startDate" class="form-label me-4 mb-0 mt-1 font-oswald fw-normal fs-5">DE</label>
+                                            {% if startDate %}
+                                            <input type="text" id="startDate" name="startDate" class="form-control rounded-0 text-light bg-dark border-bottom border-0  border-white font-montserrat fw-light fs-5" placeholder="2009-01-01" value="{{startDate}}" readonly>
+                                            {% else %}
+                                            <input type="text" id="startDate" name="startDate" class="form-control rounded-0 text-light bg-dark border-bottom border-0  border-white font-montserrat fw-light fs-5" placeholder="2009-01-01" value="2009-01-01" readonly>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-6 d-flex mb-2">
+                                            <label for="endDate" class="form-label me-3 mb-0 mt-1 text-light font-oswald fw-normal fs-5">ATÉ</label>
+                                            {% if endDate %}
+                                            <input type="text" id="endDate" name="endDate" class="form-control rounded-0 text-light bg-dark border-0 border-bottom  border-white font-montserrat fw-light fs-5" placeholder="2019-12-31" value="{{endDate}}" readonly>
+                                            {% else %}
+                                            <input type="text" id="endDate" name="endDate" class="form-control rounded-0 text-light bg-dark border-0 border-bottom  border-white font-montserrat fw-light fs-5" placeholder="2019-12-31" value="2019-12-31" readonly>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-8">
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div> 
+            <hr class="custom-margin-transparent-b">
+        </div> 
+    </div>
+<script>
+        function updateHiddenField(checkboxId, hiddenFieldId) {
+            var checkbox = document.getElementById(checkboxId);
+            var hiddenField = document.getElementById(hiddenFieldId);
+            if (checkbox.checked) {
+                hiddenField.value = 1;
+            } else {
+                hiddenField.value = 0;
+            }
+        }
+        </script>
+
+<!-- <div class="bg-light">
+    <hr class="custom-margin-transparent-sm">
+<div class="text-center">
+    <div class="top-bar col text-center d-inline-block">
+        {% if minimal_content == True %}
+        <div class="row">
+            <div class="col ">
+                <a href="pesquisa?query={{query}}&modo={{modo}}&titulo={{titulo}}&texto={{texto}}&autor={{autor}}&palavraschave={{palavraschave}}&categoria={{categoria}}&subcategoria={{subcategoria}}&startYear={{startYear}}&endYear={{endYear}}&minimal_content=false&page={{current_page}}" class=" bg-dark text-light fs-3 font-oswald text-uppercase link link-underline-opacity-0 link-light footer-link d-inline-block px-1 rounded-1">Mostrar Imagens</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col">
+                <a href="pesquisa?query={{query}}&modo={{modo}}&titulo={{titulo}}&texto={{texto}}&autor={{autor}}&palavraschave={{palavraschave}}&categoria={{categoria}}&subcategoria={{subcategoria}}&startYear={{startYear}}&endYear={{endYear}}&minimal_content=true&page={{current_page}}" class="text-dark font-oswald fs-3 text-uppercase link link-underline-opacity-0 link-dark footer-link d-inline-block border px-1 border-2 border-dark rounded-1">Esconder Imagens</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div> -->
+
+<div class="bg-light pb-5">
+    <div class="container-fluid">
+        <div class="row mb-0 pt-2 px-2 px-md-5 d-none d-md-block">
+                {% if total == 0 %}
+                <div class="d-flex-column text-center">
+                    <h2 class="text-uppercase mt-4 font-oswald fw-light "><span class="fw-normal ">{{ total }}</span> resultados para "<span class="fw-normal">{{query}}</span>"</h2>
+                </div>
+                {% else %}
+                <div class="d-flex-column">
+                    <h2 class="text-uppercase mt-4 font-oswald fw-light "><span class="fw-normal">{{ total }}</span> resultados para "<span class="fw-normal">{{query}}</span>"</h2>
+                </div>
+                {% endif %}
+        </div>
+        <div class="row mt-0 d-none px-2 px-md-5 d-md-block">
+            <div class="d-flex {% if total == 0 %} justify-content-center {% else %} justify-content-between  {% endif %}">
+                <h5 class="mt-2 font-oswald fw-light fs-5">Entre <span class="fw-normal "> {{ startDate }}</span> e <span class="fw-normal ">{{endDate}}</span></h5>
+                <div class="dropdown {% if total == 0 %} d-none {% endif %}">
+                    <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fw-light font-oswald">ORDENAR POR</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="{%if order_by == 'best_match'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'best_match'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}best_match">Mais Relevante</a></li>
+                    <li class="{%if order_by == 'newest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'newest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}newest">Mais Recente</a></li>
+                    <li class="{%if order_by == 'oldest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'oldest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}oldest">Mais Antigo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 pt-2 px-2 px-md-5 d-block d-md-none">
+            {% if total == 0 %}
+            <div class="d-flex-column text-center">
+                <h2 class="text-uppercase mt-4 font-oswald fw-light "><span class="fw-normal ">{{ total }}</span> resultados para "<span class="fw-normal">{{query}}</span>"</h2>
+            </div>
+            {% else %}
+            <div class="d-flex-column">
+                <h2 class="text-uppercase mt-4 font-oswald fw-light "><span class="fw-normal">{{ total }}</span> resultados para "<span class="fw-normal">{{query}}</span>"</h2>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row d-block px-2 px-md-5 d-md-none text-end">
+            <div class="d-flex {% if total == 0 %} justify-content-center {% else %} justify-content-between  {% endif %}">
+                <h5 class="mt-2 font-oswald fw-light fs-6">Entre <span class="fw-normal "> {{ startDate }}</span> e <span class="fw-normal ">{{endDate}}</span></h5>
+                <div class="dropdown {% if total == 0 %} d-none {% endif %}" >
+                    <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fw-light font-oswald">ORDENAR POR</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="{%if order_by == 'best_match'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'best_match'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}best_match">Mais Relevante</a></li>
+                    <li class="{%if order_by == 'newest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'newest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}newest">Mais Recente</a></li>
+                    <li class="{%if order_by == 'oldest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'oldest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}oldest">Mais Antigo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">            
+             {% if total != 0 %}
+                {% for document in results %}
+                    <div class="col-md-6 col-lg-4 px-2 px-md-5 pb-5 mb-3 pt-1">
+                            <div class="container-fluid">
+                                {% if minimal_content == False %}
+                                <a href="noticias?nid={{document['nid']}}">
+                                    <div class="field-content-image rounded-1 mt-0">
+                                        <img src="{{ document['image_url'] }}" class="img-fluid rounded-1" alt="{{ document['title'] }}" onerror="handleImageErrorANews(this)">
+                                    </div>
+                                </a>
+                                <a href="noticias?nid={{document['nid']}}" class="link link-danger link-underline-danger link-offset-2 d-inline-block text-dark">
+                                    <h5 class="font-oswald fw-light text-dark fs-3">{{ document['date'] }}</h5>
+                                </a>
+                                    <h3 class="text-uppercase font-oswald title-link">
+                                        <a href="noticias?nid={{document['nid']}}" class="link link-underline-opacity-0 link-underline-opacity-75-hover link-offset-1 link-dark">
+                                           {% if document['title'] %}
+                                           {% set stripped_title = document['title'].strip() %}
+                                           {% if stripped_title %}
+                                               {{ stripped_title }}
+                                           {% else %}
+                                               {% if document['text_snippet'] | length > 30 %}
+                                                   {{ document['text_snippet'][:30] }}...
+                                               {% else %}
+                                                   {{ document['text_snippet'] }}
+                                               {% endif %}
+                                           {% endif %}
+                                       {% else %}
+                                           {% if document['text_snippet'] | length > 30 %}
+                                               {{ document['text_snippet'][:30] }}...
+                                           {% else %}
+                                               {{ document['text_snippet']}}
+                                           {% endif %}
+                                       {% endif %}
+                                        </a>
+                                    </h3>
+                                    <p class="">por <span class="fw-bold">{% if document['author'] == "" %} NC {% endif %} {% if document['author'] != "" %} {{ document['author'] }} {% endif %} </span></p>
+                                    <p class="font-montserrat">
+                                        {% if document['formatted_html_content_normal'] == "" %}
+                                            <br>
+                                        {% elif (document['title']|length + document['author']|length) > 100 %}
+                                            {{ document['formatted_html_content_normal'][:document['title']|length + document['author']|length] | safe }}...
+                                        {% else %}
+                                            {{ document['formatted_html_content_normal'][:110] | safe }}...
+                                        {% endif %}
+                                    </p>
+
+                                    {% else %}
+                                    <div>
+                                        <a href="noticias?nid={{document['nid']}}" class="link link-danger link-underline-danger link-offset-2 d-inline-block text-dark">
+                                            <h5 class="font-oswald fw-light text-dark fs-3">{{ document['date'] }}</h5>
+                                        </a>
+                                        <h3 class="text-uppercase font-oswald title-link">
+                                            <a href="noticias?nid={{document['nid']}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">
+                                               {% if document['title'] %}
+                                               {% set stripped_title = document['title'].strip() %}
+                                               {% if stripped_title %}
+                                                   {{ stripped_title }}
+                                               {% else %}
+                                                   {% if document['text_snippet'] | length > 30 %}
+                                                       {{ document['text_snippet'][:30] }}...
+                                                   {% else %}
+                                                       {{ document['text_snippet'] }}
+                                                   {% endif %}
+                                               {% endif %}
+                                           {% else %}
+                                               {% if document['text_snippet'] | length > 30 %}
+                                                   {{ document['text_snippet'][:30] }}...
+                                               {% else %}
+                                                   {{ document['text_snippet']}}
+                                               {% endif %}
+                                           {% endif %}
+                                            </a>
+                                        </h3>
+                                        <p class="">por <span class="fw-bold">{% if document['author'] == "" %} NC {% endif %} {% if document['author'] != "" %} {{ document['author'] }} {% endif %} </span></p>
+                                        <p class="font-montserrat">
+                                            {% if document['formatted_html_content_normal'] == "" %}
+                                                <br>
+                                            {% elif (document['title']|length + document['author']|length) > 100 %}
+                                                {{ document['formatted_html_content_normal'][:120] | safe }}...
+                                            {% else %}
+                                                {{ document['formatted_html_content_normal'][:190] | safe }}...
+                                            {% endif %}
+                                        </p>
+                                    </div>
+
+                                    {% endif %}
+
+                            </div>
+                    </div>
+                {% endfor %}
+                {% endif %}
+        </div>
+    </div>
+
+        <!-- Pagination -->
+        <div class="container-fluid d-none d-md-flex justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ pagination.links }}
+        </div>
+        <div class="container-fluid d-flex d-md-none justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ small_pagination.links }}
+        </div>  
+        <div class="bg-light text-center pb-3">
+            <a href="index" class="fs-6 link link-secondary link-underline-opacity-100-hover link-underline-opacity-25 font-montserrat">VOLTAR À PÁGINA INICIAL</a>
+        </div>
+</div>
+</div>
+
+<script>
+    function handleImageErrorANews(image) {
+        image.src = 'static/img/nc_logo_dark.png';
+        image.style.scale = '0.6';
+        var parentDiv = image.parentElement;
+                    if (parentDiv) {
+                        parentDiv.classList.add('bg-light')
+                        parentDiv.classList.add('border')
+                        parentDiv.classList.add('border-1')
+                        parentDiv.classList.add('border-dark')
+                    }
+    }
+</script>
+
+<script src="static/js/query.js"></script>
+<script src="static/js/search.js"></script>
+{% endblock %}

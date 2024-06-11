@@ -1,0 +1,332 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+    {{ categoria | upper }}
+{% endblock %}
+
+{% block content %}
+<div class="capas-loader min-vh-100" id="loader">
+    <!-- <p class="font-oswald fw-normal text-light display-6">A CARREGAR <span class="border-bottom border-danger border-3 px-1 lh-base text-uppercase">{{ categoria }}</span>&nbsp;</p> -->
+    <span class="circle"></span>
+    <span class="circle"></span>
+    <span class="circle"></span>
+</div>
+<div class="page">
+    <div class="bg-light">
+        <div class="container-fluid">
+            <div class="bg-dark row">
+                <div class="container text-center">
+                    <hr class="custom-margin-transparent-sm">
+                    <h4 class="text-secondary fw-light text-uppercase mb-4">categoria</h4>
+                    <div class="container">
+                        <h1 class="text-light big-title font-oswald display-1 d-inline-block fw-normal text-uppercase">{{ categoria }}</h1>
+                    </div>
+                    <div class="col-md-8 offset-md-2">
+                        <h5 class="text-light fw-light mt-4 fs-6">Na secção dedicada às notícias categorizadas por <span class="text-uppercase fw-bold">{{ categoria | capitalize }}</span> foi possível proceder à recolha de um total de <span class="fw-bold">{{total}}</span> notícias</h5>
+                    </div>
+                    <!-- fazer um if para as diferentes subcategorias -->
+                    <!-- {% if categoria == "local" %}
+                    <div class="container-fluid d-md-flex justify-content-center" id="slider-subcategorias">
+                        <div class="col-md-8 justify-content-center">
+                            <h4 class="text-secondary fw-light text-uppercase mt-4 text-center mb-3">subcategorias</h4>
+                            <div class="subcategory-slider-container border-bottom border-1 border-light d-none d-lg-block" >
+                                <div class="slider-subcategorias">
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=covilha" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">COVILHÃ</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=belmonte" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">BELMONTE</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=fundao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">FUNDÃO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=castelobranco" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CASTELO BRANCO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=guarda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">GUARDA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=regiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">REGIÃO</a>
+                                    </div>  
+                                   
+                                </div>
+                            </div>
+                            <div class="subcategory-slider-container border-bottom border-1 border-light d-none d-md-block d-lg-none">
+                                <div class="slider-subcategorias-medium">
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=covilha" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">COVILHÃ</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=belmonte" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">BELMONTE</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=fundao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">FUNDÃO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=castelobranco" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CASTELO BRANCO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=guarda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">GUARDA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=regiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">REGIÃO</a>
+                                    </div>  
+                                   
+                                </div>
+                            </div>
+                            <div class="subcategory-slider-container border-bottom border-1 border-light d-block d-md-none">
+                                <div class="slider-subcategorias-small">
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=covilha" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">COVILHÃ</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=belmonte" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">BELMONTE</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=fundao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">FUNDÃO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=castelobranco" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CASTELO BRANCO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=guarda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">GUARDA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=local&subcategoria=regiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">REGIÃO</a>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end font-oswald d-lg-none">
+                                <button type="button" class="btn btn-link link-light fw-light link-underline-opacity-0 fs-2 btn-left">
+                                    &leftarrow;
+                                </button>
+                                <button type="button" class="btn btn-link link-light fw-light link-underline-opacity-0 fs-2 btn-right">
+                                    &rightarrow;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% elif categoria == "secções" %}
+                    <div class="container-fluid d-md-flex justify-content-center mt-3" id="slider-subcategorias">
+                        <div class="col-md-8">
+                            <h4 class="text-secondary fw-light text-uppercase mt-4 text-center mb-3">subcategorias</h4>
+                            <div class="subcategory-slider-container border-bottom border-1 border-light d-none d-lg-block" >
+                                <div class="slider-subcategorias">
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=centrais" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CENTRAIS</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=actualidade" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ACTUALIDADE</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=desporto" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">DESPORTO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=religiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">RELIGIÃO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=cultura" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CULTURA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=associativismo" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ASSOCIATIVISMO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=economia" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ECONOMIA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=agenda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">AGENDA</a>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="subcategory-slider-container border-bottom border-1 border-light d-none d-md-block d-lg-none">
+                                <div class="slider-subcategorias-medium">
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=centrais" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CENTRAIS</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=actualidade" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ACTUALIDADE</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=desporto" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">DESPORTO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=religiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">RELIGIÃO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=cultura" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CULTURA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=associativismo" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ASSOCIATIVISMO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=economia" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ECONOMIA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=agenda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">AGENDA</a>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="subcategory-slider-container border-bottom border-1 border-light d-block d-md-none">
+                                <div class="slider-subcategorias-small">
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=centrais" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CENTRAIS</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=actualidade" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ACTUALIDADE</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=desporto" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">DESPORTO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=religiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">RELIGIÃO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=cultura" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CULTURA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=associativismo" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ASSOCIATIVISMO</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=economia" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">ECONOMIA</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="categoria?c=seccoes&subcategoria=agenda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-light text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">AGENDA</a>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end font-oswald">
+                                <button type="button" class="btn btn-link link-light fw-light link-underline-opacity-0 fs-2 btn-left">
+                                    &leftarrow;
+                                </button>
+                                <button type="button" class="btn btn-link link-light fw-light link-underline-opacity-0 fs-2 btn-right">
+                                    &rightarrow;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %} -->
+                    <hr class="custom-margin-transparent-sm">
+                </div>
+            </div>
+        </div>     
+
+    <div class="container-fluid">
+        <div class="row mt-4 d-block px-md-4 px-lg-5">
+            <div class="d-flex justify-content-end">
+                <div class="dropdown">
+                    <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fw-light font-oswald ">CATEGORIAS</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="{%if categoria == 'local'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if categoria == 'local'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local">Local</a></li>
+                    <li class="{%if categoria == 'secções'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if categoria == 'secções'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes">Secções</a></li>
+                    <li class="{%if categoria == 'opinião'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if categoria == 'opinião'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=opiniao">Opinião</a></li>
+                    <li class="{%if categoria == 'editorial'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if categoria == 'editorial'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=editorial">Editorial</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fw-light font-oswald">ORDENAR POR</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="{%if order_by == 'newest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'newest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}newest">Mais Recente</a></li>
+                    <li class="{%if order_by == 'oldest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'oldest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}oldest">Mais Antigo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="container-fluid">
+        <div class="row">
+            {% for item in news %}
+            <div class="col-12 col-md-6 col-lg-4 px-2 px-md-5 pb-5 mb-3 pt-1">
+                <div class="container-fluid">
+                    <a href="noticias?nid={{item.nid}}">
+                            <div class="field-content-image rounded-1 mt-0">
+                                <img src="{{ item.image_url }}" alt="" class="rounded-1" onerror="handleImageErrorANews(this)">
+                            </div>
+                        </a>
+                            <div>
+                                <a href="noticias?nid={{item.nid}}" class="link link-danger link-underline-danger link-offset-2 d-inline-block text-dark">
+                                    <h5 class="font-oswald fw-light text-dark fs-3">{{ item.date }}</h5>
+                                </a>
+                                <h3 class="text-uppercase font-oswald title-link">
+                                    <a href="noticias?nid={{item.nid}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">
+                                    {% if item.title %}
+                                        {% set stripped_title = item.title.strip() %}
+                                        {% if stripped_title %}
+                                            {{ stripped_title }}
+                                        {% else %}
+                                            {% if item.text_snippet | length > 30 %}
+                                                {{ item.text_snippet[:30] }}...
+                                            {% else %}
+                                                {{ item.text_snippet }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if item.text_snippet | length > 30 %}
+                                            {{ item.text_snippet[:30] }}...
+                                        {% else %}
+                                            {{ item.text_snippet }}
+                                        {% endif %}
+                                    {% endif %}
+                                    </a>
+                                </h3>
+                                <p class="">por <span class="fw-bold">{% if item.author == "" %} NC {% endif %} {% if item.author != "" %} {{ item.author }} {% endif %} </span></p>
+                                <p class="font-montserrat">
+                                    {% if item.formatted_html_content_normal == "" %}
+                                    <br>
+                                    {% elif (item.title|length + item.author|length) > 60 %}
+                                        {{ item.formatted_html_content_normal[:item.title|length + item.author|length] | safe }}...
+                                    {% else %}
+                                        {{ item.formatted_html_content_normal[:110] | safe }}...
+                                    {% endif %}
+                                </p>
+                            </div>
+                </div>
+            </div>        
+            {% endfor %}
+        </div>
+    </div>
+         <!-- Pagination -->
+         <div class="container-fluid d-none d-md-flex justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ pagination.links }}
+        </div>
+        <div class="container-fluid d-flex d-md-none justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ small_pagination.links }}
+        </div>  
+        <div class="bg-light text-center py-5">
+            <a href="index" class="fs-6 link link-secondary link-underline-opacity-100-hover link-underline-opacity-25 font-montserrat">VOLTAR À PÁGINA INICIAL</a>
+        </div>
+    <!-- <hr class="custom-margin-transparent-t"> -->
+    </div>
+</div>
+<script>
+   function handleImageErrorANews(image) {
+    // Hide the image by setting its display property to 'none'
+    // image.style.display = 'none';
+    image.src = 'static/img/nc_logo_dark.png';
+    image.style.scale = '0.6';
+    var parentDiv = image.parentElement;
+                if (parentDiv) {
+                    parentDiv.classList.add('bg-light')
+                    parentDiv.classList.add('border')
+                    parentDiv.classList.add('border-2')
+                    parentDiv.classList.add('border-dark')
+                }
+}
+// LOADER
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.display = 'none';
+        const page = document.querySelector('.page');
+        if (page) {
+            page.style.display = 'block';
+        }
+    }
+}
+
+</script>
+{% endblock %}

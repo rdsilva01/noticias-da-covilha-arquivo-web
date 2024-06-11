@@ -1,0 +1,14 @@
+FROM python:3.10
+
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+RUN mkdir /arquivonc
+WORKDIR /arquivonc
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["gunicorn", "-c", "gunicorn_config.py", "--reload", "app:app"]

@@ -1,0 +1,200 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+{{ categoria | capitalize }} - {{ subcategoria | capitalize }}
+{% endblock %}
+
+{% block content %}
+<div class="capas-loader min-vh-100" id="loader">
+    <!-- <p class="font-oswald fw-normal text-light display-6">A CARREGAR <span class="border-bottom border-danger border-3 px-1 lh-base text-uppercase">{{ subcategoria }}</span>&nbsp;</p> -->
+    <span class="circle"></span>
+    <span class="circle"></span>
+    <span class="circle"></span>
+</div>
+<div class="page">
+    <div class="bg-light">
+        <div class="container-fluid">
+            <div class="bg-dark row">
+                <div class="container text-center">
+                    <hr class="custom-margin-transparent-sm">
+                    <h4 class="text-secondary fw-light text-uppercase mb-4">categoria: 
+                        <span class="fw-normal font-montserrat">
+                            <a href="categoria?c={{categoria}}" class=" bg-dark text-light fs-3 text-uppercase link link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2  link-underline-light footer-link d-inline-block px-1">{{categoria}}</a>
+                        </span></h4>
+                    <div class="container">
+                        <h1 class="text-light big-title display-1 fw-normal font-oswald d-inline-block text-uppercase user-select-none">{{ subcategoria }}</h1>
+                    </div>
+                    <div class="col-md-8 offset-md-2">
+                        <h5 class="text-light fw-light mt-4 mx-md-5 fs-6">Na secção dedicada às notícias categorizadas por <span class="text-uppercase fw-bold">{{ subcategoria | capitalize }}</span> foi possível proceder à recolha de um total de <span class="fw-bold">{{total}}</span> notícias</h5>
+                    </div>
+                    <!-- <h4 class="text-light fw-light text-uppercase mt-4">subcategorias</h4> -->
+                    <!-- <a href="/categoria/local/covilha" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">COVILHÃ</a>
+                    <a href="/categoria/local/belmonte" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">BELMONTE</a>
+                    <a href="/categoria/local/fundão" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">FUNDÃO</a>
+                    <a href="/categoria/local/castelobranco" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">CASTELO BRANCO</a>
+                    <a href="/categoria/local/guarda" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block">GUARDA</a>
+                    <a href="/categoria/local/regiao" target="_blank" rel="noopener noreferrer" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 d-inline-block">REGIÃO</a> -->
+                    <hr class="custom-margin-transparent-sm">
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container-fluid">
+        <div class="row mt-4 d-block px-md-4 px-lg-5">
+            <div class="d-flex justify-content-end">
+                <div class="dropdown">
+                    <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fw-light font-oswald ">SUBCATEGORIAS</span>
+                    </button>
+                    {% if categoria == 'local' %}
+                    <ul class="dropdown-menu">
+                        <li class="{%if subcategoria == 'covilhã'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'covilhã'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local&subcategoria=covilha">Covilhã</a></li>
+                        <li class="{%if subcategoria == 'belmonte'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'belmonte'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local&subcategoria=belmonte">Belmonte</a></li>
+                        <li class="{%if subcategoria == 'fundão'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'fundão'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local&subcategoria=fundao">Fundão</a></li>
+                        <li class="{%if subcategoria == 'castelobranco'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'castelobranco'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local&subcategoria=castelobranco">Castelo Branco</a></li>
+                        <li class="{%if subcategoria == 'guarda'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'guarda'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local&subcategoria=guarda">Guarda</a></li>
+                        <li class="{%if subcategoria == 'região'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'região'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=local&subcategoria=regiao">Região</a></li>
+                    </ul>
+                    {% elif categoria == 'secções' %}
+                    <ul class="dropdown-menu">
+                        <li class="{%if subcategoria == 'centrais'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'centrais'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=centrais">Centrais</a></li>
+                        <li class="{%if subcategoria == 'actualidade'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'actualidade'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=actualidade">Actualidade</a></li>
+                        <li class="{%if subcategoria == 'desporto'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'desporto'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=desporto">Desporto</a></li>
+                        <li class="{%if subcategoria == 'religião'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'religião'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=religiao">Religião</a></li>
+                        <li class="{%if subcategoria == 'cultura'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'cultura'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=cultura">Cultura</a></li>
+                        <li class="{%if subcategoria == 'associativismo'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'associativismo'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=associativismo">Associativismo</a></li>
+                        <li class="{%if subcategoria == 'economia'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'economia'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=economia">Economia</a></li>
+                        <li class="{%if subcategoria == 'agenda'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if subcategoria == 'agenda'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="categoria?c=seccoes&subcategoria=agenda">Agenda</a></li> 
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fw-light font-oswald">ORDENAR POR</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="{%if order_by == 'newest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'newest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}newest">Mais Recente</a></li>
+                    <li class="{%if order_by == 'oldest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'oldest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}oldest">Mais Antigo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="container-fluid">
+        <div class="row">
+            {% for item in news %}
+            <div class="col-12 col-md-6 col-lg-4 px-2 px-md-5 pb-5 mb-3 pt-1">
+                <div class="container-fluid">
+                        {% if minimal_content == False %}
+                        <a href="noticias?nid={{item.nid}}">
+                        <div class="field-content-image rounded-1 mt-0">
+                            <img src="{{ item.image_url }}" alt="" class="rounded-1" onerror="handleImageErrorANews(this)">
+                        </div>
+                        </a>
+                        <div>
+                            <a href="noticias?nid={{item.nid}}" class="link link-danger link-underline-danger link-offset-2 d-inline-block text-dark">
+                                <h5 class="font-oswald fw-light text-dark fs-3">{{ item.date }}</h5>
+                            </a>
+                                    <h3 class="text-uppercase font-oswald title-link">
+                                    <a href="noticias?nid={{item.nid}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">
+                                    {% if item.title %}
+                                        {% set stripped_title = item.title.strip() %}
+                                        {% if stripped_title %}
+                                            {{ stripped_title }}
+                                        {% else %}
+                                            {% if item.text_snippet | length > 30 %}
+                                                {{ item.text_snippet[:30] }}...
+                                            {% else %}
+                                                {{ item.text_snippet }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% if item.text_snippet | length > 30 %}
+                                            {{ item.text_snippet[:30] }}...
+                                        {% else %}
+                                            {{ item.text_snippet }}
+                                        {% endif %}
+                                    {% endif %}
+                                    </a>
+                                </h3>
+                                <p class="">por <span class="fw-bold">{% if item.author == "" %} NC {% endif %} {% if item.author != "" %} {{ item.author }} {% endif %} </span></p>
+                                <p class="font-montserrat">
+                                    {% if item.formatted_html_content_normal == "" %}
+                                    <br>
+                                    {% elif (item.title|length + item.author|length) > 60 %}
+                                        {{ item.formatted_html_content_normal[:item.title|length + item.author|length] | safe }}...
+                                    {% else %}
+                                        {{ item.formatted_html_content_normal[:110] | safe }}...
+                                    {% endif %}
+                                </p>
+                            </div>
+                        {% else %}
+                            <div>
+                                <a href="noticias?nid={{item.nid}}" class="link link-danger link-underline-danger link-offset-2 d-inline-block text-dark">
+                                    <h5 class="font-oswald fw-light text-dark fs-3">{{ item.date }}</h5>
+                                </a>
+                                <h3 class="text-uppercase font-oswald title-link">
+                                    <a href="noticias?nid={{item.nid}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">
+                                        {{ item.title }}
+                                    </a>
+                                </h3>
+                                <p class="">por <span class="fw-bold">{% if item.author == "" %} NC {% endif %} {% if item.author != "" %} {{ item.author }} {% endif %} </span></p>
+                                <p class="font-montserrat">
+                                            {% if item.formatted_html_content_normal == "" %}
+                                                <br>
+                                            {% elif (item.title|length + item.author|length) > 100 %}
+                                                {{ item.formatted_html_content_normal[:120] | safe }}...
+                                            {% else %}
+                                                {{ item.formatted_html_content_normal[:190] | safe }}...
+                                            {% endif %}
+                                </p>
+                                
+                            </div>
+                        {% endif %}
+                </div>
+            </div>        
+            {% endfor %}
+        </div>
+    </div>
+          <!-- Pagination -->
+          <div class="container-fluid d-none d-md-flex justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ pagination.links }}
+        </div>
+        <div class="container-fluid d-flex d-md-none justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ small_pagination.links }}
+        </div> 
+        <div class="bg-light text-center py-5">
+            <a href="index" class="fs-6 link link-secondary link-underline-opacity-100-hover link-underline-opacity-25 font-montserrat">VOLTAR À PÁGINA INICIAL</a>
+        </div>
+    </div>
+</div>
+    <script>
+        // LOADER
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.display = 'none';
+        const page = document.querySelector('.page');
+        if (page) {
+            page.style.display = 'block';
+        }
+    }
+}
+function handleImageErrorANews(image) {
+    // Hide the image by setting its display property to 'none'
+    // image.style.display = 'none';
+    image.src = 'static/img/nc_logo_dark.png';
+    image.style.scale = '1';
+    var parentDiv = image.parentElement;
+                if (parentDiv) {
+                    parentDiv.classList.add('bg-light')
+                    parentDiv.classList.add('border')
+                    parentDiv.classList.add('border-2')
+                    parentDiv.classList.add('border-dark')
+                }
+}
+
+
+    </script>
+{% endblock %}

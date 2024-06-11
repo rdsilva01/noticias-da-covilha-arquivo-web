@@ -1,0 +1,1109 @@
+
+{% extends "base.html" %}
+<link rel="shortcut icon" href="static/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="static/css/index.css">
+
+{% block meta %}
+
+<meta name="title" content="ArquivoNC">
+<meta name="description" content="O arquivo web do Notícias da Covilhã">
+
+<meta name="author" content="Rodrigo Silva, Ricardo Campos">
+<meta property="og:url" content="https://arquivonc.ubi.pt">
+<meta property="og:title" content="ArquivoNC">
+<meta property="og:description" content="O arquivo web do Notícias da Covilhã">
+
+<meta name="image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png">
+<meta property="og:image"  itemprop="image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png" />
+<meta property="og:image:secure_url"  itemprop="image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:updated_time" content="1440432930" />
+<meta property="og:image:width" content="300" /> 
+<meta property="og:image:height" content="300" />
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ArquivoNC">
+<meta name="twitter:description" content="O arquivo web do Notícias da Covilhã">
+<meta name="twitter:image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png">
+
+
+
+{% endblock %}
+
+{% block title %}Arquivo Web @ Notícias da Covilhã{% endblock %}
+
+{% block content %}
+    <!-- <div class="loader" id="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div> -->
+    <div class="capas-loader min-vh-100" id="loader">
+        <!-- <p class="font-oswald fw-normal text-light display-6"><span class="border-bottom border-danger border-3 px-1 lh-base">A CARREGAR </span>&nbsp;</p> -->
+        <span class="circle"></span>
+        <span class="circle"></span>
+        <span class="circle"></span>
+    </div>
+    <div class="page bg-light" id="page">
+        <!-- MAIN NEWS -->
+        <div class="bg-dark pb-1" id="mainNews">
+            <div class="d-flex flex-column position-relative" id="indexPage">
+                <div class="container-fluid mt-4 mt-md-5">
+                    <div id="homepage-slider" class="mt-0 mt-md-3">
+                        <div class="slider-main-news">
+                            {% for i in range(main_news_len) %}
+                            <div class="col-12 news-item">
+                                <div class="container-fluid mt-0">
+                                  <div class="row text-center text-md-start">
+                                    <a href="noticias?nid={{news[i].nid}}" class="link link-danger text-light link-offset-3 d-block d-md-none ">
+                                        <span class="font-oswald fw-light text-light text-center fs-1 text-uppercase">
+                                        {{news[i].date | format_date_description}}
+                                        </span>
+                                    </a>
+                                    <div class="col-md-6 col-lg-5 mt-1 mt-md-4" id="imageColumn">
+                                        <div class="container-fluid text-center">
+                                            <div class="main-article mb-2 d-none d-md-block">
+                                                <img src="{{ news[i].image_url }}" class="w-100 rounded-1 main-article-image" alt="..." onerror="handleImageErrorMainNews(this)">
+                                            </div>
+                                            <div class="d-flex d-md-none container-fluid justify-content-between align-items-center">
+                                                <div class="field-content-image rounded-1 ">
+                                                    <img src="{{ news[i].image_url }}" class="w-100 rounded-1 main-article-image" alt="..." onerror="handleImageErrorMainNews(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-7 mt-md-4" id="textColumn">
+                                        <div class="container-fluid text-start mx-0">
+                                            <a href="noticias?nid={{news[i].nid}}" class="link link-danger text-light link-offset-3 d-none d-md-block">
+                                                <span class="font-oswald fw-light text-light fs-2 text-uppercase">
+                                                {{news[i].date | format_date_description}}
+                                                </span>
+                                            </a>
+                                            <!-- TEXT CONTENT -->
+                                            <h1 class="text-start font-montserrat fw-normal text-uppercase fs-5 mt-3 d-md-block d-none">
+                                                <a href="categoria?c={{news[i].category}}" class="link link-underline-opacity-0 link-underline-light link-offset-2 text-light"> 
+                                                    {{news[i].category}}
+                                                </a>
+                                                {% if news[i].sub_category == news[i].category %}
+                                                {% elif news[i].sub_category == "" %}
+                                                {% elif news[i].sub_category != "" %}
+                                                <span class="fw-light fs-3 text-light"> &#8250; </span>
+                                                <a href="categoria?c={{news[i].category}}&subcategoria={{news[i].sub_category}}" class="link link-underline-opacity-50 link-underline-opacity-100-hover link-underline-light link-offset-2 text-light"> 
+                                                    {{news[i].sub_category}}
+                                                </a>
+                                                {% endif %}
+                                            </h1>
+                                            <div class="d-flex d-md-none container-fluid justify-content-between align-items-top">
+                                                <div>
+                                                    <button class="btn btn-dark btn-ant fs-4">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                                            <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                                          </svg>
+                                                    </button>
+                                                </div>
+                                                <h1 class="text-uppercase font-oswald fw-normal text-center">
+                                                    <a href="noticias?nid={{news[i].nid}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-light">{{ news[i].title }}</a>
+                                                </h1>
+                                                <div>
+                                                    <button class="btn btn-dark btn-prox fs-4">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                                          </svg>
+                                                    </button>
+                                                </div>  
+                                            </div>
+                                            <h1 class="text-uppercase font-oswald fw-normal d-none d-md-block">
+                                                <a href="noticias?nid={{news[i].nid}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-light">{{ news[i].title }}</a>
+                                            </h1>
+                                            <h1 class="text-center font-montserrat fw-normal text-uppercase fs-6 mb-3 d-block d-md-none">
+                                                <a href="categoria?c={{news[i].category}}" class="link link-underline-opacity-0 link-underline-light link-offset-2 text-light"> 
+                                                    {{news[i].category}}
+                                                </a>
+                                                {% if news[i].sub_category == news[i].category %}
+                                                {% elif news[i].sub_category == "" %}
+                                                {% elif news[i].sub_category != "" %}
+                                                <span class="fw-light fs-6 text-light"> &#8250; </span>
+                                                <a href="categoria?c={{news[i].category}}&subcategoria={{news[i].sub_category}}" class="link link-underline-opacity-50 link-underline-opacity-100-hover link-underline-light link-offset-2 text-light"> 
+                                                    {{news[i].sub_category}}
+                                                </a>
+                                                {% endif %}
+                                            </h1>
+                            
+                                            <p class="font-montserrat fw-light text-light fs-5 d-none d-lg-block" id="newsContent">{{ news[i].formatted_html_content_normal| safe  }} </p>
+                                            <p class="font-montserrat fw-light text-light fs-5 d-none d-md-block d-lg-none" id="newsContent">{{ news[i].formatted_html_content_normal[:250]| safe  }}... </p>
+                                            <div class="text-center text-md-end font-oswald text-uppercase fs-4 d-none d-md-block">
+                                                <p class="text-light"><a href="noticias?nid={{news[i].nid}}" class="link link-underline-opacity-25 link-underline-opacity-100-hover link-offset-3 link-light">Continuar a leitura</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                                
+                            </div>
+                            {% endfor %}
+                        </div>  
+                    </div>
+                </div>
+                <div class="container ms-md-3 mt-md-4">
+                    <div class="font-oswald fw-normal text-start mb-3 d-none d-md-block">
+                        <a href="#page" class="link link-underline-opacity-0">
+                            <button class="btn btn-dark btn-ant rounded-1 border border-1 border-light fs-4 ">ANTERIOR</button>
+                            <button class="btn btn-dark btn-prox rounded-1 border border-1 border-light fs-4">PRÓXIMA</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <hr class="custom-margin-transparent-t"> -->
+            <hr class="custom-margin-transparent-b-sm">
+        </div>
+        <script>
+        ///////////////////////////
+        // MAIN NEWS IMAGE ERROR
+        ///////////////////////////
+        function handleImageErrorMainNews(image) {
+            // Hide the image by setting its display property to 'none'
+            image.style.display = 'none';
+
+            // Set the height of the parent container to 300px and add text
+            var parentDiv = image.parentElement;
+            var grandParentDiv = image.parentElement.parentElement;
+            var grandGrandParentDiv = grandParentDiv.parentElement;
+            var grandGrandGrandParentDiv = grandGrandParentDiv.parentElement;
+            var textDiv = grandGrandGrandParentDiv.querySelector('#textColumn');
+            console.log("TEXT DIV")
+            console.log(textDiv)
+                grandGrandParentDiv.style.display = 'none';
+                grandGrandParentDiv.classList.remove('col-md-5');
+                grandGrandParentDiv.classList.add('col-0');    
+                textDiv.classList.remove('col-md-6');
+                textDiv.classList.remove('col-lg-7');
+                textDiv.classList.add('col-12');
+        
+        }       
+        </script>
+
+        <!-- TRIFETA -->
+        <!-- TRIFETA LIGHT -->
+        <div class="bg-light">
+            <hr class="custom-margin-transparent-b">
+            <div class="bg-light d-flex justify-content-center">
+                <div class="container-fluid align-items-center justify-content-center">
+                    <!-- MODAL DA CAPA DO JORNAL -->
+                    <div id="capaModal" class="modal text-center">
+                        <div class="container-fluid d-flex justify-content-center align-items-center">
+                            <div class="row gx-0">
+                                <div class="col-md-8 offset-md-2">
+                                        <div class="row mt-2 text-end mx-1">
+                                            <div class="col-12" data-bs-theme="dark">
+                                                <button class="btn-close pe-auto" type="button" onclick="closeCapaModal()"></button>
+                                            </div>
+                                        </div>
+                                        <div class="row bg-light mx-3 rounded-1 text-start mb-1 px-3">
+                                            <div class="col-12 col-md-12 mb-2 text-center">
+                                                <div id="dateCapaModal" class="font-oswald fs-1 text-light text-uppercase mt-4 border border-dark bg-dark border-2 rounded-1 px-2"></div>
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <img id="capaCapaModal" class="rounded-1 mb-2" style="width: 100%;">
+                                            </div>
+                                            <div class="col-12 col-md-12 text-center mb-4">
+                                                <div id="computerDevice" class="d-none d-lg-block" >
+                                                    <p class="font-oswald fs-5 " id="shareCapaModal">GUARDE A CAPA!</p>
+                                                    <button class="share-btn btn btn-danger" onclick="downloadImageIndex()">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                                            </svg>
+                                                    </button>
+                                                </div>
+                                                <div id="mobileDevice " class="d-block d-lg-none">
+                                                    <p class="font-oswald fs-5 " id="shareCapaModal">PARTILHE!</p>
+                                                    <div class="btn-group dropdown-center dropdown">
+                                                        <button class="share-btn btn btn-danger" onclick="shareCapaOnSocial('facebook')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                                              </svg>
+                                                        </button>
+                                                        <button class="share-btn btn btn-danger " onclick="shareCapaOnSocial('twitter')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                                            </svg>
+                                                        </button>
+                                                        <button class="share-btn btn btn-danger" onclick="shareCapaOnSocial('whatsapp')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                                                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                                            </svg>
+                                                        </button>
+                                                        <button class="share-btn btn btn-danger" onclick="downloadImageIndex()">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                                                </svg>
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <span class="visually-hidden">Mais Opções</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu bg-transparent border-0">
+                                                            <div class="btn-group" role="group" aria-label="Btn Group">
+                                                                <button class="share-btn btn  btn-danger " onclick="shareCapaOnSocial('linkedin')">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                                                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                                                                    </svg>
+                                                                </button>
+                                                                <button class="share-btn btn btn-danger" onclick="shareCapaOnSocial('email')">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+                                                                        <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"/>
+                                                                        <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"/>
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row bg-light justify-content-center d-flex">
+                        <div class="col-md-12">
+                            <div class="container-fluid text-center">
+                                <h2 class="text-uppercase font-oswald fw-normal display-4 d-inline-block text-dark "> Antigamente era assim </h2>
+                                <h5 class="text-secondary font-oswald fst-italic fw-light mb-4 fs-4">As capas do Jornal desta "semana"</h5>
+                            </div>
+                            <div class="container justify-content-center" style="width: 80%;">
+                            {% if news_front_page_this_week %}
+                                {% set news_count = news_front_page_this_week | length %}
+                                <div class="container justify-content-center">  
+                                    <div class="row gx-1 justify-content-center">
+                                        {% if news_count >= 3%}
+                                        <div class="col-lg-9 border border-1 border-dark p-1 rounded-1">
+                                        {% elif news_count == 2 %}
+                                        <div class="col-lg-6 border border-1 border-dark p-1 rounded-1">
+                                        {% elif news_count >= 1 %}
+                                        <div class="col-lg-3 border border-1 border-dark p-1 rounded-1">
+                                        {% endif %}
+                                            <div id="homepage-slider" class="d-none d-lg-block">
+                                                {% if news_count >= 3%}
+                                                <div class="slider-hero" id="slider-hero">
+                                                    {% for data in news_front_page_this_week %}
+                                                    {% set url = data['url']%}
+                                                    {% set date = data['data']%}
+                                                    {% set local_image_url = 'https://arquivonc.ubi.pt/arquivonc/static/img/capas/'+ date +'.jpg' %}
+                                                    <div class="col-12 font-oswald capas-item " id="capas_{{loop.index}}">
+                                                        <div class="front-page-image rounded-1 p-1 h-100 text-center">
+                                                            <p class="bg-dark text-light rounded-1 mb-0 fs-6">{{date}}</p>  
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <img src="{{local_image_url}}" class="img-fluid" onclick="openCapaModal('{{local_image_url}}', '{{date}}', '{{local_image_url}}')">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}  
+                                                </div>
+
+                                                {% elif news_count == 2 %}
+                                                <div class="slider-hero-dois" id="slider-hero-dois">
+                                                    {% for data in news_front_page_this_week %}
+                                                    {% set url = data['url']%}
+                                                    {% set date = data['data']%}
+                                                    {% set local_image_url = 'https://arquivonc.ubi.pt/arquivonc/static/img/capas/'+ date +'.jpg' %}
+                                                    <div class="font-oswald capas-item" id="capas_{{loop.index}}">
+                                                        <div class="front-page-image rounded-1 p-1 h-100 text-center">
+                                                            <p class="bg-dark text-light rounded-1 mb-0 fs-6">{{date}}</p>  
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <img src="{{local_image_url}}" class="img-fluid" onclick="openCapaModal('{{local_image_url}}', '{{date}}', '{{local_image_url}}')">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}  
+                                                </div>
+
+                                                {% elif news_count == 1 %}
+                                                <div class="slider-hero-um" id="slider-hero-um">
+                                                    {% for data in news_front_page_this_week %}
+                                                    {% set url = data['url']%}
+                                                    {% set date = data['data']%}
+                                                    {% set local_image_url = 'https://arquivonc.ubi.pt/arquivonc/static/img/capas/'+ date +'.jpg' %}
+                                                    <div class="font-oswald capas-item" id="capas_{{loop.index}}">
+                                                        <div class="front-page-image rounded-1 p-1 h-100 text-center">
+                                                            <p class="bg-dark text-light rounded-1 mb-0 fs-6">{{date}}</p>  
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <img src="{{local_image_url}}" class="img-fluid" onclick="openCapaModal('{{local_image_url}}', '{{date}}', '{{local_image_url}}')">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}  
+                                                </div>
+                                                {% endif %}
+                                            </div>
+
+                                            <div id="homepage-slider" class="d-block d-md-none d-lg-none">
+                                                <div class="slider-hero-small">
+                                                    
+                                                    {% for data in news_front_page_this_week %}
+                                                    {% set url = data['url']%}
+                                                    {% set date = data['data']%}
+                                                    {% set local_image_url = 'https://arquivonc.ubi.pt/arquivonc/static/img/capas/'+ date +'.jpg' %}
+                                                    <div class="col-12 font-oswald capas-item " id="capas_{{loop.index}}">
+                                                        <div class="front-page-image rounded-1 p-1 h-100 text-center">
+                                                            <p class="bg-dark text-light rounded-1 mb-0 fs-6">{{date}}</p>  
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <img src="{{local_image_url}}" class="img-fluid" onclick="openCapaModal('{{local_image_url}}', '{{date}}', '{{local_image_url}}')">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}  
+                                                </div>
+                                            </div>
+                                            <div id="homepage-slider" class="d-none d-md-block d-lg-none">
+                                                <div class="slider-hero-medium">
+                                                    {% for data in news_front_page_this_week %}
+                                                    {% set url = data['url']%}
+                                                    {% set date = data['data']%}
+                                                    {% set local_image_url = 'https://arquivonc.ubi.pt/arquivonc/static/img/capas/'+ date +'.jpg' %}
+                                                    <div class="col-12 font-oswald capas-item " id="capas_{{loop.index}}">
+                                                        <div class="front-page-image rounded-1 p-1 h-100 text-center">
+                                                            <p class="bg-dark text-light rounded-1 mb-0 fs-6">{{date}}</p>  
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <img src="{{local_image_url}}" class="img-fluid" onclick="openCapaModal('{{local_image_url}}', '{{date}}', '{{local_image_url}}')">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}  
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 font-oswald d-none d-lg-flex justify-content-start align-items-start capas-slider-buttons">
+                                                <div class="h-100 w-100">
+                                                    <div class="text-center d-flex justify-content-center align-items-center h-100 w-100">
+                                                        <a class="btn btn-outline-danger rounded-1 fs-2 h-100 w-100" href="capas" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center;">
+                                                            VER TODAS AS CAPAS
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                        </div>    
+                                            <!-- <div class="col-12 d-lg-none d-flex justify-content-center">
+                                                <div class="d-flex justify-content-center font-oswald">
+                                                    <button type="button" class="btn btn-link link-dark font-oswald link-underline-opacity-0 fs-2 btn-left">
+                                                        &leftarrow;
+                                                    </button>
+                                                    <button type="button" class="btn btn-link link-dark font-oswald link-underline-opacity-0 fs-2 pe-none">
+                                                        &#8226;
+                                                    </button>
+                                                    <button type="button" class="btn btn-link link-dark font-oswald link-underline-opacity-0 fs-2 btn-right">
+                                                        &rightarrow;
+                                                    </button>
+                                                </div>
+                                            </div> -->
+                                            <div class="col-12 mt-2 font-oswald d-lg-none d-flex justify-content-center align-items-center">
+                                                <div class="text-center d-flex justify-content-center align-items-center h-100 w-100">
+                                                    <a class="btn btn-danger border border-1 border-danger rounded-1 fs-2 h-100 w-100" href="capas" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center;">
+                                                        VER TODAS AS CAPAS
+                                                    </a>
+                                                </div>
+                                            </div>        
+                                    </div>
+                                                <div class="row gx-1 justify-content-center">
+                                                    {% if news_count >= 3 %}
+                                                    <div class="col-9 d-none d-lg-flex justify-content-center">
+                                                    {% elif news_count == 2 %}
+                                                    <div class="col-6 d-none d-lg-flex justify-content-center">
+                                                    {% elif news_count == 1 %}
+                                                    <div class="col-3 d-none d-lg-flex justify-content-center">
+                                                    {% endif %}
+                                                            <div class="d-flex justify-content-center font-oswald">
+                                                                <button type="button" class="btn btn-link link-secondary link-underline-opacity-0 font-oswald fs-2 btn-left ">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                                                      </svg>
+                                                                </button>
+                                                                <!-- <button type="button" class="btn btn-link link-light   fs-2 pe-none">
+                                                                    &#8226;
+                                                                </button> -->
+                                                                <button type="button" class="btn btn-link link-secondary link-underline-opacity-0 font-oswald fs-2 btn-right">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                                                      </svg>
+                                                                </button>
+                                                            </div>
+                                                    </div>
+                                                    {% if news_count >= 3%}
+                                                    <div class="col-3 d-none d-lg-flex justify-content-center">
+                                                    </div>
+                                                    {% elif news_count == 2 %}
+                                                    <div class="col-3 d-none d-lg-flex justify-content-center">
+                                                    </div>
+                                                    {% elif news_count == 1 %}
+                                                    <div class="col-3 d-none d-lg-flex justify-content-center">
+                                                    </div>
+                                                    {% endif %}
+                                                </div>
+                                </div>
+                            {% else %}
+                                <div class="row mb-1 text-center justify-content-center" style="margin: 0; height: 400px;">
+                                    <div class="col-lg-3 font-oswald d-none d-lg-flex justify-content-start align-items-start capas-slider-buttons">
+                                        <div class="h-100 w-100">
+                                            <div class="text-center d-flex justify-content-center align-items-center h-100 w-100">
+                                                <a class="btn btn-danger rounded-1 fs-2 h-100 w-100" href="capas" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center;">
+                                                    SEM CAPAS ESTA "SEMANA"
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="col-12 mt-2 font-oswald d-lg-none d-flex justify-content-center align-items-center">
+                                        <div class="text-center d-flex justify-content-center align-items-center h-100 w-100">
+                                            <a class="btn btn-outline-danger border border-1 border-danger rounded-1 fs-2 h-100 w-100" href="capas" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center;">
+                                                SEM CAPAS ESTA "SEMANA"
+                                            </a>
+                                        </div>
+                                    </div>  
+                                    <div class="col-lg-3 font-oswald d-none d-lg-flex justify-content-start align-items-start capas-slider-buttons">
+                                        <div class="h-100 w-100">
+                                            <div class="text-center d-flex justify-content-center align-items-center h-100 w-100">
+                                                <a class="btn btn-outline-danger rounded-1 fs-2 h-100 w-100" href="capas" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center;">
+                                                    VER TODAS AS CAPAS
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="col-12 mt-2 font-oswald d-lg-none d-flex justify-content-center align-items-center">
+                                        <div class="text-center d-flex justify-content-center align-items-center h-100 w-100">
+                                            <a class="btn btn-danger border border-1 border-danger rounded-1 fs-2 h-100 w-100" href="capas" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center;">
+                                                VER TODAS AS CAPAS
+                                            </a>
+                                        </div>
+                                    </div>  
+                                </div>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+            </div>
+            <hr class="custom-margin-transparent-t">
+            </div>
+           
+    <!-- PESQUISA -->
+            <div class="bg-dark min-vh-100 justify-content-center align-items-center d-flex"  id="pesquise">   
+                <hr class="custom-margin-transparent-b-sm">
+                <div class="d-flex justify-content-center align-items-center">   
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center" style="margin: 0;">
+                        <!-- <hr class="custom-margin-transparent-b-huge"> -->
+                        <h1 class=" d-inline-block text-center text-uppercase fw-thin display-3 text-light font-oswald big-title" id="searchTitle">RECORDAR O <span class="fw-normal">PASSADO</span></h1>
+                        <h5 class=" text-center fst-italic font-oswald fw-light text-light opacity-75 mt-2 mb-4 fs-4">Quer pesquisar mais artigos do <span class="fw-normal">Notícias da Covilhã</span>? </h5>
+                        <!-- SEARCH FORM -->
+                        <form class="" action="pesquisa" method="GET" role="search" id="searchForm">
+                            <div class="container-fluid">
+                                <div class="row d-flex justify-content-center g-0" style="margin: 0;">
+                                    <!-- SEARCH INPUT -->
+                                    <div class="col-md-10 col-lg-6 offset-md-0">
+                                        <div class="d-flex flex-column">
+                                            <div class="d-flex">
+                                                <input class="form-control rounded rounded-1 border border-light me-1 ms-2 font-montserrat" type="search" placeholder="Rampa da Serra da Estrela" aria-label="Search" id="searchIndexInput" name="query">
+                                                <button class="btn btn-outline-danger rounded-1 px-3 px-md-5 me-2" type="submit" id="searchButton">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mb-1 " viewBox="0 0 16 16">
+                                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="d-flex align-items-end mt-2">
+                                                <div class="btn-group ms-2 rounded-1 font-oswald w-100 me-2" role="group" aria-label="radio group btn">
+                                                    <input type="radio" class="btn-check" name="modo" id="text" autocomplete="off" value="text" checked>
+                                                    <label class="btn font-oswald btn-outline-danger border-end-0 rounded-start-1 rounded-end-0" for="text">TEXTO</label>
+                                                
+                                                    <input type="radio" class="btn-check" name="modo" id="imagens" autocomplete="off" value="imagens">
+                                                    <label class="btn font-oswald btn-outline-danger " for="imagens">IMAGENS</label>
+                                                
+                                                    <input type="radio" class="btn-check" name="modo" id="capas" value="capas" autocomplete="off" >
+                                                    <label class="btn font-oswald btn-outline-danger border-start-0 rounded-end-1 rounded-start-0" for="capas">CAPAS</label>
+                                                </div>
+                                            </div>
+                                            <script>
+                                            $(document).ready(function(){
+                                                // Add event listener for change event on radio buttons
+                                                $('input[type="radio"]').change(function() {
+                                                    $('#searchButton').click();
+                                                });
+
+                                                $('input[type="radio"]').click(function() {
+                                                    $('#searchButton').click();
+                                                });
+                                            });
+                                            function sendSubmit() {
+                                            if ($('#searchInput').val() == "") {
+                                                    $('#searchIndexInput').val($('#searchIndexInput').attr('placeholder'));
+                                                }
+
+                                            $('#searchForm').submit();
+                                            }   
+                                            </script>
+                                            <div class="font-oswald fw-normal text-end">
+                                                <button type="button" class="btn btn-link text-uppercase fs-6 link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover link-offset-3 text-uppercase px-0 px-md-0 me-2" id="showFiltersBtn" onclick="toggleFilters()">
+                                                    <span class="text-end" id="textoOpcoes">
+                                                        Opções Avançadas
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="exact_match_check" name="exact_match" value="0">
+                            
+                            <div class="container-fluid justify-content-center filters-container mt-4" style="display: none;">
+                                <div class="row text-light w-100 d-flex justify-content-center">
+                                    <div class="col-md-10 col-lg-6">
+                                        <div class="row">
+                                            <div class="col-12 col-md-4 col-md-3">
+                                                <div class="form-check mb-2">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="checkbox-wrapper-29">
+                                                            <label class="checkbox" for="category0Checkbox">
+                                                            {% if exact_match == "1" %}
+                                                            <input type="checkbox" id="category0Checkbox" class="checkbox__input" onchange="updateHiddenField('category0Checkbox', 'exact_match_check')" checked />  
+                                                            {% else %}
+                                                            <input type="checkbox" id="category0Checkbox" class="checkbox__input" onchange="updateHiddenField('category0Checkbox', 'exact_match_check')"/>  
+                                                            {% endif %}
+                                                            <span class="checkbox__label"></span>
+                                                            <span class="checkbox-wrapper-text text-uppercase font-oswald">Pesquisa Exata</span> 
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-12 col-md-4 col-md-3">
+                                                <div class="form-check mb-2">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="checkbox-wrapper-29">
+                                                            <label class="checkbox" for="category1Checkbox">
+                                                            <input type="checkbox" id="category1Checkbox" class="checkbox__input" onchange="updateHiddenField('category1Checkbox', 'opcao2_check')" />  
+                                                            <span class="checkbox__label"></span>
+                                                            <span class="checkbox-wrapper-text text-uppercase font-oswald">OPÇÃO 2</span> 
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-4 col-md-3">
+                                                <div class="form-check mb-2">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="checkbox-wrapper-29">
+                                                            <label class="checkbox" for="category2Checkbox">
+                                                            <input type="checkbox" id="category2Checkbox" class="checkbox__input" onchange="updateHiddenField('category2Checkbox', 'opcao3_check')" />  
+                                                            <span class="checkbox__label"></span>
+                                                            <span class="checkbox-wrapper-text text-uppercase font-oswald">OPÇÃO 3</span> 
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+
+                                        <style>
+                                         
+                                        </style>
+
+                                        <div class="container-fluid" data-bs-theme="dark">
+                                            <div class="row" style="margin: 0;">
+                                                <div class="col-md-6 d-flex mb-2">
+                                                    <label for="startDate" class="form-label me-4 mb-0 mt-1 font-oswald fw-normal fs-5">DE</label>
+                                                    <input type="text" id="startDate" name="startDate" class="form-control rounded-0 text-light bg-dark border-bottom border-0  border-white font-montserrat fw-light fs-5" placeholder="2009-01-01" value="2009-01-01" readonly>
+                                                </div>
+                                                <div class="col-md-6 d-flex mb-2">
+                                                    <label for="endDate" class="form-label me-3 mb-0 mt-1 text-light font-oswald fw-normal fs-5">ATÉ</label>
+                                                    <input type="text" id="endDate" name="endDate" class="form-control rounded-0 text-light bg-dark border-0 border-bottom  border-white font-montserrat fw-light fs-5" placeholder="2019-12-31" value="2019-12-31" readonly>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-8">
+        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div> 
+                    <!-- <hr class="custom-margin-transparent-b-huge"> -->
+                    <!-- <hr class="custom-margin-transparent-b-huge"> -->
+
+                </div> 
+
+            </div>
+
+                             
+                <script>
+                    function updateHiddenField(checkboxId, hiddenFieldId) {
+                        var checkbox = document.getElementById(checkboxId);
+                        var hiddenField = document.getElementById(hiddenFieldId);
+                        if (checkbox.checked) {
+                            hiddenField.value = 1;
+                        } else {
+                            hiddenField.value = 0;
+                        }
+                    }
+                
+                    // Wait for all resources to load
+                    window.addEventListener('load', function() {
+                        // Get all images with class "img-news"
+                        var images = document.querySelectorAll('.img-news');
+                        var count = 0
+                        // Iterate through each image
+                        images.forEach(function(image) {
+                            count++
+                            // Check if the image has loaded
+                            image.addEventListener('load', function() {
+                                // Check if src attribute is empty
+                                if (!image.getAttribute('src')) {
+                                    handleImageErrorNews(image)
+                                }
+                            });
+                        });
+                        console.log(count)
+                        hideLoader();
+        });
+
+        ///////////////////////////
+        // SINGLE NEWS IMAGE ERROR
+        ///////////////////////////
+        // function handleImageError25AbrilNews(image) {
+        //     // Hide the image by setting its display property to 'none'
+        //     image.style.display = 'none';
+            
+        //     // Create a paragraph element for displaying the error message
+        //     var p = document.createElement('p');
+        //     p.classList.add('text-light', 'fs-5', 'px-1', 'text-center', 'font-montserrat', 'd-flex', 'align-items-center', 'text-uppercase', 'fw-bold', 'bg-danger');
+        //     p.textContent = 'Imagem não disponível';
+
+        //     // Set the height of the parent container to 300px and add text
+        //     var parentDiv = image.parentElement;
+        //     if (parentDiv) {
+        //         parentDiv.style.height = '280px';
+        //         parentDiv.style.display = 'flex'; // Make it a flex container
+        //         parentDiv.style.justifyContent = 'center'; // Center horizontally
+        //         parentDiv.style.alignItems = 'center'; // Center vertically
+        //         parentDiv.appendChild(p);
+        //     }
+        // }       
+        //     
+        function handleImageErrorANews(image) {
+            // Hide the image by setting its display property to 'none'
+            // image.style.display = 'none';
+            image.src = 'static/img/nc_logo_dark.png';
+            image.style.scale = '0.3';
+            var parentDiv = image.parentElement;
+                        if (parentDiv) {
+                            parentDiv.classList.add('bg-light')
+                            parentDiv.classList.add('border')
+                            parentDiv.classList.add('border-0')
+                            parentDiv.classList.add('border-bottom')
+                            parentDiv.classList.add('border-bottom-1')
+                            parentDiv.classList.add('border-dark')
+                            parentDiv.classList.add('rounded-top-1')
+                        }
+        }
+        </script>
+        </div>
+
+        <div class="bg-light min-vh-lg-100">
+            <hr class="custom-margin-transparent-b">
+            <div class="container-fluid">
+                        <div class="row align-items-center d-flex justify-content-center text-center mb-3">
+                            <img src="static/img/cravo.png" class="image-thumbnail d-block" alt="" style="max-width: 100px; max-height: 100px;">
+                                <div class="align-items-center justify-content-center d-none">
+                                    <!-- <h2 class="font-fasthand fw-light display-6 mx-4 text-secondary">
+                                        Especial <span class="fw-normal font-fasthand display-1 text-dark">25 de Abril</span>
+                                    </h2> -->
+                                    <h2 class="font-oswald fw-light display-6 mx-4 text-secondary text-uppercase d-none">
+                                        <span class="">Especial</span>  <span class="fw-normal font-oswald display-1 text-dark">25 de Abril</span>
+                                    </h2>
+                                    <img src="static/img/cravo.png" class="image-thumbnail img-fluid mr-2" style="max-width: 100px; max-height: 100px;">
+                                </div>
+                            <div class="d-flex flex-column">
+                                <h2 class="text-uppercase font-oswald fw-light display-4 mx-4 text-secondary">
+                                    ESPECIAL
+                                </h2>
+                                <h2 class="font-oswald fw-normal display-1 mx-4 text-dark text-uppercase">
+                                    25 de Abril
+                                </h2>
+                            </div>
+                        </div>
+                    <div class="container mt-0 p-lg-5 py-lg-0 ">  
+                        <div class="container-fluid p-lg-5 py-lg-0">
+                            <div class="row justify-content-center">
+                                    <div class="col-md-12 p-0 pt-0">
+                                        <div class="row pt-0 mt-0 p-2 justify-content-center">
+                                            <div class="col-11 d-md-none d-lg-block d-sm-block col-lg-5 text-start">
+                                                <a href="noticias?nid={{news_25_abril[8].nid}}">
+                                                    <div class="field-content-image rounded-1 mb-0">
+                                                        <img src="{{news_25_abril[8].image_url}}" alt="">
+                                                    </div>
+                                                </a>
+                                                    <div class="my-0 text-center">
+                                                        <a href="noticias?nid={{news_25_abril[8].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-1 text-dark">{{news_25_abril[8].date[:4]}}</h6>
+                                                        </a>
+                                                    </div>
+                                                    <div class=" mt-0">
+                                                        <a href="noticias?nid={{news_25_abril[8].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                            <h1 class="text-uppercase font-oswald fw-normal text-dark text-center text-lg-center fs-2">{{news_25_abril[8].title}}</h1>
+                                                        </a>
+                                                    </div>
+                                            </div>
+                                            <!-- BIG SCREEN -->
+                                            <div class="col-7 d-none d-lg-block">
+                                                <div class="row justify-content-center font-oswald fw-normal mt-3">
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[0].nid}}">
+                                                        <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                            <img src="{{news_25_abril[0].image_url}}" alt="">
+                                                        </div>
+                                                        </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[0].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[0].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                        <a href="noticias?nid={{news_25_abril[0].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[0].title}}</h6>
+                                                        </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[1].nid}}">
+                                                            <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                                <img src="{{news_25_abril[1].image_url}}" alt="">
+                                                            </div>
+                                                        </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[1].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[1].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                            <a href="noticias?nid={{news_25_abril[1].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[1].title}}</h6>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[2].nid}}">
+                                                            <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                                <img src="{{news_25_abril[2].image_url}}" alt="">
+                                                            </div>
+                                                        </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[2].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[2].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                        <a href="noticias?nid={{news_25_abril[2].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[2].title}}</h6>
+                                                        </a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[3].nid}}">
+                                                            <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                                <img src="static/img/img7.png" alt="" >
+                                                            </div>
+                                                        </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[3].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[3].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                        <a href="noticias?nid={{news_25_abril[3].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[3].title}}</h6>
+                                                        </a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center mt-3">
+                                                    
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[4].nid}}">
+                                                            <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                                <img src="{{news_25_abril[4].image_url}}" alt="">
+                                                            </div>
+                                                        </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[4].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[4].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                        <a href="noticias?nid={{news_25_abril[4].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[4].title}}</h6>
+                                                        </a>
+                                                        </div>
+                                          
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[5].nid}}">
+                                                        <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                            <img src="{{news_25_abril[5].image_url}}" alt="">
+                                                        </div>
+                                                    </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[5].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[5].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                        <a href="noticias?nid={{news_25_abril[5].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                              <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[5].title}}</h6>
+                                                        </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[6].nid}}">
+                                                        <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                            <img src="{{news_25_abril[6].image_url}}" alt="">
+                                                        </div>
+                                                    </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[6].nid}}" class="d-inline-block link link-danger text-dark  text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[6].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                  
+                                                        <div class="">
+                                                            <a href="noticias?nid={{news_25_abril[6].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[6].title}}</h6>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <a href="noticias?nid={{news_25_abril[7].nid}}">
+                                                        <div class="field-content-image rounded-1 mb-1 mt-0">
+                                                            <img src="{{news_25_abril[7].image_url}}" alt="">
+                                                        </div>
+                                                    </a>
+                                                        <div class="text-center">
+                                                            <a href="noticias?nid={{news_25_abril[7].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[7].date[:4]}}</h6>
+                                                            </a>
+                                                        </div>
+                                                        <div class="">
+                                                        <a href="noticias?nid={{news_25_abril[7].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                              <h6 class="text-uppercase font-oswald fw-normal">{{news_25_abril[7].title}}</h6>
+                                                        </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- MEDIUM SCREEN -->
+                                            <div class="col-7 d-none d-lg-none d-md-block">
+                                                <a href="noticias?nid={{news_25_abril[8].nid}}">
+                                                <div class="field-content-image rounded-1 mb-1">
+                                                    <img src="{{news_25_abril[8].image_url}}" alt="">
+                                                </div>
+                                            </a>
+                                            <div class="text-center mt-0">
+                                                <a href="noticias?nid={{news_25_abril[8].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                    <h6 class="text-uppercase font-oswald fw-normal fs-1 text-dark">{{news_25_abril[8].date[:4]}}</h6>
+                                                </a>
+                                                    <a href="noticias?nid={{news_25_abril[8].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                        <h1 class="text-uppercase font-oswald fw-normal text-dark text-center text-lg-center fs-2">{{news_25_abril[8].title}}</h1>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 d-none d-lg-none d-md-block">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a href="noticias?nid={{news_25_abril[0].nid}}">
+                                                        <div class="field-content-image rounded-1 mb-1 ">
+                                                            <img src="{{news_25_abril[0].image_url}}" alt="">
+                                                        </div>
+                                                        </a>
+                                                        <div class="text-center mt-0">
+                                                            <a href="noticias?nid={{news_25_abril[0].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[0].date[:4]}}</h6>
+                                                            </a>
+                                                            <a href="noticias?nid={{news_25_abril[0].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal text-dark text-center text-lg-center">{{news_25_abril[0].title}}</h1>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a href="noticias?nid={{news_25_abril[1].nid}}">
+                                                            <div class="field-content-image rounded-1 mb-1 ">
+                                                            <img src="{{news_25_abril[1].image_url}}" alt="">
+                                                        </div>
+                                                    </a>
+                                                        <div class="text-center mt-0">
+                                                            <a href="noticias?nid={{news_25_abril[1].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[1].date[:4]}}</h6>
+                                                            </a>
+                                                            <a href="noticias?nid={{news_25_abril[1].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal text-dark text-center text-lg-center">{{news_25_abril[1].title}}</h1>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a href="noticias?nid={{news_25_abril[2].nid}}">
+                                                        <div class="field-content-image rounded-1 mb-1">
+                                                            <img src="{{news_25_abril[2].image_url}}" alt="">
+                                                        </div>
+                                                    </a>
+                                                    <div class="text-center mt-0">
+                                                        <a href="noticias?nid={{news_25_abril[2].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[2].date[:4]}}</h6>
+                                                        </a>
+                                                            <a href="noticias?nid={{news_25_abril[2].nid}}" class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal text-dark text-center text-lg-center">{{news_25_abril[2].title}}</h1>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a href="noticias?nid={{news_25_abril[3].nid}}  ">
+                                                        <div class="field-content-image rounded-1 mb-1">
+                                                            <img src="static/img/img7.png" alt="">
+                                                        </div>
+                                                    </a>
+                                                    <div class="text-center mt-0">
+                                                        <a href="noticias?nid={{news_25_abril[3].nid}}" class="d-inline-block link link-danger text-dark text-center ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 text-dark">{{news_25_abril[3].date[:4]}}</h6>
+                                                        </a>
+                                                            <a href="noticias?nid={{news_25_abril[3].nid}}  " class="link link-dark link-underline-opacity-0 link-underline-opacity-100-hover text-center ">
+                                                                <h6 class="text-uppercase font-oswald fw-normal text-dark text-center text-lg-center">{{news_25_abril[3].title}}</h1>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-none d-lg-none d-md-block">
+                                                <div class="row">
+                                                    <div class="col-12 mt-3">
+                                                        <a href="noticias?nid={{news_25_abril[4].nid}}" class="btn h-100 w-100 btn-outline-dark rounded rounded-bottom-0">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[4].date[:4]}}</h6>
+                                                            <h3 class="fs-5 text-uppercase font-oswald fw-normal">{{news_25_abril[4].title}}</h3>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <a href="noticias?nid={{news_25_abril[5].nid}}" class="btn h-100 w-100 btn-outline-dark rounded rounded-bottom-0 rounded-top-0">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[5].date[:4]}}</h6>
+                                                            <h3 class="fs-5 text-uppercase font-oswald fw-normal">{{news_25_abril[5].title}}</h3>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="noticias?nid={{news_25_abril[6].nid}}" class="btn h-100 w-100 btn-outline-dark rounded rounded-bottom-0 rounded-top-0 ">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[6].date[:4]}}</h6>
+                                                            <h3 class="fs-5 text-uppercase font-oswald fw-normal">{{news_25_abril[6].title}}</h3>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <a href="noticias?nid={{news_25_abril[7].nid}}" class="btn h-100 w-100 btn-outline-dark rounded rounded-top-0">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[7].date[:4]}}</h6>
+                                                        <h3 class="fs-5 text-uppercase font-oswald fw-normal text-center">{{news_25_abril[7].title}}</h3>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- SMALL SCREEN -->
+                                            <div class="col-11 d-block d-md-none justify-content-center mt-3">
+                                                <div class="row justify-content-center p-1">
+                                                    <div class="col-6 p-1">
+                                                        
+                                                        <a href="noticias?nid={{news_25_abril[0].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[0].date[:4]}}</h6>
+                                                            <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[0].title}}</h3>
+                                                        </a>
+                                                </div>
+                                                    <div class="col-6 p-1">
+                                                            <a href="noticias?nid={{news_25_abril[1].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[1].date[:4]}}</h6>
+                                                                <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[1].title}}</h3>
+                                                            </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center p-1">
+                                                    <div class="col-6 p-1">
+                                                        
+                                                        <a href="noticias?nid={{news_25_abril[2].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[2].date[:4]}}</h6>
+                                                            <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[2].title}}</h3>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6 p-1">
+                                                            
+                                                            <a href="noticias?nid={{news_25_abril[3].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[3].date[:4]}}</h6>
+                                                                <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[3].title}}</h3>
+                                                            </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center p-1">
+                                                    <div class="col-6 p-1">
+                                                            
+                                                        <a href="noticias?nid={{news_25_abril[4].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[4].date[:4]}}</h6>
+                                                            <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[4].title}}</h3>
+                                                        </a>
+                                                   
+                                                </div>
+                                                   
+                                                    <div class="col-6 p-1">
+                                                        
+                                                            <a href="noticias?nid={{news_25_abril[5].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[5].date[:4]}}</h6>
+                                                                <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[5].title}}</h3>
+                                                            </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center p-1">
+                                                    <div class="col-6 p-1">
+                                                        <a href="noticias?nid={{news_25_abril[6].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                            <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[6].date[:4]}}</h6>
+                                                            <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[6].title}}</h3>
+                                                        </a>
+                                                    </div>
+                                                   
+                                                    <div class="col-6 p-1">
+                                                        
+                                                            <a href="noticias?nid={{news_25_abril[7].nid}}" class="btn h-100 w-100 btn-outline-dark rounded d-flex-column justify-content-center align-items-center">
+                                                                <h6 class="text-uppercase font-oswald fw-normal fs-4 border-bottom border-1 border-danger d-inline-block">{{news_25_abril[7].date[:4]}}</h6>
+                                                                <h3 class="fs-4 text-uppercase font-oswald fw-normal">{{news_25_abril[7].title}}</h3>
+                                                            </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- <h2 class="text-end text-light font-oswald fw-normal text-uppercase">&leftarrow; &rightarrow;</h2> -->
+                    </div>
+                    <hr class="custom-margin-transparent-t mb-0"> 
+                </div>
+
+        </div> 
+        <div class="d-inline-block position-fixed bottom-0 end-0 pe-1 pe-md-4 pb-2">
+            <button type="button" id="scrollToTop" class="display-1 btn btn-outline-danger font-oswald pb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                  </svg>
+            </button>
+        </div>
+        
+    </div>    
+    <script src="static/js/index.js"></script>
+    <script src="static/js/sliders.js"></script>
+    <script src="static/js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% endblock %}
+

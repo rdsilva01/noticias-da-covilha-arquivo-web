@@ -1,0 +1,270 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+    Sobre
+{% endblock %}
+
+{% block content %} 
+<script src="https://kit.fontawesome.com/a77fecaf33.js" crossorigin="anonymous"></script>
+
+<div class="bg-light">
+    <div id="imageModalSobre" class="modal text-center">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+                    <div class="container-fluid">
+                        <div class="row mt-2 mb-2 text-end mx-1">
+                            <div class="col-12" data-bs-theme="dark">
+                                <button class="btn-close pe-auto" type="button" onclick="closeImageModalSobre()"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row bg-light mx-3 rounded-1 text-start px-1 px-md-3">
+                            <div class="col-12 col-md-12 p-2 d-flex justify-content-center">
+                                <img id="imageImageModalSobre" class="rounded-1 border border-1 border-dark my-4" style="width: 90%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-3">
+        <div class="row rounded-1 justify-content-center">
+            <div class="col-md-10 col-lg-8 px-4 px-md-0  font-montserrat">
+                <hr class="custom-margin-transparent-b-sm" id="sobre">
+                <br>
+                <h1 class="display-4 mb-5 text-center text-uppercase font-oswald">Sobre o Projeto</h1>
+                <p class="lead fs-6">
+                    O <em>ArquivoNC</em>  - arquivo <em>web</em> do jornal Notícias da Covilhã - é o resultado de um trabalho académico desenvolvido no âmbito do projeto final de curso do 1.º ciclo em Engenharia Informática da Universidade da Beira Interior (UBI). O projeto disponibiliza o acesso a dez anos de páginas web do jornal Notícias da Covilhã a partir das notícias preservadas pelo <a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">Arquivo.pt</a> entre 2009 e 2019.
+                    <div class="text-center">
+                        <button type="button" id="projPropostaBtn" class="btn btn-link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" onclick="showProposta()">Fechar enunciado da proposta de projeto</button>
+                        <br>
+                        <!-- <span class="text-muted" style="font-size: 12px;">(caso a proposta não carregue, atualize a página)</span> -->
+                        <div id="projProposta">
+                            <iframe src="static/RC1.pdf"  width="100%" height="600px" ></iframe>
+                        </div>
+                        <span class="text-muted" style="font-size: 12px;">(caso a proposta não carregue, 
+                            <a href="static/RC1.pdf" class="link link-secondary link-underline-0">clique aqui</a>)</span>
+                    </div>  
+                    <script>
+                        function showProposta() {
+                            var x = document.getElementById("projProposta");
+                            var y = document.getElementById("projPropostaBtn");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                                y.innerHTML = "Fechar enunciado da proposta de projeto";
+                            } else {
+                                x.style.display = "none";
+                                y.innerHTML = "Ver o enunciado da proposta de projeto";
+                            }
+                        }
+                    </script>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>     
+
+<div class="bg-light">
+    <div class="container py-3">
+        <div class="row rounded-1 justify-content-center">
+            <div class="col-md-10 col-lg-8 px-4 px-md-0  font-montserrat text-dark">
+                <p class="lead fs-6">
+                    <span class=" d-inline-block fw-normal text-dark fw-semibold">OBJETIVOS </span> <br> 
+                    <!-- DO PROJETO-->
+                    O crescente aumento de informações publicadas na <em>web</em>, sob a forma de textos, imagens, vídeos e áudios, tem sido uma característica marcante da era digital.
+                    Curiosamente, nunca como antes, se perderam tantos conteúdos impedindo que as gerações atuais e futuras tenham acesso a um registo histórico da <em>web</em>, tal como hoje a conhecemos.
+                    Em Portugal, a preservação de conteúdos da <em>web</em> fica a cargo do <a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">Arquivo.pt</a>. <br><br>
+                    O objetivo deste projeto passa por utilizar os recursos do <a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">Arquivo.pt</a> para preservar a memória digital da <b>Covilhã</b> e o legado do jornal <b>Notícias da Covilhã</b> ao tornar o seu conteúdo histórico facilmente acessível a investigadores e ao público em geral.
+                    <br><br>
+                    A disponibilização desses conteúdos através de um <em>website</em> dedicado ao arquivo <em>web</em> do jornal, visa contribuir para a preservação do património local e complementar a informação disponibilizada na atual versão do <a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://noticiasdacovilha.pt/" target="_blank" rel="noopener noreferrer"><em>website</em></a>, recuperando o acesso a um conjunto de notícias, imagens e capas do jornal perdidas em 2019 com o desaparecimento da anterior versão do <em>website</em> e o fim da publicação (em papel) da edição semanal do jornal (retomada a 9 de março de 2023).
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>            
+
+<div class="bg-light">
+    <div class="container py-3">
+        <div class="row rounded-1 justify-content-center">
+            <div class="col-md-10 col-lg-8 px-4 px-md-0  font-montserrat">     
+                <p class="lead fs-6">
+                   <span class=" d-inline-block fw-normal text-dark fw-semibold">ARQUITETURA</span> <br>
+                    A arquitetura deste projeto é composta por três módulos distintos: <br>
+                    (1) Extração de Informação <br>
+                    (2) Indexação, Pesquisa e Similaridade <br>
+                    (3) Desenvolvimento e Alojamento do <em>Website</em> <br>
+                    <br> 
+
+                    <b class="fw-normal text-decoration-underline">Extração de Informação</b><br>
+                    Para a concretização deste projeto recorremos ao <a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">Arquivo.pt</a>. Em concreto, foram consideradas as <b>2979</b> versões do <em>website</em> do jornal <a target="_blank" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://arquivo.pt/url/search?q=https%3A%2F%2Fnoticiasdacovilha.pt%2F&l=pt&from=19910806&to=20240506&trackingId=0feacbbad1c08c7d265e_93d451953c91bc2f3d89&adv_and=https%3A%2F%2Fnoticiasdacovilha.pt%2F">Notícias da Covilhã</a> preservadas pelo Arquivo.pt no período de tempo compreendido entre 2009 e 2019. Para obter os URLs das <b>2979</b> versões, recorremos ao pacote de <em>software Python</em> <a target="_blank" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/diogocorreia01/PublicNewsArchive/">"PublicNewsArchive"</a> (prémio Arquivo.pt 2022). Para automatizar a extração de informações foram aplicadas técnicas de <em>web scraping</em> que resultaram na obtenção de <b>2661</b> notícias, <b>1327</b> imagens e <b>372</b> capas do jornal. De forma a complementar a informação extraída e enriquecer o conteúdo das notícias coletadas recorremos ao software <a target="_blank" href="http://yake.inesctec.pt/index.html" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" ><em>YAKE</em></a>, para a extração de palavras-chave relevantes, e ao <a target="_blank" href="https://spacy.io/" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" ><em>spaCy</em></a> para identificar e extrair entidades presentes no texto. Por fim, através do pacote de <a target="_blank" href="https://cloud.google.com/text-to-speech?hl=en" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" ><em>Text-to-Speech</em></a> da Google foi possível a conversão da informação textual para áudio, permitindo ao utilizador a locução da notícia.<br><br>
+
+                    <b class="fw-normal text-decoration-underline">Indexação, Pesquisa e Similaridade</b><br>
+                    Para a indexação e pesquisa dos dados extraídos recorremos à base de dados <em>NoSQL</em> <a target="_blank" href="https://redis.io/" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" ><em>redis</em></a>. <br>Em concreto, foram construídos três índices de dados para dar resposta aos diferentes tipos de pesquisa: notícias, imagens e capas de jornal. Por exemplo, cada elemento da notícia (como título, conteúdo, data, etc.) é indexado num índice invertido e representado pela frequência dos seus termos utilizando a medida TF.IDF (<em>Term Frequency - Inverse Document Frequency</em>). <br><br> Essa abordagem tradicional permite aos utilizadores pesquisar por notícias que contenham um termo específico (ou conjunto de termos) num determinado período de tempo.
+                    Além disso, cada notícia é também representada no espaço vetorial a partir de um vetor de palavras de 512 dimensões, gerado pelo modelo de linguagem natural <a target="_blank" href="https://huggingface.co/neuralmind/bert-base-portuguese-cased" class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" >BERTimbau</a>. A representação semântica de cada notícia, permite a aplicação de um algoritmo de pesquisa de similaridade (<em>Approximate Nearest Neighbors</em>) e está na base de uma das principais funcionalidades deste projeto: <b>a recomendação de notícias do passado</b>.
+                    <br><br> Os outros dois índices oferecem ao utilizador a pesquisa num universo de 1327 imagens (incluindo a recomendação de imagens similares), bem como a pesquisa de elementos textuais no conjunto das 372 capas indexadas. <br><br>
+
+                     <b class="fw-normal text-decoration-underline">Desenvolvimento e Alojamento do <em>website</em></b><br>
+                    Para o desenvolvimento do website recorreu-se à <em>framework Flask</em> e à ligação com a base de dados <em>NoSQL Redis</em> para a obtenção dos elementos dinâmicos. A virtualização desta arquitetura é garantida a partir de um sistema <em>Docker</em>.
+                    <br><br><br>
+
+                    A figura abaixo ilustra a arquitetura de suporte ao sistema desenvolvido:
+                    
+                    <div class="container-fluid justify-content-center align-items-center">
+                        <div class="row justify-content-center">
+                            <div class="col-6 col-md-4 px-2 text-center fs-6" style="cursor: pointer;">
+                                <div class="border border-1 border-dark ">
+                                    <img src="static/img/ARQ1.png" alt="" class="img-fluid " onclick="openImageModalSobre('static/img/ARQ1.png', '1. Extração de Dados')"> 
+                                </div>
+                                <span class="fs-6">(1)<br>Extração de Informação</span> 
+                            </div>
+                            <div class="col-6 col-md-4 px-2 text-center fs-6" style="cursor: pointer;">
+                                <div class="border border-1 border-dark ">
+                                    <img src="static/img/ARQ2.png" alt="" class="img-fluid " onclick="openImageModalSobre('static/img/ARQ2.png', '2. Similaridade, Indexação e Pesquisa')"> 
+                                </div>
+                                <span class="fs-6">(2)<br>Indexação, Pesquisa e Similaridade</span>
+                            </div>
+                            <div class="col-6 col-md-4 px-2 text-center fs-6 mt-3 mt-md-0" style="cursor: pointer;">
+                                <div class="border border-1 border-dark ">
+                                    <img src="static/img/ARQ3.png" alt="" class="img-fluid "onclick="openImageModalSobre('static/img/ARQ3.png', '3. Website')">
+                                </div>
+                                <span class="fs-6">(3)<br>Desenvolvimento e Alojamento do <em>Website</em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br>
+                    </p>   
+
+                    <span class=" d-inline-block fw-normal text-dark fw-semibold">CONTRIBUIÇÕES</span> <br>
+                    <p class="lead fs-6">
+                    Com o desenvolvimento deste projeto, foi possível recriar o website do jornal Notícias da Covilhã (2009 - 2019) e recuperar 10 anos de notícias, imagens e capas preservadas pelo <a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">Arquivo.pt</a>. De entre os resultados obtidos com a implementação do projeto, destacam-se:
+                    <ul class="lead fs-6">
+                        <li> o desenvolvimento de um sistema dinâmico que exibe notícias e capas do passado, publicadas no dia e na semana em curso, respetivamente;</li>
+                        <li> a implementação de um sistema de pesquisa de notícias, imagens e capas do jornal;</li>
+                        <li> a introdução de um sistema de recomendação de notícias e de similaridade de imagens;</li>
+                        <li> a adoção de um sistema de partilha de conteúdos (nomeadamente notícias e capas) nas redes sociais;</li>
+                        <li> a implementação de um sistema de conversão texto para fala (<em>text2speech</em>), que possibilita a audição das notícias;</li>
+                        <li> a criação de um <a href="https://github.com/rdsilva01/noticias-da-covilha-arquivo-web" class="link link-underline-opacity-25 link-underline-opacity-100-hover link-offset-1 link-dark">repositório</a> do projeto.</li>
+                    </ul>
+                    </p>        
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-light">
+    <div class="container py-3">
+        <div class="row rounded-1 justify-content-center">
+            <div class="col-md-10 col-lg-8 px-4 px-md-0 font-montserrat">
+                <p class="lead fs-6">
+                    <span class=" d-inline-block fw-normal text-dark fw-semibold">AUTORES</span> <br>
+                    Este projeto foi desenvolvido por <b>Rodrigo Silva</b> (aluno da Universidade da Beira Interior) sob a orientação de <b>Ricardo Campos</b> (Professor da Universidade da Beira Interior e afiliado ao INESCTEC e Ci2@IPT) no âmbito da unidade curricular de projeto do 1.º ciclo em <a href="https://www.ubi.pt/curso/42" target="_blank" rel="noopener noreferrer" class="link link-dark link-underline-opacity-25 link-offset-1 link-underline-opacity-75-hover">Engenharia Informática</a> da Universidade da Beira Interior <a href="https://www.ubi.pt/" target="_blank" rel="noopener noreferrer" class="link link-dark link-underline-opacity-25 link-offset-1 link-underline-opacity-75-hover">(UBI)</a>.
+                </p>
+                <style>
+                    .image-thumbnail {
+                            width: 100px; /* Set the width of the thumbnail */
+                            height: 100px; /* Set the height of the thumbnail */
+                            object-fit: cover; /* Cover the thumbnail with a square shape */
+                        }
+                </style>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-7 col-md-6 col-lg-4 mb-2 mb-lg-0">
+                            <div class="card shadow-sm border-1 rounded m-0" data-bs-theme="light">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column align-items-center pt-3">
+                                        <img src="static/img/rodrigo.jpeg" alt="" class="image-thumbnail rounded-1 mb-3">
+                                        <div class="text-center">
+                                            <h5 class="mb-0 fs-5">Rodrigo Silva</h5>
+                                            <p class="small text-muted">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-body-secondary">
+                                    <div class="d-flex justify-content-center mt-auto">    
+                                        <a href="mailto:rodriddsilva@gmail.com" class="social-link hover-title me-4" target="_blank"><i class="fa fa-envelope text-dark"></i></a>
+                                        <!-- <a href="https://rdsilva01.github.io" class="social-link hover-title me-4" target="_blank"><i class="fa-solid fa-globe text-dark"></i></a> -->
+                                        <a href="https://rdsilva01.github.io/portfolio-resume/" class="social-link hover-title me-4" target="_blank"><i class="fa-solid fa-globe text-dark"></i></a>
+                                        <a href="https://www.linkedin.com/in/rodrigo-silva-455b291bb/" class="social-link hover-title " target="_blank"><i class="fa fa-linkedin text-dark"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-7 col-md-6 col-lg-4">
+                            <div class="card shadow-sm border-1 rounded m-0" data-bs-theme="light">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column align-items-center pt-3">
+                                        <img src="static/img/ricardocampos.png" alt="" class="image-thumbnail rounded-1 mb-3">
+                                        <div class="text-center">
+                                            <h5 class="mb-0 fs-5">Ricardo Campos</h5>
+                                            <p class="small text-muted"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-footer text-body-secondary">
+                                    <div class="d-flex justify-content-center mt-auto">
+                                        <a href="mailto:ricardo.campos@ubi.pt" class="social-link hover-title me-4" target="_blank"><i class="fa fa-envelope text-dark"></i></a>
+                                        <a href="https://www.di.ubi.pt/~rcampos/index.html" class="social-link hover-title me-4" target="_blank"><i class="fa-solid fa-globe text-dark"></i></a>
+                                        <a href="https://www.linkedin.com/in/camposricardo" class="social-link hover-title " target="_blank"><i class="fa fa-linkedin text-dark"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light">
+    <br>
+    <div class="container py-3">
+        <div class="row rounded-1 justify-content-center">
+            <div class="col-md-10 col-lg-8 px-4 px-md-0 font-montserrat text-dark">
+                <p class="lead fs-6">
+                    <span class=" d-inline-block fw-normal text-dark fw-semibold">AGRADECIMENTOS</span><br>
+                    Este projeto foi financiado por fundos nacionais através da agência de financiamento portuguesa, <b><a href="https://www.fct.pt/" target="_blank" rel="noopener noreferrer" class="link link-dark link-underline-opacity-25 link-offset-1 link-underline-opacity-75-hover">FCT</a></b> - Fundação para a Ciência e a Tecnologia no contexto do projeto StorySense (<a class="link link-dark link-underline-opacity-50 link-underline-opacity-100-hover" href="https://doi.org/10.54499/2022.09312.PTDC " target="_blank">DOI 10.54499/2022.144 09312.PTDC</a>).
+                    Contou com a colaboração de <b><a href="https://www.ubi.pt/Pessoa/sergio" target="_blank" rel="noopener noreferrer" class="link link-dark link-underline-opacity-25 link-offset-1 link-underline-opacity-75-hover">Sérgio Nunes</a></b> (Área de Sistemas e Desenvolvimento, UBI) e <b>Paulo Crispim</b> (Centro de Informática e Sistemas (CIS), IPTomar).
+                </p>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="bg-light">
+    <div class="container py-3">
+        <div class="row rounded-1 justify-content-center">
+            <div class="col-md-10 col-lg-8 px-4 px-md-0 font-montserrat text-dark">
+                <br>
+                <!-- <span class="fw-semibold text-dark "> LINKS</span>
+                <ol>
+                    <li>
+                        <a href="https://github.com/rdsilva01/noticias-da-covilha-arquivo-web" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald">REPOSITÓRIO GITHUB</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/rdsilva01/noticias-da-covilha-arquivo-web" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald">(FUTURAMENTE) ARQUIVO.PT</a>
+                    </li>
+                    <li>
+                        <a href="#" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald">VÍDEO</a>
+                    </li>
+                    <li>
+                        <a href="#" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald">??</a>
+                    </li>
+                </ol>
+                 -->
+                <div class="bg-light text-center pb-3">
+                    <a href="index" class="fs-6 link link-secondary link-underline-opacity-100-hover link-underline-opacity-25 font-montserrat">VOLTAR À PÁGINA INICIAL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='base.js')}}"></script>
+{% endblock %}
+

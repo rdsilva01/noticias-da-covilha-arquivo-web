@@ -1,0 +1,11 @@
+Para popular o redis com os dados do arquivonc deverá começar por instalar:
+  pip install redis==5.0.3
+
+De seguida na pasta:
+H:\Backup\Research\Programming\CodePython\MyWebSites\websites\arquivonc\redis
+
+Na primeira vez: converter o ficheiro populate_db.sh para formato unix. Para isso na linha de comandos:
+  dos2unix populate_db.sh
+Depois fazer:
+  sh populate_db.sh
+(vai executar o populate_db.sh que por sua vez chama a executar para cada um dos anos o populate_db.py)"

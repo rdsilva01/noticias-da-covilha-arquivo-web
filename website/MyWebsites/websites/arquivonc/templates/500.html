@@ -1,0 +1,20 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+    Erro 500
+{% endblock %}
+
+{% block content %} 
+<div class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="text-center">
+            <h1 class="display-4 mb-4 font-oswald text-uppercase">500 Recurso não disponível</h1>
+            <p class="text-secondary opacity-50 font-montserrat">{{error}}</p>
+            <p class="lead font-montserrat">Por favor, verifique o URL, volte atrás ou volte à página inicial.</p>
+            <a href="inicio" class="link link-underline-opacity-50 link-underline-opacity-100-hover link-offset-1 link-dark text-uppercase font-oswald fs-2 big-title">Página Inicial</a>
+            <br>
+            <a href="javascript:history.back()" class="text-center link text-dark link-underline-opacity-25 link-underline-opacity-100-hover link-offset-1 link-underline-dark text-uppercase font-oswald fs-2 big-title">Voltar Atrás</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

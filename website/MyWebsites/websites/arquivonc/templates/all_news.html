@@ -1,0 +1,184 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}Todas as Notícias{% endblock %}
+
+{% block content %} 
+<div class="capas-loader min-vh-100" id="loader">
+    <!-- <p class="font-oswald fw-normal text-light display-6"><span class="border-bottom border-danger border-3 px-1 lh-base">A CARREGAR </span>&nbsp;</p> -->
+    <span class="circle"></span>
+    <span class="circle"></span>    
+    <span class="circle"></span>
+</div>
+<div class="page">
+    <div class="bg-light">
+        <div class="container-fluid">
+            <div class="bg-dark row">
+                <div class="container text-center">
+                    <hr class="custom-margin-transparent-sm">
+                    <span class="text-light font-oswald text-uppercase fw-light fs-4">uma <span class="fw-normal text-uppercase fs-2">década</span> de</span>
+                    <div class="container-fluid mt-3">
+                        <div class="col-md-4 offset-md-4 front-page-image order-1 order-md-2">
+                            <!-- <i><h1 class="text-light fw-normal font-staatliches d-inline-block text-uppercase display-1 big-title" >Notícias da <span class="text-danger">Covilhã</span></h1></i> -->
+                            <img src="static/img/nc_logo.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <!-- <h5 class="mb-4 font-oswald text-uppercase"><i><span class="font-staatliches fw-light display-5 text-uppercase text-secondary">2009 - 2019</span></i></h5> -->
+                    <div class="col-md-8 offset-md-2">
+                        <h5 class="text-light fw-light mt-2 fs-6">Foi possível proceder à recolha de um total de <span class="fs-5 fw-bold">{{news_total}}</span> notícias</h5>
+                    </div>
+                    <!-- <hr class="custom-margin-transparent-sm"> -->
+                    <!-- <div class="container d-md-flex justify-content-center"> 
+                        <div class="col-md-10">
+                            <div class="year-slider-container border-bottom border-3 border-light d-none d-lg-block">
+                                <div class="slider-anos">
+                                    {% for i in range(2009, 2020) %}
+                                    <div class="col mb-2">
+                                        <a href="noticias?ano={{i}}" class="year-link display-5 link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-underline-danger text-light font-oswald text-uppercase mt-auto d-inline-block" target="_blank">{{ i }}</a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="year-slider-container border-bottom border-3 border-light d-none d-md-block d-lg-none">
+                                <div class="slider-anos-medium">
+                                    {% for i in range(2009, 2020) %}
+                                    <div class="col">
+                                        <a href="noticias?ano={{i}}" class="year-link display-5 link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block" target="_blank">{{ i }}</a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="year-slider-container border-bottom border-3 border-light d-block d-md-none">
+                                <div class="slider-anos-small">
+                                    {% for i in range(2009, 2020) %}
+                                    <div class="col">
+                                        <a href="noticias?ano={{i}}" class="year-link display-5 link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-underline-danger text-light font-oswald text-uppercase mt-auto mb-2 me-4 d-inline-block" target="_blank">{{ i }}</a>
+                                    </div>
+                                      
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end font-oswald">
+                                <button type="button" class="btn btn-dark fs-2 btn-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                      </svg>
+                                </button>
+                                <button type="button" class="btn btn-dark fs-2 btn-right">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                      </svg>
+                                </button>
+                            </div>
+                        </div> 
+                    </div> -->
+                </div>
+                <hr class="custom-margin-transparent-sm">
+            </div>
+        </div>
+        
+        <div class="container-fluid">
+            <div class="row mt-4 d-block px-md-4 px-lg-5">
+                <div class="d-flex justify-content-end">
+                    <div class="dropdown">
+                        <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="fw-light font-oswald ">ANOS</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for i in range(2009, 2020) %}
+                            <li class="text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 font-oswald text-uppercase" href="capas?ano={{i}}">{{i}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-link link-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="fw-light font-oswald">ORDENAR POR</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li class="{%if order_by == 'newest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'newest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}newest">Mais Recente</a></li>
+                        <li class="{%if order_by == 'oldest'%}bg-danger text-light{%endif%} text-center"><a class="link link-dark link-opacity-50-hover link-underline-opacity-0 {%if order_by == 'oldest'%}bg-danger text-light dropdown-item disabled{%endif%} font-oswald text-uppercase" href="{{order_by_href}}oldest">Mais Antigo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="container-fluid">
+            <div class="row">
+                {% for item in news %}
+                <div class="col-12 col-md-6 col-lg-4 px-2 px-md-5 pb-5 mb-3 pt-1">
+                    <div class="container-fluid">
+                            <a href="noticias?nid={{item.nid}}"> 
+                                <div class="field-content-image rounded-1 mt-0">
+                                    <img src="{{ item.image_url }}" alt="" class="rounded-1" onerror="handleImageErrorANews(this)">
+                                </div>         
+                            </a>           
+                                <div>
+                                    <a href="noticias?nid={{item.nid}}" class="link link-danger link-underline-danger link-offset-2 d-inline-block text-dark">
+                                        <h5 class="font-oswald fw-light text-dark fs-3">{{ item.date }}</h5>
+                                    </a>
+                                    <h3 class="text-uppercase font-oswald title-link">
+                                        <a href="noticias?nid={{item.nid}}" class="link link-underline-opacity-0 link-underline-opacity-100-hover link-offset-1 link-dark">
+                                            {% if item.title %}
+                                                {% set stripped_title = item.title.strip() %}
+                                                {% if stripped_title %}
+                                                    {{ stripped_title }}
+                                                {% else %}
+                                                    {% if item.text_snippet | length > 30 %}
+                                                        {{ item.text_snippet[:30] }}...
+                                                    {% else %}
+                                                        {{ item.text_snippet }}
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if item.text_snippet | length > 30 %}
+                                                    {{ item.text_snippet[:30] }}...
+                                                {% else %}
+                                                    {{ item.text_snippet }}
+                                                {% endif %}
+                                            {% endif %}
+                                        </a>
+                                    </h3>
+                                    <p class="">por <span class="fw-bold">{% if item.author == "" %} NC {% endif %} {% if item.author != "" %} {{ item.author }} {% endif %} </span></p>
+                                    <p class="font-montserrat">
+                                        {% if item.formatted_html_content_normal == "" %}
+                                        <br>
+                                        {% elif (item.title|length + item.author|length) > 60 %}
+                                            {{ item.formatted_html_content_normal[:item.title|length + item.author|length] | safe }}...
+                                        {% else %}
+                                            {{ item.formatted_html_content_normal[:110] | safe }}...
+                                        {% endif %}
+                                    </p>
+                                </div>
+                    </div>
+                </div>                 
+                {% endfor %}
+            </div>
+        </div>
+         <!-- Pagination -->
+         <div class="container-fluid d-none d-md-flex justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ pagination.links }}
+        </div>
+        <div class="container-fluid d-flex d-md-none justify-content-center align-items-center flex-column mt-5 pb-3">
+            {{ small_pagination.links }}
+        </div> 
+        <div class="bg-light text-center py-5">
+            <a href="index" class="fs-6 link link-secondary link-underline-opacity-100-hover link-underline-opacity-25 font-montserrat">VOLTAR À PÁGINA INICIAL</a>
+        </div>
+    </div>
+</div>
+    <script>
+       function handleImageErrorANews(image) {
+            image.src = 'static/img/nc_logo_dark.png';
+            image.style.scale = '0.6';
+            var parentDiv = image.parentElement;
+                if (parentDiv) {
+                    parentDiv.classList.add('bg-light')
+                    parentDiv.classList.add('border')
+                    parentDiv.classList.add('border-2')
+                    parentDiv.classList.add('border-dark')
+                }
+        }
+
+    </script>
+    <script src="static/js/capas.js"></script>
+    <script src="static/js/base.js"></script>
+    {% endblock %}

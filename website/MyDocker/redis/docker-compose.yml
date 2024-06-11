@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  redis_data:
+    image: redis/redis-stack:latest
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+      - 8001:8001
+    environment:
+      - REDISEARCH_ARGS=CONCURRENT_WRITE_MODE
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-h", "localhost", "-p", "6379", "ping"]
+      interval: 2s
+      timeout: 1m30s
+      retries: 5
+      start_period: 5s
+    networks:
+      - redis-network
+
+volumes:
+  redis_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/rdsilva01/Documents/001DEV/003UBI/001PROJETO/MyDocker/redis/data'
+
+networks:
+  redis-network:
+    driver: bridge

@@ -1,0 +1,623 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta type="title" content="ArquivoNC">
+    <meta type="description" content="Arquivo Web do Notícias da Covilhã">
+    <meta name="author" content="Rodrigo Silva, Ricardo Campos">
+    <meta name="image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png">
+
+    <meta type="og:type" content="website">
+    <meta property="og:title" content="ArquivoNC">
+    <meta property="og:url" content="https://arquivonc.ubi.pt">
+    <meta property="og:description" content="O arquivo web do Notícias da Covilhã">
+    <meta property="og:image"  itemprop="image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png" />
+    <meta property="og:image:secure_url"  itemprop="image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:updated_time" content="1440432930" />
+    <meta property="og:image:width" content="100" />
+    <meta property="og:image:height" content="100" />
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ArquivoNC">
+    <meta name="twitter:description" content="O arquivo web do Notícias da Covilhã">
+    <meta name="twitter:image" content="https://arquivonc.ubi.pt/arquivonc/static/img/logo.png">
+
+
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='base.css')}}"> -->
+    <link rel="stylesheet" href="static/css/base.css">
+    <!-- <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}"> -->
+
+    <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="static/img/favicon.png">
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="static/img/favicon.ico">
+
+    <link rel="stylesheet" href="static/css/slick-theme.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <!-- <link rel="stylesheet" href="static/css/bootstrap-datepicker.min.css"> -->
+    <!-- <link rel="stylesheet" href="static/css/bootstrap-datepicker3.min.css"> -->
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker3.standalone.min.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.min.css"> -->
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png')}}" type="image/x-icon"> -->
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Galada&family=Geologica:wght@100..900&family=Kalam:wght@300;400;700&family=League+Gothic&family=Lilita+One&family=Madimi+One&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Monoton&family=Oleo+Script:wght@400;700&family=Oxygen+Mono&family=Protest+Guerrilla&family=Satisfy&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Sriracha&family=Staatliches&family=Suez+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+<!-- Bootstrap Datepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta name="google-site-verification" content="2_aWazWyIgyylJHyuQb68Qzq5Jz0LMHfFgVu5i8nnzs" />
+</head>
+<body class="bg-dark">
+    <style>
+        .submenu {
+            display: none;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+    </style>
+   <div class="bg-dark">
+        <div class="me-2 mt-0 container-fluid text-end">
+            <!--<h5><a href="#" class="d-none d-sm-block mt-2 me-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase opacity-75">Arquivo Web</a></h5>-->
+            <div>
+                <button class="ms-0 m-0 btn btn-link link-light fs-6 link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase font-oswald fw-light" data-bs-toggle="modal" data-bs-target="#videoModal">
+                    <span class="font-oswald fs-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="pb-1 bi bi-camera-reels-fill" viewBox="0 0 16 16">
+                            <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path d="M9 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
+                        </svg> VÍDEO
+                    </span>
+                </button>
+                <a href="newsletter" class="ms-0 m-0 btn btn-link link-light fs-6 link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase font-oswald fw-light">
+                    <span class="font-oswald fs-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="pb-1 bi bi-file-text-fill" viewBox="0 0 16 16">
+                            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1"/>
+                          </svg> NEWSLETTER
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true" data-bs-theme="dark">
+    <div class="modal-dialog modal-dialog-centered modal-lg bg-transparent" data-bs-theme="dark">
+        <div class="modal-content border-0 bg-transparent">
+            <div class="modal-header border-0 bg-transparent mb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-theme="dark"></button>
+            </div>
+            <div class="modal-body bg-transparent">
+                <!-- Insert your video here -->
+                <video id="modalVideo" controls style="max-width: 100%;">
+                    <source src="static/VIDEO_ARQUIVONC.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById('videoModal');
+    modal.addEventListener('hidden.bs.modal', function () {
+        var video = document.getElementById('modalVideo');
+        video.pause();
+    });
+</script>
+
+
+
+
+    <div class="bg-dark d-none d-lg-block">
+        <div class="col-md-7">
+                <div class="d-flex d-inline-block ">
+                        <a href="index" class="link link-light link-underline-opacity-0 big-title user-select-none">
+                            <i><h1 class="ms-2 mt-0 fw-normal font-staatliches display-4 mb-0 text-white">ARQUIVO<span class=" text-danger font-guerrilla ">NC</span></h1></i>
+                        </a>
+                </div>
+            <h6 class="ms-2 fw-light text-white font-montserrat">O Arquivo Web do <span class="fw-bold">Notícias da Covilhã</span>. Explore o passado deste jornal centenário</h6>
+        </div>
+    </div>
+        <!-- <div class="col-md-5 mt-2 text-end">
+            <h5><a href="" class="d-none d-sm-block me-2 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover text-uppercase opacity-75"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+              </svg></a></h5>
+        </div> -->
+        
+    </div>
+    <div class="sticky-top">
+        <nav class="navbar py-0 navbar-expand-lg navbar-dark bg-danger d-none d-lg-block">
+            <div class="container-fluid">
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                    <ul class="navbar-nav mx-3 text-center d-flex justify-content-between align-items-center user-select-none">
+                        <li class="nav-item">
+                            <div class="nav-link">
+                                <a href="index" class="nav-link big-title user-select-none">
+                                    <i><span class="fw-normal font-staatliches text-uppercase text-white fs-5">Arquivo<span class=" text-dark font-guerrilla fs-5">NC</span></span></i>
+                                </a> 
+                            </div>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <button class="btn btn-link nav-link" onclick="toggleSecondaryNav('seccoes', this)">SECÇÕES</button>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <button class="btn btn-link nav-link" onclick="toggleSecondaryNav('local', this)">LOCAL</button>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <a class="nav-link" href="categoria?c=opiniao">OPINIÃO</a>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <a class="nav-link" href="categoria?c=editorial">EDITORIAL</a>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <button class="btn btn-link nav-link" onclick="toggleSecondaryNav('anos', this)">ANOS</button>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <button class="btn btn-link nav-link" onclick="toggleSecondaryNav('capas', this)">CAPAS</button>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <a class="nav-link" href="autores">AUTORES</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mx-3 text-center">
+                        <li class="nav-item font-montserrat">
+                            <hr class="border-bottom border-light opacity-75">
+                        </li>
+                        <!-- <li class="nav-item font-montserrat">
+                            <a class="nav-link text-uppercase" href="newsletter">NEWSLETTER</a>
+                        </li> -->
+                        <li class="nav-item font-montserrat">
+                            <a class="nav-link text-uppercase" href="#pesquise">PESQUISE</a>
+                        </li>
+                        <li class="nav-item font-montserrat">
+                            <a class="nav-link text-uppercase" href="sobre">SOBRE</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-dark border-2" id="secondaryNavMain" style="display: none;">
+            <div class="container">
+                <ul class="navbar-nav me-auto" id="secondaryNav">
+                    <li class="nav-item secondary-nav-item user-select-none" id="seccoesItem">
+                        <span class="vertical-line text-black">.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=centrais">CENTRAIS</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=actualidade">ACTUALIDADE</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=desporto">DESPORTO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=religiao">RELIGIÃO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=cultura">CULTURA</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=associativismo">ASSOCIATIVISMO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=economia">ECONOMIA</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=seccoes&subcategoria=agenda">AGENDA</a>
+                    </li>
+                    
+                    <li class="nav-item secondary-nav-item user-select-none" id="localItem">
+                        <a class="nav-link d-inline" href="categoria?c=local&subcategoria=covilha">COVILHÃ</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=local&subcategoria=belmonte">BELMONTE</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=local&subcategoria=fundao">FUNDÃO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=local&subcategoria=castelobranco">CASTELO BRANCO</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=local&subcategoria=guarda">GUARDA</a>
+                        <span class="vertical-line text-secondary">|</span>
+                        <a class="nav-link d-inline" href="categoria?c=local&subcategoria=regiao">REGIÃO</a>
+                    </li>
+                    <li class="nav-item secondary-nav-item user-select-none" id="anosItem">
+                        {% for year in range(2009, 2020, 1) %}
+                            <a class="nav-link d-inline" href="noticias?ano={{year}}">{{ year }}</a>
+                            <span class="vertical-line text-secondary">|</span>
+                        {% endfor %}
+                        <a class="nav-link d-inline" href="noticias">EXIBIR TODOS</a>
+                    </li>
+                    <li class="nav-item secondary-nav-item user-select-none" id="capasItem">
+                        {% for year in range(2009, 2020, 1) %}
+                            <a class="nav-link d-inline" href="capas?ano={{year}}">{{ year }}</a>
+                            <span class="vertical-line text-secondary">|</span>
+                        {% endfor %}
+                        <a class="nav-link d-inline" href="capas">EXIBIR TODAS</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <style>
+        .fade-out {
+          opacity: 0;
+          transition: opacity 1.0s ease-out;
+        }
+      
+        .fade-in {
+          opacity: 1;
+          transition: opacity 1.0s ease-in;
+        }
+      </style>
+      <!-- FOR SMALL SCREENS -->
+        <!-- Sticky navbar (initially hidden) -->
+        <div class="sticky-top bg-dark d-flex justify-content-between align-items-start d-flex d-lg-none" id="stickyNavbar">
+            <div class="d-flex-column">
+                <!-- <div class="d-flex justify-content-between align-items-center">
+
+                </div> -->
+                <div class="d-flex d-inline-block d-lg-none">
+                    <a href="index" class="link link-light link-underline-opacity-0 big-title user-select-none">
+                        <i><h1 class="ms-2 mt-1 fw-normal font-staatliches display-4 mb-0 text-white">ARQUIVO<span class=" text-danger font-guerrilla " id="nc_logo">NC</span></h1></i>
+                    </a>
+                </div>
+            </div>
+
+            <a href="index" class="link link-light link-underline-opacity-0 user-select-none">
+                <i class="d-none" id="logo"><h1 class="ms-2 mt-2 fw-normal font-staatliches display-4 text-white">ARQUIVO<span class=" text-dark font-guerrilla ">NC</span></h1></i>
+            </a>
+            <button type="button" class="btn btn-link link-danger link-underline-opacity-0 border-0 text-light d-block d-lg-none d-xl-none text-start" data-bs-toggle="modal" data-bs-target="#menuModal" id="btnMenu">
+                <span class="font-oswald">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
+        <h6 class="ms-2 fw-light text-white font-montserrat d-none d-md-block d-lg-none" id="text_logo_md">O Arquivo Web do <span class="fw-bold">Notícias da Covilhã</span>. Explore o passado deste jornal centenário</h6>
+        <h6 class="ms-2 fw-light text-white font-montserrat d-block d-md-none" id="text_logo_sm">O Arquivo Web do <span class="fw-bold">Notícias da Covilhã</span>. <br>Explore o passado deste jornal centenário</h6>
+        <div class="bg-danger py-2 d-block d-lg-none"></div>
+
+        <style>
+            /* Add CSS for transition effect */
+            .logo-transition {
+                transition: opacity 1.0s ease-in-out;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+                $(window).scroll(function () {
+                    // If the scroll position is greater than 220px from the top
+                    if ($(this).scrollTop() > $('#stickyNavbar').height()) {
+                        // Hide the static navbar with animation
+                        // $('#logo').removeClass('d-none').addClass('d-block');
+                        // $('#text_logo_sm').removeClass('d-block').addClass('d-none logo-transition');
+                        // $('#text_logo_md').removeClass('d-md-block').addClass('d-md-none logo-transition');
+                    } else {
+                        // Hide the sticky navbar with animation
+                        // $('#logo').removeClass('d-block').addClass('d-none');
+                        // $('#text_logo_sm').removeClass('d-none').addClass('d-block logo-transition');
+                        // $('#text_logo_md').removeClass('d-md-none').addClass('d-md-block logo-transition');
+                    }
+                });
+            });
+        </script>
+      
+
+    <!-- Modal -->
+    <div class="modal m-0 w-100 h-100 bg-danger" id="menuModal" aria-labelledby="menuModalLabel" aria-hidden="true" style="padding: 0px; margin: 0px; --bs-bg-opacity: 1;">
+        <div class="modal-dialog modal-fullscreen m-0 min-vh-100">
+            <div class="modal-content bg-transparent min-vh-100">
+                <nav class="navbar navbar-dark d-lg-none d-xl-none bg-transparent min-vh-100">
+                    <div class="w-100 min-vh-100 bg-transparent d-flex flex-column justify-content-center align-items-center">
+                        <ul class="navbar-nav text-center w-100">
+                            <li class="nav-item">
+                                <div class="nav-link">
+                                    <!-- <a href="index" class="nav-link"> -->
+                                        <!-- <i><h1 class="ms-2 mt-3 fw-normal font-staatliches fs-4 mb-0 text-white">ARQUIVO<span class=" text-dark font-guerrilla ">NC</span></h1></i> -->
+                                        <i><h1 class="ms-2 mt-3 fw-normal font-montserrat fs-6 mb-0 text-mute">PESQUISAR POR:</h1></i>
+                                    <!-- </a>  -->
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="#seccoes" onclick="toggleSubMenu('seccoesSubMenu')">SECÇÕES</a>
+                                <ul id="seccoesSubMenu" class="submenu navbar-nav fs-3">
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=centrais">CENTRAIS</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=actualidade">ACTUALIDADE</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=religiao">RELIGIÃO</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=desporto">DESPORTO</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=cultura">CULTURA</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=associativismo">ASSOCIATIVISMO</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=economia">ECONOMIA</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=seccoes&subcategoria=agenda">AGENDA</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="#local" onclick="toggleSubMenu('localSubMenu')">LOCAL</a>
+                                <ul id="localSubMenu" class="submenu navbar-nav fs-3">
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=local&subcategoria=covilha">COVILHÃ</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=local&subcategoria=belmonte">BELMONTE</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=local&subcategoria=fundao">FUNDÃO</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=local&subcategoria=castelobranco">CASTELO BRANCO</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=local&subcategoria=guarda">GUARDA</a>
+                                    </li>
+                                    <li class="nav-item my-3">
+                                        <a class="nav-link d-inline text-dark fw-bold " href="categoria?c=local&subcategoria=regiao">REGIÃO</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="categoria?c=opiniao">OPINIÃO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="categoria?c=editorial">EDITORIAL</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="#anos" onclick="toggleSubMenu('anosSubMenu')" >ANOS</a>
+                                <ul id="anosSubMenu" class="submenu navbar-nav fs-3">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col">
+                                                {% for year in range(2009, 2015, 1) %}
+                                                <li class="nav-item my-3">
+                                                    <a class="nav-link d-inline text-dark fw-bold " href="noticias?ano={{year}}">{{ year }}</a>
+                                                </li>
+                                            {% endfor %}
+                                            </div>
+                                            <div class="col">
+                                                {% for year in range(2015, 2020, 1) %}
+                                                <li class="nav-item my-3">
+                                                    <a class="nav-link d-inline text-dark fw-bold " href="noticias?ano={{year}}">{{ year }}</a>
+                                                </li>
+                                                {% endfor %}
+                                                <li class="nav-item my-3">
+                                                    <a class="nav-link d-inline text-dark fw-bold fs-5" href="noticias">EXIBIR TODOS</a>
+                                                </li>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="#capas" onclick="toggleSubMenu('capasSubMenu')">CAPAS</a>
+                                <ul id="capasSubMenu" class="submenu navbar-nav fs-3">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col">
+                                                {% for year in range(2009, 2015, 1) %}
+                                                <li class="nav-item my-3">
+                                                    <a class="nav-link d-inline text-dark fw-bold " href="capas?ano={{year}}">{{ year }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="col">
+                                                {% for year in range(2015, 2020, 1) %}
+                                                <li class="nav-item my-3">
+                                                    <a class="nav-link d-inline text-dark fw-bold " href="capas?ano={{year}}">{{ year }}</a>
+                                                </li>
+                                                {% endfor %}
+                                                <li class="nav-item my-3">
+                                                    <a class="nav-link d-inline text-dark fw-bold fs-5" href="capas">EXIBIR TODAS</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mt-2 fs-1" href="autores">AUTORES</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mx-3 text-center">
+                            <li class="nav-item">
+                                <hr class="border-bottom border-light opacity-75">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase fs-1" href="#pesquise" onclick="closeMenuAndNavigate()" data-bs-dismiss="modal">PESQUISE</a>
+                            </li>
+                            
+                            <script>
+                                function closeMenuAndNavigate() {
+                                    closeMenu();
+                                    navigateToPesquise();
+                                }
+                            
+                                function closeMenu() {
+                                    var closeButton = document.querySelector('#closeBtnModalIndex');
+                                    closeButton.click();
+                                }
+                            
+                                function navigateToPesquise() {
+                                    document.querySelector('#pesquise').scrollIntoView({ behavior: 'smooth' });
+                                }
+                            </script>
+
+                            <!-- <li class="nav-item">
+                                <a class="nav-link text-uppercase fs-1" href="newsletter">
+                                    NEWSLETTER
+                                </a>
+                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase fs-1" href="sobre">
+                                    SOBRE
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase fs-1" href="index">
+                                    PÁGINA INICIAL
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <hr class="border-bottom border-light opacity-75">
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mx-3 text-center">
+                            <li class="nav-item text-center">
+                                <button type="button" class="nav-link text-uppercase font-montserrat fs-3 px-3 fw-normal text-center" id="closeBtnModalIndex" data-bs-dismiss="modal">&#10005;</button>
+                            </li>
+                        </ul>
+                                <!-- PASSAR ISTO PARA O BASE.JS -->
+                                <script>
+                                    var lastId = null;
+                                    function toggleSubMenu(submenuId) {
+                                        const submenu = document.getElementById(submenuId);
+                                        const lastSubMenu = document.getElementById(lastId);
+                                        if (submenu) {
+                                            if (lastSubMenu) {
+                                                lastSubMenu.classList.remove('active');
+                                            }
+                                            if (lastId === submenuId) {
+                                                submenu.classList.remove('active');
+                                                lastId = null;
+                                            } else {
+                                            submenu.classList.toggle('active');
+                                            lastId = submenuId;
+                                            }
+                                        }
+                                    }
+                                </script>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="bg-dark">
+       <footer class="">
+        <div class="bg-danger mb-5 py-2 mt-0 text-center"></div>
+        
+        <div class="text-light text-center container my-5 font-montserrat ">
+            
+            <!-- <hr class="mb-5"> -->
+            <div class="opacity-75">
+                <p>
+                    O ArquivoNC é o resultado de um trabalho académico desenvolvido no âmbito do projeto final de curso do 1.º ciclo em Engenharia Informática da Universidade da Beira Interior (UBI). O projeto disponibiliza o acesso ao arquivo web do Notícias da Covilhã a partir das notícias preservadas pelo Arquivo.pt no período de tempo compreendido entre 2009 e 2019.
+                </p>
+                <p>
+                    Com o desenvolvimento deste website contribuímos para a preservação da história digital da cidade da Covilhã e do legado de um jornal centenário, recuperando o acesso a um conjunto de dez anos de notícias, imagens e capas do jornal, perdidas em 2019 com o desaparecimento da anterior versão do website e o fim da publicação (em papel) da edição semanal do jornal (entretanto retomada a 9 de março de 2023).
+                </p>
+            </div>
+        </div>
+        <div class="bg-white mb-3"> 
+            <div class="container">
+            <!-- LOGOS -->
+            <div class="row d-flex justify-content-center align-items-center gx-5" style="margin: 0;">
+                <div class="col-4 col-md-2">
+                    <a href="https://www.ubi.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/ubi_logo.jpg"alt="UBI" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://www.inesctec.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/inesctec_logo.png" alt="INESC TEC" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="http://www.ci2.ipt.pt/pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/ci2_logo.png" alt="Ci2" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://www.fct.pt/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/FCT_logo.png" alt="FCT" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://www.humane-ai.eu/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/humane-ai.png" alt="Humane AI" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <a href="https://arquivo.pt/" target="_blank" rel="noopener noreferrer">
+                        <!-- <img src="{{ url_for('static', filename='images/arquivo-logo.png') }}" alt="Arquivo.pt" class="opacity-100 img-fluid"> -->
+                        <img src="static/images/arquivo-logo.png" alt="Arquivo.pt" class="opacity-100 img-fluid">
+                    </a>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="container font-montserrat d-flex justify-content-between">
+            <!-- <hr class="mb-5"> -->
+              <div>
+                  <p class="text-secondary">
+                      <span class="fw-light font-oswald">&copy 2024</span> 
+                  </p>
+              </div>
+              <a href="politicadeprivacidade" class="link link-secondary font-montserrat link-underline-opacity-25 link-underline-opacity-100-hover">Política de Privacidade</a>
+          </div>
+      </footer>
+
+      <!-- <div id="cursor-circle"></div> -->
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="static/js/slick.min.js"></script>
+    
+    <script src="static/js/bootstrap-datepicker.min.js"></script>
+    <script src="static/js/bootstrap-datepicker.pt.min.js"></script>
+
+    <script src="static/js/base.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/js/slick.min.js"></script>
+
+    
+</body>
+</html>

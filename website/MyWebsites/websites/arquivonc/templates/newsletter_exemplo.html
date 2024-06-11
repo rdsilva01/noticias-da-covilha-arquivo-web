@@ -1,0 +1,147 @@
+{% extends "base_no_text.html" %}
+
+{% block title %}
+    Política de Privacidade
+{% endblock %}
+
+{% block content %} 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #F8F9FA;
+    }
+    .title {
+        font-family: 'Trebuchet MS', sans-serif;
+        text-transform: uppercase;
+    }
+    .content {
+        font-family: Helvetica, sans-serif;
+    }
+    .row {
+        display: table;
+        width: 95%;
+    }
+    .column {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .text {
+        width: 69%;
+    }
+    .image {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 29%;
+        max-width: 200px;
+        max-height: 200px;
+        text-align: center;
+    }
+    .image img {
+        width: 200px;
+        height: 200px;
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+    @media only screen and (max-width: 450px) {
+        .row {
+            display: block;
+            width: 99%;
+        }
+        .column {
+            width: 99%;
+            display: block;
+            text-align: center;
+        }
+        .image {
+            max-width: 250px;
+            max-height: 250px;
+            padding: 0;
+        }
+        .image img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    }
+</style>
+
+<div class="bg-light pt-5 pb-5">
+    <div class="container-fluid px-0 pb-3 bg-white shadow rounded-2" style="max-width: 600px;" >
+        <center class="rounded-1 shadow">
+            <div style=" max-width: 600px;" class="bg-white rounded rounded-1">
+                <center style="width: 100%; background-color: #212529; margin-bottom: 0px;" class="rounded-1">
+                    <div style="width: 100%; background-color: #212529; padding-bottom: 20px; " class="rounded-top-2">
+                        <a href="index" class="link link-light link-underline-opacity-0 user-select-none">
+                            <i><h1 class="fw-normal font-staatliches display-4 text-white">ARQUIVO<span class=" text-danger font-guerrilla ">NC</span></h1></i>
+                        <!--<h1 class="ms-2 mt-3 fw-normal font-oswald display-4 mb-0 text-uppercase text-white"><span class=" text-danger ">N</span>otícias da <span class=" text-danger ">C</span>ovilhã</h1>--> 
+                        </a>
+                        <span class="title" style="color: white; text-transform: none; font-size: 1.8em;"><em>Newsletter</em> Semanal</span><br>
+                        <span class="title" style="color: white; text-transform: none; font-size: 1em;"><em>Todas as quintas-feiras</em></span>
+                    </div>
+                </center>
+                <div style="background-color: #DC3545;">
+                    <div style="padding-bottom: 5px; padding-top: 10px;">
+                        <center>
+                            <h2 class="title" style="color: white; height: 10px;">Nesta semana, há ... anos</h2>
+                        </center>
+                    </div>
+                    <br><span style="padding-left: 10px; padding-right: 10px; margin-bottom: 0px; margin-top: 0px;"><img src="https://arquivonc.ubi.pt/arquivonc/static/img/capas/2011-06-02.jpg" alt="{data_text_formatted}" style="max-width: 300px; width: 85%;"><span><br>
+                    <div style="padding-bottom: 10px;">
+                        <center>
+                            <h2 class="title" style="color: white; text-decoration: underline; text-decoration-color: #DC3545; height: 10px;">Dia ...</h2>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </center>
+        <div style="padding-bottom: 40px;">
+            <center>
+                <hr style="max-width: 600px; width: 90%;  color: #797270; margin-top: 15px; margin-bottom: 30px;">
+                <div class="container bg-white " style=" max-width: 600px;" >
+                    <div class="row">
+                        <div class="column image">
+                            <img src="https://arquivonc.ubi.pt/arquivonc/static/img/news_images/2015-12.jpg" alt="{n['title']}" class="square-image" style="object-fit: cover; max-height: 200px">
+                        </div>
+                        <div class="column text">
+                            <span class="title" style="font-weight: bold; font-size: 1.9em; color: #212529; text-decoration: underline; text-decoration-color: #DC3545;">2015-12-13</span><br>
+                            <span class="title" style="color: #212529; font-size: 1.3em;"><a href="https://arquivonc.ubi.pt/arquivonc/noticias?nid={n['nid']}" style="color: #212529; text-decoration: none; font-size: 1.2em; font-weight: bold;">Comer e beber: o segredo dos 100 anos do senhor Alexandre</a></span><br>
+                            <!-- <span class="content" style="color: #212529;"><a href="https://arquivonc.ubi.pt/arquivonc/noticias?nid={n['nid']}" style="color: #212529; text-decoration: none;">Alexandre Calheiros, do Dominguizo, comemorou, no passado dia 10, 100 anos de vida.
+                                "Já aqui estive, de manhã, a tomar um café com a Maria. É o costume". É assim que por volta das 11 e meia da manhã da passada sexta-feira, 11, Alexandre Calheiros explica á irmã, Cesaltina, que todos os dias se levanta cedo, porque como diz o ditado, "deitar cedo e cedo erguer...</a></span><br> -->
+                        </div>
+                    </div>
+                </div>
+                <hr style="max-width: 600px; width: 90%;   color: #797270; margin-top: 30px; margin-bottom: 30px;">
+                <div class="container bg-white " style=" max-width: 600px;">
+                    <div class="row">
+                        <div class="column image">
+                            <img src="https://arquivonc.ubi.pt/arquivonc/static/img/news_images/2015-12.jpg" alt="{n['title']}" class="square-image" style="object-fit: cover; max-height: 200px">
+                        </div>
+                        <div class="column text">
+                            <span class="title" style="font-weight: bold; font-size: 1.9em; color: #212529; text-decoration: underline; text-decoration-color: #DC3545;">2015-12-13</span><br>
+                            <span class="title" style="color: #212529; font-size: 1.3em;"><a href="https://arquivonc.ubi.pt/arquivonc/noticias?nid={n['nid']}" style="color: #212529; text-decoration: none; font-size: 1.2em; font-weight: bold;">Comer e beber: o segredo dos 100 anos do senhor Alexandre</a></span><br>
+                            <!-- <span class="content" class="lh-base" style="color: #212529;"><a href="https://arquivonc.ubi.pt/arquivonc/noticias?nid={n['nid']}" style="color: #212529; text-decoration: none; font-size: xx-small;"  >Alexandre Calheiros, do Dominguizo, comemorou, no passado dia 10, 100 anos de vida.
+                                "Já aqui estive, de manhã, a tomar um café com a Maria. É o costume". É assim que por volta das 11 e meia da manhã da passada sexta-feira, 11, Alexandre Calheiros explica á irmã, Cesaltina, que todos os dias se levanta cedo, porque como diz o ditado, "deitar cedo e cedo erguer...</a></span><br> -->
+                        </div>
+                    </div>
+                </div>
+            </center>
+    
+            <center>
+                <div style="padding-top: 10px; padding-bottom: 20px; background:#DC3545; margin-top: 30px;  max-width: 600px;" class="">
+                    <center>
+                        <h2 class="title" style="color: white; font-size: 1.2em; font-weight: bold; background-color: #DC3545;">Obrigado por subscrever a <em>newsletter</em> do ArquivoNC!</h2>
+                    </center>
+                </div>
+                <div style=" max-width: 600px;" class="bg-white ">
+                    <hr style="max-width: 100%; color: #9F9FAD;">
+                    <p style="color: #212529; font-family: 'Trebuchet MS', sans-serif;">Caso este email lhe tenha sido reencaminhado, <a href="https://arquivonc.ubi.pt/arquivonc/newsletter" style="text-decoration: underline; text-decoration-color: #212529; color: #212529; font-weight: bold;">subscreva aqui!</a></p>
+                </div>
+                <div style=" max-width: 600px;" class="bg-white ">
+                    <p style="color: #212529; font-family: 'Trebuchet MS', sans-serif;">Para cancelar a subscrição, <a href="https://arquivonc.ubi.pt/arquivonc/remover?token={curr_token}" style="text-decoration: underline; text-decoration-color: #212529; color: #212529; font-weight: bold;">clique aqui</a></p>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock %}

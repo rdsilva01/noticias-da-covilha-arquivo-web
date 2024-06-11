@@ -1,0 +1,97 @@
+version: '3'
+
+services:
+
+  # Proxies requests to internal services
+  nginx:
+    image: nginx:1.20.2
+    container_name: nginx_multiple_websites
+    restart: always
+    depends_on:
+      - arquivopublico
+      - arquivonc
+      - flask_redis_website
+      - flask_elasticsearch_website
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 90:80
+    networks:
+      - elasticsearch_es-network
+      - redis_redis-network
+
+# flask_redis_website
+  flask_redis_website:
+    image: flask_redis_website
+    container_name: flask_redis_website
+    restart: always
+    build:
+      context: ./websites/flask_redis_website
+    volumes:
+      - './websites/flask_redis_website:/flask_redis_website'
+    ports:
+      - 8080:8080
+    networks:
+      - redis_redis-network
+
+# flask_elasticsearch_website
+  flask_elasticsearch_website:
+    image: flask_elasticsearch_website
+    container_name: flask_elasticsearch_website
+    restart: always
+    build:
+      context: ./websites/flask_elasticsearch_website
+    volumes:
+      - './websites/flask_elasticsearch_website:/flask_elasticsearch_website'
+    ports:
+      - 8081:8081
+    networks:
+      - elasticsearch_es-network
+
+# static_website
+  # static_website:
+  #   image: static_website
+  #   container_name: static_website
+  #   restart: always
+  #   build:
+  #     context: ./websites/static_website
+  #   volumes:
+  #     - './websites/static_website:/usr/share/nginx/html'
+  #   ports:
+  #     - 8082:80
+  #   networks:
+  #     - elasticsearch_es-network
+
+# arquivopublico
+  arquivopublico:
+    image: arquivopublico
+    container_name: arquivopublico
+    restart: always
+    build:
+      context: ./websites/arquivopublico
+    volumes:
+      - './websites/arquivopublico:/arquivopublico'
+    ports:
+      - 8083:8083
+    networks:
+      - elasticsearch_es-network
+
+# arquivonc
+  arquivonc:
+    image: arquivonc
+    container_name: arquivonc
+    restart: always
+    build:
+      context: ./websites/arquivonc
+    volumes:
+      - './websites/arquivonc:/arquivonc'
+    ports:
+      - 8085:8085
+    networks:
+      - redis_redis-network
+
+networks: 
+  elasticsearch_es-network:
+    external: true
+  redis_redis-network:
+    external: true
