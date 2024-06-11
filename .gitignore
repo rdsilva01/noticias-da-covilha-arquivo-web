@@ -1,5 +1,13 @@
-DataExtraction/data/
-JupyterDev/
-data
 */__pycache__
 to-do.md
+
+*.json
+
+data-retrieval/DataExtraction/__pycache__
+
+data-retrieval/DataStatistics/__pycache__
+data-retrieval/DataStatistics/data
+
+data-retrieval/DataValidation/__pycache__
+
+data-retrieval/EMBEDDINGS/ACIDENTE/
