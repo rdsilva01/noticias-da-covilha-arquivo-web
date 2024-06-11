@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the project "ArquivoNC -- Notícias da Covilhã @ Arquivo Web" developed as part of a university course. The project aims to archive and retrieve news articles from the abandoned Notícias da Covilhã newspaper.
+This repository contains the project ***ArquivoNC -- Notícias da Covilhã @ Arquivo Web*** developed as part of a university course. The project aims to archive and retrieve news articles from the abandoned Notícias da Covilhã newspaper.
 
 ## Project Structure
 
@@ -35,11 +35,11 @@ This repository contains the project "ArquivoNC -- Notícias da Covilhã @ Arqui
 - *GetDataStatistics.py*
 
 #### website
-The front-end code for the web interface where users can access the archived news.
-- **index.html**: The main HTML file for the website's homepage.
-- **styles.css**: CSS file for styling the website.
-- **app.js**: JavaScript file containing the front-end logic for interacting with the archived data.
-- **assets/**: Directory containing images, icons, and other static assets used by the website.
+The website where users can access the archived news.
+- **newsletter**: The newsletter operations.
+- **redis**: Contains the redis operations.
+- **static**: Contains the static data, such as images, audio, css, js.
+- **templates**: Contains all the HTML files that will later be rendered.
 
 ### docs
 Documentation files for the project.
@@ -67,3 +67,6 @@ Documentation files for the project.
    cd noticias-da-covilha-arquivo-web
    ```
 
+## Contact
+
+For any questions or issues, please open an issue on the repository or contact rd.silva@ubi.pt.
