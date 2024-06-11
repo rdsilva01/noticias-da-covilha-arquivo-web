@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the project ***ArquivoNC -- Notícias da Covilhã @ Arquivo Web*** developed as part of a university course. The project aims to archive and retrieve news articles from the abandoned Notícias da Covilhã newspaper.
+This repository contains the project ***ArquivoNC -- Notícias da Covilhã @ Arquivo Web*** developed as part of the final Bsc. project in the 1st cicle of *Engenharia Informática* at UBI. The project aims to archive and retrieve news articles from the abandoned Notícias da Covilhã newspaper.
 
 ## Project Structure
 
